@@ -1,0 +1,118 @@
+<div id="toolbar" class="bg_white px-2 d-none d-lg-block d-xl-block">
+  <span id="modal-search" class="d-inline-block py-1" data-toggle="modal" data-target="#search-block">
+  <img width="35" class="my-1" src="/{{ directory }}/images/search.png" data-toggle="tooltip" data-placement="left"
+       title="Recherchez">
+  </span>
+  <a class="d-block py-1" href="/pratique/venir-au-museum" data-toggle="tooltip" data-placement="left"
+     title="Infos pratiques">
+    <img width="35" class="mb-1" src="/{{ directory }}/images/tool_infos.png">
+  </a>
+  <a class="d-block py-1" href="/agenda" data-toggle="tooltip" data-placement="left" title="Agenda">
+    <img width="35" class="mb-1" src="/{{ directory }}/images/tool_agenda.png">
+  </a>
+  <span id="modal-share" class="d-block py-1" data-toggle="modal" data-target="#share_modal">
+    <img width="35" class="mb-1" src="/{{ directory }}/images/tool_share.png"
+         data-toggle="tooltip" data-placement="left" title="Partagez">
+  </span>
+</div>
+
+<div class="modal fade" id="share_modal">
+  <div class="modal-dialog modal-dialog-centered modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Partagez</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-3">
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}">
+                <img title="Facebook" src="/{{ directory }}/images/facebook.png">
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://twitter.com/home?status={{ url('<current>') }}">
+                <img title="Twitter" src="/{{ directory }}/images/twitter.png">
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url('<current>') }}">
+                <img title="Linkedin" src="/{{ directory }}/images/linkedin.png">
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://pinterest.com/pin/create/button/?url={{ url('<current>') }}">
+                <img title="Pinterest" src="/{{ directory }}/images/pinterest.png">
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{ bamboo_render_block('search_block') }}
+
+<div class="container-fluid bg-white p-0">
+  <div class="row m-0">
+    <div class="col-lg-1 pt-2 d-none d-lg-block d-xl-block font-small">
+      {{ page.header }}
+    </div>
+
+    <div class="col-lg-3 text-align-right offset-2 pt-2 d-none d-lg-block d-xl-block">
+      <a target="_blank" class="mr-2" href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
+        <img title="Facebook" src="/{{ directory }}/images/facebook.png">
+      </a>
+      <a target="_blank" class="mr-2" href="{{ bamboo_config_get('museum_config.config', 'instagram') }}">
+        <img title="Instagram" src="/{{ directory }}/images/instagram.png">
+      </a>
+      <a target="_blank" class="mr-2" href="{{ bamboo_config_get('museum_config.config', 'twitter') }}">
+        <img title="Twitter" src="/{{ directory }}/images/twitter.png">
+      </a>
+      <a target="_blank" class="mr-2" href="{{ bamboo_config_get('museum_config.config', 'vimeo') }}">
+        <img title="Vimeo" src="/{{ directory }}/images/vimeo.png">
+      </a>
+    </div>
+    <div class="col-lg-6 d-none d-lg-block d-xl-block">
+      <div class="row m-0 h-100">
+        <div class="col-lg-3 text-align-center bg-blue-light pt-2 d-none d-lg-block d-xl-block">
+          <a target="_blank" class="txt-white font-small" href="/blog">
+            BLOG
+          </a>
+        </div>
+        <div class="col-lg-3 text-align-center bg-blue pt-2 d-none d-lg-block d-xl-block">
+          <a target="_blank" class="txt-white font-small" href="/newsletter">
+            NEWSLETTER
+          </a>
+        </div>
+        <div class="col-lg-3 text-align-center pt-2 d-none d-lg-block d-xl-block">
+          <a target="_blank" class="txt-black font-small" href="#">
+            ESPACE PRO
+          </a>
+        </div>
+        <div class="col-lg-3 text-align-center pt-2 d-none d-lg-block d-xl-block">
+          <a target="_blank" class="txt-black font-small" href="#">
+            PARTENAIRES
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% set media = getMediaInfos(245, 'crop_paysage') %}
+  <div class="banniere_header pt-3" style="background: url('{{ media.url }}');">
+    <div class="container">
+      <h1>
+        <a href="/">
+          <img class="logo_1" title="Muséum d'histoire naturelle du Havre" src="/{{ directory }}/images/logo.png">
+          <img class="logo_2" title="Muséum d'histoire naturelle du Havre" src="/{{ directory }}/images/logo-2.png">
+          <span class="d-none">Muséum d'histoire naturelle du Havre</span>
+        </a>
+      </h1>
+    </div>
+  </div>
+</div>

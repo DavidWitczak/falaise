@@ -1,0 +1,5 @@
+name: 'Site config'
+type: module
+description: 'Configuration générale du site'
+core: 8.x
+package: 'Custom'

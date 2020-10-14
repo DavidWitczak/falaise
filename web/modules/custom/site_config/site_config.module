@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains site_config.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function site_config_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the site_config module.
+    case 'help.page.site_config':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Configuration générale du site') . '</p>';
+      return $output;
+
+    default:
+  }
+}

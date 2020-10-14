@@ -1,0 +1,7 @@
+uuid: 15b416b5-b43a-41dc-8d8b-c6f4bf5d9648
+langcode: fr
+status: false
+dependencies: {  }
+formId: node_expo_detail_form
+captchaType: default
+label: null

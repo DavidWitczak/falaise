@@ -1,0 +1,5 @@
+name: 'Block search'
+type: module
+description: 'Block du moteur de recherche'
+core: 8.x
+package: 'Custom'

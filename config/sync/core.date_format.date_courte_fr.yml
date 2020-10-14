@@ -1,0 +1,8 @@
+uuid: ce45d30d-fc79-41ba-b6e1-6d220815ca06
+langcode: fr
+status: true
+dependencies: {  }
+id: date_courte_fr
+label: 'Date courte FR'
+locked: false
+pattern: d/m/Y

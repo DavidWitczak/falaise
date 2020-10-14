@@ -1,0 +1,57 @@
+<div class="container">
+  <h1 class="text-uppercase text-center my-4">
+    <img class="mr-2" width="55" src="/{{ directory }}/images/edition.png">Nos éditions</h1>
+
+  <div class="row">
+
+    <div class="col-lg-4">
+      {% set media = getMediaInfos(node.field_medias.target_id, 'full_max') %}
+      <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+    </div>
+
+    <div class="col-lg-8">
+      <h3 class="txt-blue">{{ node.title.value }}</h3>
+      <h5 class="txt-blue font-weight-normal">{{ bamboo_render_field('field_sous_titre', 'node') }}</h5>
+      <div class="txt-blue-light">Auteur : {{ node.field_auteurs.value }}</div>
+      <div class="txt-blue-light">Editeur : {{ node.field_editeur.value }}</div>
+      <div class="font-weight-bold txt-blue-light">{{ node.field_annee.value }}</div>
+
+      <hr/>
+      <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+      {{ bamboo_render_field('field_description', 'node') }}
+    </div>
+
+  </div>
+</div>
+
+{% if node.field_editions_associees|length > 0 %}
+<div class="container-fluid bg-blue p-4 my-5">
+  <div class="container">
+    <h4 class="text-uppercase p-0 mb-4 txt-black">Nos éditions associées</h4>
+    <div class="row justify-content-around">
+      {% for nodes in node.field_editions_associees %}
+        {% set node = bamboo_load_entity('node', nodes.target_id) %}
+        {% set media = getMediaInfos(node.field_medias.target_id, 'carre_crop') %}
+        {% set url = path('entity.node.canonical', {'node': node.id}) %}
+        <div class="col-lg-4 mb-4 px-5 gray-hover">
+          <a href="{{ url }}">
+            {% if media.bundle == 'video' %}
+              <img class="w-100" title="{{ media.name }}" src="{{ media.thumb }}">
+            {% else %}
+              <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+            {% endif %}
+            <h5 class="txt-white">{{ node.title.value }}</h5>
+            <p class="txt-white">{{ node.field_sous_titre.value }}</p>
+          </a>
+        </div>
+      {% endfor %}
+      <div class="text-center mt-4">
+        <a href="/editions">
+          <img width="300" src="/{{ directory }}/images/all_editions.png">
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endif %}

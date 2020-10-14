@@ -1,0 +1,84 @@
+<div class="container content-image bg-white">
+
+  <div class="pt-3">
+    <div class="bg-pink d-inline-block txt-white py-1 px-3 text-uppercase position-absolute">
+      {{ node.field_categorie_blog.entity.name.value }}
+    </div>
+
+    {% set media = getMediaInfos(node.field_medias.target_id, 'crop_paysage') %}
+    <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+  </div>
+
+  <h3 class="pt-4 mb-0 font-weight-bold txt-blue">
+    {{ node.title.value }}
+  </h3>
+  <p class="mb-4">Le {{ node.created.value|date('U')|format_date('date_jfy') }} par {{ node.field_auteurs.value }}</p>
+
+  <div class="chapo"><strong>{{ bamboo_render_field('field_chapo', 'node') }}</strong></div>
+
+  <div class="clearfix">{{ bamboo_render_field('field_description', 'node') }}</div>
+
+  {% for paragraph in node.field_bloc_txt %}
+    {% set paragraph_entity = bamboo_load_entity('paragraph', paragraph.target_id) %}
+    {% set etat = paragraph_entity.field_etat_bloc.value %}
+    {% set title = paragraph_entity.field_titre.value %}
+    {% set corps = paragraph_entity.field_corps_texte.value %}
+    <div class="clearfix">
+      <h2 class="{{ etat }} txt-blue border-bt-bleu mt-5 mb-3">
+        {% if etat == 'bloc_open' or etat == 'bloc_close' %}
+          <img width="40" src="/{{ directory }}/images/arrow_bloc.png">
+        {% endif %}
+        {{ title }}
+      </h2>
+      <div class="description">{{ bamboo_render_field('field_corps_texte', 'paragraph', paragraph.target_id) }}</div>
+    </div>
+  {% endfor %}
+
+  <div class="my-5">
+    {{ bamboo_render_entity('media', node.field_podcast.target_id) }}
+  </div>
+
+  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+    <div class="bg-blue p-4 my-5">
+      <h4 class="text-uppercase p-0">En savoir +</h4>
+      <div class="txt-white">
+        {{ bamboo_render_field('field_liens', 'node') }}
+        {{ bamboo_render_field('field_fichiers', 'node') }}
+      </div>
+    </div>
+  {% endif %}
+
+  <div class="row">
+    {% for image in node.field_medias %}
+      {% if loop.index != 1 %}
+      {% set media = getMediaInfos(image.target_id, 'carre_crop') %}
+      <div class="col-sm-3 my-3">
+        {% if media.bundle == 'video' %}
+          <a href="{{ media.url }}" data-fancybox="gallery">
+            <img class="thumb_diapo mx-1"
+                 title="{{ media.name }}"
+                 width="95%"
+                 src="{{ media.thumb }}">
+          </a>
+        {% else %}
+          <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
+            <img class="thumb_diapo mx-1"
+                 title="{{ media.name }} - {{ media.copy }}"
+                 alt="{{ media.alt }}"
+                 width="95%"
+                 src="{{ media.url }}">
+          </a>
+        {% endif %}
+      </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <h3 class="mt-5 mb-2">Commentaires</h3>
+  <div class="row justify-content-center">
+    <div class="col-11">
+      <div class="form-group">{{ bamboo_render_field('field_commentaire', 'node') }}</div>
+    </div>
+  </div>
+
+</div>

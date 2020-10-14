@@ -1,0 +1,5 @@
+name: 'Menu expo'
+type: module
+description: 'Menu des expositions'
+core: 8.x
+package: 'Custom'

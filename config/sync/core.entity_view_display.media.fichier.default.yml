@@ -1,0 +1,32 @@
+uuid: 0328132d-d931-421f-ad35-54c17da610df
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.media.fichier.field_media_file
+    - field.field.media.fichier.field_vignette
+    - image.style.full_max
+    - media.type.fichier
+  module:
+    - image
+id: media.fichier.default
+targetEntityType: media
+bundle: fichier
+mode: default
+content:
+  field_vignette:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: full_max
+      image_link: ''
+    third_party_settings: {  }
+    type: image
+    region: content
+hidden:
+  created: true
+  field_media_file: true
+  langcode: true
+  name: true
+  thumbnail: true
+  uid: true

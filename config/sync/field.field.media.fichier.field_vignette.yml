@@ -1,0 +1,38 @@
+uuid: 45b29a15-9308-418c-beca-c70d410fdc85
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_vignette
+    - media.type.fichier
+  module:
+    - image
+id: media.fichier.field_vignette
+field_name: field_vignette
+entity_type: media
+bundle: fichier
+label: Vignette
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: false
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

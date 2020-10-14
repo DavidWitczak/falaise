@@ -1,0 +1,17 @@
+uuid: 74591fda-f035-4198-a2bb-0a52c3e7edb7
+langcode: fr
+status: true
+dependencies:
+  module:
+    - search_api_db
+id: database_index
+name: 'Database index'
+description: ''
+backend: search_api_db
+backend_config:
+  database: 'default:default'
+  min_chars: 3
+  matching: partial
+  autocomplete:
+    suggest_suffix: true
+    suggest_words: true

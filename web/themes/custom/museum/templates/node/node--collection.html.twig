@@ -1,0 +1,77 @@
+<div class="container-fluid bg-blue pt-4 pb-3 mb-3">
+  <div class="container">
+
+    <div class="row justify-content-center mt-3">
+      <div class="col-lg-12 mb-3 p-0">
+        <img title="{{ content.field_theme_collection.0 }}" class="w-100"
+             src="/{{ directory }}/images/collection_{{ node.field_theme_collection.target_id }}.jpg">
+      </div>
+      <div class="col-lg-2 pl-0 d-none d-xl-block d-lg-block">
+        <div class="row">
+          <div class="col-lg-12 mb-3">
+            <a href="/collections">
+              <img class="w-100" src="/{{ directory }}/images/btn-collections.png">
+            </a>
+          </div>
+          <div class="col-lg-12">
+            <a href="#">
+              <img class=" w-100" src="/{{ directory }}/images/btn-histoire.png">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% for medias in node.field_medias %}
+        {% if loop.index == 1 %}
+          {% set class = 'col-lg-6' %}
+          {% set crop = 'full_max' %}
+        {% elseif loop.index == 2 %}
+          {% set class = 'col-lg-4 bg_white' %}
+          {% set crop = 'crop_banniere' %}
+        {% endif %}
+        {% set media = getMediaInfos(medias.target_id, crop) %}
+
+        <div class="{{ class }} m-0 p-0">
+          {% if media.bundle == 'video' %}
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="{{ media.url }}" allowfullscreen></iframe>
+            </div>
+          {% else %}
+            <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+          {% endif %}
+          {% if loop.index == 2 %}
+            <h4 class="pt-3 px-3">{{ node.title.value }}</h4>
+            <div class="px-3 pt-0">{{ bamboo_render_field('field_sous_titre', 'node') }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-2">
+      <a class="txt-white bloc_close" data-toggle="collapse" href="#collection" role="button" aria-expanded="false">
+        EN SAVOIR +<br/>
+        <img width="40" src="/{{ directory }}/images/arrow_bloc.png">
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<div class="container">
+
+  <div class="collapse my-5" id="collection">
+    <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+    <div class="body">{{ bamboo_render_field('field_description', 'node') }}</div>
+
+    {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+      <div class="bg-blue p-4 my-5">
+        <h4 class="text-uppercase p-0">En savoir +</h4>
+        <div class="txt-white">
+          {{ bamboo_render_field('field_liens', 'node') }}
+          {{ bamboo_render_field('field_fichiers', 'node') }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+
+  {{ bamboo_render_block('collection_block') }}
+</div>

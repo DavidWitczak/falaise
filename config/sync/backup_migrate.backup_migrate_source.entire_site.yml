@@ -1,0 +1,11 @@
+uuid: 99d85bc8-b6fb-46ef-bdc7-9de9bdb597c1
+langcode: fr
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 0ziF0ShQzLTglyja9_chf5qouy7Ce3i-254JN-PWmk4
+id: entire_site
+label: 'Entire Site'
+type: EntireSite
+config:
+  name: 'Entire Site'

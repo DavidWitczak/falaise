@@ -1,0 +1,46 @@
+uuid: 1fa73408-551e-49ab-9e64-d9963c13d06d
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.media.fichier.field_media_file
+    - field.field.media.fichier.field_vignette
+    - image.style.thumbnail
+    - media.type.fichier
+  module:
+    - file
+    - image
+id: media.fichier.default
+targetEntityType: media
+bundle: fichier
+mode: default
+content:
+  field_media_file:
+    weight: 1
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+    type: file_generic
+    region: content
+  field_vignette:
+    weight: 26
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: image_image
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  path: true
+  status: true
+  uid: true

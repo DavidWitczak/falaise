@@ -1,0 +1,15 @@
+uuid: d323cd9c-4372-4532-8dbe-0487a9a5c0bb
+langcode: fr
+status: false
+dependencies: {  }
+id: prod
+label: Prod
+description: ''
+folder: ../config/environments/prod
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

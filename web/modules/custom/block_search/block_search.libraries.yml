@@ -1,0 +1,6 @@
+fusejs:
+  js:
+    fusejs/js/fuse.min.js: {}
+custom_search:
+  js:
+    fusejs/js/custom.js: {}

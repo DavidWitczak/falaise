@@ -1,0 +1,7 @@
+uuid: a08f2e80-c8bf-44aa-9ee4-5abff38f071e
+langcode: fr
+status: false
+dependencies: {  }
+formId: node_exposition_form
+captchaType: default
+label: null

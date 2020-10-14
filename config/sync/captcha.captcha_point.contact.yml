@@ -1,0 +1,7 @@
+uuid: 52158663-5183-4200-85a1-ed946e1a8145
+langcode: fr
+status: true
+dependencies: {  }
+formId: contact
+captchaType: default
+label: contact

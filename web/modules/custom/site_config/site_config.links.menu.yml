@@ -1,0 +1,6 @@
+site_config.config_form:
+  title: 'Configuration du site'
+  route_name: site_config.config_form
+  description: ' '
+  parent: system.admin
+  weight: 99

@@ -1,0 +1,20 @@
+uuid: 8bc8d53e-07da-4ed2-b406-6f02e0d1cf1a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - media.type.fichier
+id: media.fichier.uid
+field_name: uid
+entity_type: media
+bundle: fichier
+label: 'Écrit par'
+description: 'L''identifiant (ID) de l''auteur.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: 'Drupal\media\Entity\Media::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,80 @@
+uuid: 45951ee4-ced7-445f-8e56-7175eb6f62c3
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+    - search_api
+    - user
+  config:
+    - search_api.server.database_index
+id: main
+name: Main
+description: ''
+read_only: false
+field_settings:
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 3
+    dependencies:
+      module:
+        - node
+datasource_settings:
+  'entity:node':
+    languages:
+      default: false
+      selected:
+        - en
+        - fr
+    bundles:
+      default: true
+      selected: {  }
+  'entity:user':
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  add_url: {  }
+  aggregated_field: {  }
+  entity_status: {  }
+  html_filter:
+    all_fields: false
+    fields:
+      - title
+    title: false
+    alt: false
+    tags:
+      b: 2
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+    weights:
+      preprocess_index: -50
+      preprocess_query: -15
+  ignorecase:
+    all_fields: false
+    fields:
+      - title
+    weights:
+      preprocess_index: -48
+      preprocess_query: -20
+  language_with_fallback: {  }
+  rendered_item: {  }
+  transliteration:
+    all_fields: false
+    fields:
+      - title
+    weights:
+      preprocess_index: -49
+      preprocess_query: -20
+tracker_settings:
+  default:
+    indexing_order: lifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: database_index

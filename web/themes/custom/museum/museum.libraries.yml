@@ -1,0 +1,20 @@
+global-css:
+  css:
+    theme:
+      css/bootstrap.min.css: {}
+      css/fonts.css: {}
+      css/jquery.fancybox.min.css: {}
+      css/slick.css: {}
+      css/slick-theme.css: {}
+      css/custom.css: {}
+
+global-js:
+  js:
+    js/bootstrap.bundle.min.js: {}
+    js/jquery.fancybox.min.js: {}
+    js/masonry.min.js: {}
+    js/slick.min.js: {}
+    js/main.js: {}
+    js/quiz.js: {}
+  dependencies:
+    - core/jquery

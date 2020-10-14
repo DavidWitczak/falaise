@@ -1,0 +1,15 @@
+uuid: eb87b899-41b8-49be-9cc2-6d945a671d10
+langcode: fr
+status: true
+dependencies: {  }
+name: full_max
+label: 'Full max'
+effects:
+  6389ff9e-5962-4460-a8e5-96de1fd79291:
+    uuid: 6389ff9e-5962-4460-a8e5-96de1fd79291
+    id: image_scale
+    weight: 1
+    data:
+      width: 2000
+      height: null
+      upscale: false

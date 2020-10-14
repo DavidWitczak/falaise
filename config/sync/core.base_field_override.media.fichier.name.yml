@@ -1,0 +1,20 @@
+uuid: 45a32746-fc1e-4367-a835-25c9edf75cb5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - media.type.fichier
+id: media.fichier.name
+field_name: name
+entity_type: media
+bundle: fichier
+label: Name
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

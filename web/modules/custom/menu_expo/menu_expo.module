@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains menu_expo.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function menu_expo_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the menu_expo module.
+    case 'help.page.menu_expo':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Menu des expositions') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function menu_expo_theme() {
+  return [
+    'menu_expo_block' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}

@@ -1,0 +1,6 @@
+services:
+  twig_medias.twig.extension:
+    class: Drupal\twig_medias\TwigExtension\GetMediaInfoTwigExtension
+    arguments: []
+    tags:
+      - { name: twig.extension }

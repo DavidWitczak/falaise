@@ -1,0 +1,74 @@
+uuid: 3a395850-f496-4956-8adb-25d79beca2bd
+langcode: fr
+status: true
+dependencies:
+  config:
+    - views.view.media_entity_browser
+  module:
+    - entity_browser_entity_form
+    - views
+_core:
+  default_config_hash: VOi0Ua3BAuJlwzee4EWw-XHxybYY-IqVBetnROZff_I
+name: media_entity_browser_modal
+label: Médiathèque
+display: modal
+display_configuration:
+  width: ''
+  height: ''
+  link_text: Selectionner
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  fc729026-c85f-4561-acd5-38d4082b69fb:
+    settings:
+      view: media_entity_browser
+      view_display: media_browser_all
+      submit_text: Selectionner
+      auto_select: false
+    uuid: fc729026-c85f-4561-acd5-38d4082b69fb
+    weight: -10
+    label: 'Choisir un média'
+    id: view
+  9769d4e4-1f9c-4313-8b01-fe8cff8aa5a1:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: Enregistrer
+    uuid: 9769d4e4-1f9c-4313-8b01-fe8cff8aa5a1
+    weight: -9
+    label: 'Ajouter une image'
+    id: entity_form
+  a4539a1b-7f03-43d7-8a07-03cb58213986:
+    settings:
+      entity_type: media
+      bundle: fichier
+      form_mode: default
+      submit_text: Enregistrer
+    uuid: a4539a1b-7f03-43d7-8a07-03cb58213986
+    weight: 3
+    label: 'Ajouter un fichier'
+    id: entity_form
+  7a6dbdf1-5698-410e-8566-b9fb46867786:
+    settings:
+      entity_type: media
+      bundle: podcast
+      form_mode: default
+      submit_text: Enregistrer
+    uuid: 7a6dbdf1-5698-410e-8566-b9fb46867786
+    weight: 4
+    label: 'Ajouter un podcast'
+    id: entity_form
+  0aed082c-aada-4b9e-848f-c0456fe625c6:
+    settings:
+      entity_type: media
+      bundle: video
+      form_mode: default
+      submit_text: Enregistrer
+    uuid: 0aed082c-aada-4b9e-848f-c0456fe625c6
+    weight: 5
+    label: 'Ajouter une vidéo'
+    id: entity_form

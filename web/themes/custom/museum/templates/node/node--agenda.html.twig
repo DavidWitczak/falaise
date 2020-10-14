@@ -1,0 +1,189 @@
+<div class="container">
+  <h1 class="text-center my-4">
+    <img class="mr-2" width="45" src="/{{ directory }}/images/agenda_detail.png">Agenda</h1>
+
+  <div class="row">
+    <div class="col-12">
+      {% for cat in node.field_categorie %}
+        <div class="bg-pink d-inline-block txt-white py-1 px-3 text-uppercase">
+          {{ cat.entity.name.value }}
+        </div>
+      {% endfor %}
+      <h3 class="txt-blue font-weight-bold">{{ node.title.value }}</h3>
+      <h5 class="txt-blue font-weight-normal">{{ bamboo_render_field('field_sous_titre', 'node') }}</h5>
+    </div>
+
+    <div class="col-lg-5">
+      {% set media = getMediaInfos(node.field_medias.target_id, 'crop_paysage') %}
+      <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+    </div>
+
+    <div class="col-lg-7">
+      <div class="bg-blue txt-white align-left py-1 px-3">
+        {% if(node.field_date_debut.value) %}
+          {% if(node.field_date_fin.value != node.field_date_debut.value) %}Du {% else %}Le {% endif %}
+          {{ node.field_date_debut.value|date('U')|format_date('date_courte_fr') }}
+        {% endif %}
+
+        {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+          au {{ node.field_date_fin.value|date('U')|format_date('date_courte_fr') }}
+        {% endif %}
+      </div>
+
+      {% if node.field_horaire.value %}
+        <div class="bg-blue-light txt-white align-left py-1 px-3">
+          {{ node.field_horaire.value }}
+        </div>
+      {% endif %}
+
+      <div class="clearfix"></div>
+      <div class="txt-blue font-weight-bold">
+        {{ node.field_jours.value }}
+      </div>
+
+      <div class="row mt-2">
+        {% if node.field_duree.value %}
+          <div class="col-2 border-br-bleu">
+            <div class="txt-blue text-uppercase font-weight-bold">Durée</div>
+            <div class="font-weight-bold">
+              {{ node.field_duree.value }}
+            </div>
+          </div>
+        {% endif %}
+
+        <div class="col-3">
+          <div class="txt-blue text-uppercase font-weight-bold">Public</div>
+          <div class="font-weight-bold">
+            {% if node.field_age_mini.value %}
+              {% if not node.field_age_maxi.value %}
+                À partir de
+              {% else %}
+                De
+              {% endif %}
+              {{ node.field_age_mini.value }}
+
+              {% if node.field_age_maxi.value %}
+                à {{ node.field_age_maxi.value }}
+              {% endif %}
+              {% if node.field_age_mini.value %}
+                ans
+              {% endif %}
+            {% else %}
+              Tout public
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="col-7">
+          {% for access in node.field_accessibilite %}
+            <img
+              class="mr-2"
+              width="40"
+              title="{{ access.entity.name.value }}"
+              src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
+          {% endfor %}
+        </div>
+
+        {% if node.field_tarif_event.value %}
+          <div class="col-12 mt-2">
+            <div class="txt-blue text-uppercase font-weight-bold">Tarif</div>
+            {{ bamboo_render_field('field_tarif_event', 'node') }}
+          </div>
+        {% endif %}
+
+        {% if node.field_lieu.value %}
+          <div class="col-12 mt-2">
+            <div class="txt-blue text-uppercase font-weight-bold">Lieu</div>
+            <div class="font-weight-bold border-bb-bleu mb-2 pb-1">{{ bamboo_render_field('field_lieu', 'node') }}</div>
+          </div>
+        {% endif %}
+
+        <div class="col-12 mt-2">
+          {% if node.field_reservation.value == 'obligatoire' %}
+            <img class="mr-2" width="20" src="/{{ directory }}/images/reservation.png">
+            Places limitées, réservation obligatoire à l’accueil du Muséum ou au 02 35 41 37 28
+          {% elseif node.field_reservation.value == 'conseillee' %}
+            <img class="mr-2" width="20" src="/{{ directory }}/images/reservation.png">
+            Places limitées, réservation conseillée à l’accueil du Muséum ou au 02 35 41 37 28
+          {% elseif node.field_reservation.value == 'sans' %}
+            <img class="mr-2" width="20" src="/{{ directory }}/images/reservation.png">
+            Sans réservation, dans la limite des places disponibles
+          {% elseif node.field_reservation.value == 'prevente' %}
+            Places limitées, prévente possible à l’accueil du Muséum
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+    <div class="col-12 mt-5">
+      <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+      {{ bamboo_render_field('field_description', 'node') }}
+    </div>
+
+  </div>
+  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+    <div class="bg-blue p-4 my-5">
+      <h4 class="text-uppercase p-0">En savoir +</h4>
+      <div class="txt-white">
+        {{ bamboo_render_field('field_liens', 'node') }}
+        {{ bamboo_render_field('field_fichiers', 'node') }}
+      </div>
+    </div>
+  {% endif %}
+
+</div>
+
+{% if node.field_prog_assoc|length > 0 %}
+  <div class="container-fluid bg-blue p-4 my-5">
+    <div class="container">
+      <h4 class="text-uppercase p-0 mb-4 txt-black">évènements associés</h4>
+      <div class="row justify-content-around">
+        {% for nodes in node.field_prog_assoc %}
+          {% set node = bamboo_load_entity('node', nodes.target_id) %}
+          {% set media = getMediaInfos(node.field_medias.target_id, 'crop_paysage') %}
+          {% set url = path('entity.node.canonical', {'node': node.id}) %}
+
+          {% if node.getType == 'agenda' %}
+            {% set type = "Agenda" %}
+          {% else %}
+            {% set type = "Exposition" %}
+          {% endif %}
+
+          <div class="col-lg-4 px-5 mb-4 gray-hover">
+            <a href="{{ url }}">
+              <div class="position-relative">
+                <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+                     src="{{ media.url }}">
+                <div
+                  class="type-node position-absolute bg-blue-light d-inline-block txt-white py-1 px-3">{{ type }}</div>
+              </div>
+              <h5 class="txt-white">{{ node.title.value }}</h5>
+              <div class="w-25 border-white mt-2"> </div>
+              <div class="txt-white">
+                {% if node.getType == 'agenda' %}
+                  {% if(node.field_date_debut.value) %}
+                    {% if(node.field_date_fin.value != node.field_date_debut.value) %}Du {% else %}Le {% endif %}
+                    {{ node.field_date_debut.value|date('U')|format_date('date_courte_fr') }}
+                  {% endif %}
+
+                  {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+                    au {{ node.field_date_fin.value|date('U')|format_date('date_courte_fr') }}
+                  {% endif %}
+                {% else %}
+                  Du {{ node.field_dates.value|date('U')|format_date('date_courte_fr') }}
+                  au {{ node.field_dates.end_value|date('U')|format_date('date_courte_fr') }}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+        <div class="text-center mt-4">
+          <a href="/agenda">
+            <img width="250" src="/{{ directory }}/images/all_agenda.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

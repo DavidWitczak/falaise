@@ -1,0 +1,9 @@
+site_config.config_form:
+  path: '/admin/config/site_config/config'
+  defaults:
+    _form: '\Drupal\site_config\Form\ConfigForm'
+    _title: 'Configuration du site'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
