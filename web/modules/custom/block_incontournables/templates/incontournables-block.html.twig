@@ -1,0 +1,15 @@
+  <h2>Les incontournables</h2>
+  <div class="row">
+    {% for objet in var.objets %}
+      {% set media = getMediaInfos(objet.visuel_id, '500_recadrer') %}
+      <div class="col-lg-3 m-0 p-0">
+        <a href="{{ objet.url }}">
+          <img class="w-100" title="{{ media.title }}" src="{{ media.url }}">
+          <div class="infos-object text-center">
+            <h4 class="mt-4">{{ objet.theme }}</h4>
+            <h3 class="mt-5">{{ objet.title }}</h3>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>

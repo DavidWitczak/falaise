@@ -43,6 +43,7 @@
         "drupal/inline_entity_form": "1.0-rc1",
         "drupal/media_entity_browser": "^2.0",
         "drupal/media_entity_soundcloud": "^2.0",
+        "drupal/menu_breadcrumb": "^1.14",
         "drupal/module_filter": "^3.1",
         "drupal/paragraphs": "^1.8",
         "drupal/pathauto": "^1.4",

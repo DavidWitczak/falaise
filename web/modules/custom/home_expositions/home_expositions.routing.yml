@@ -1,0 +1,8 @@
+
+home_expositions.expos_controller_home:
+  path: '/expositions'
+  defaults:
+    _controller: '\Drupal\home_expositions\Controller\ExposController::home'
+    _title: 'Expositions'
+  requirements:
+    _permission: 'access content'

@@ -1,0 +1,17 @@
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container{
+    background-color: #128387;
+    color: white;
+}
+
+.tl-timemarker .tl-timemarker-content-container{
+    background-color: #821553;
+}
+
+.tl-timeline h2{
+  color: #128387;
+}
+
+.tl-timemarker.tl-timemarker-active .tl-timemarker-content-container .tl-timemarker-content .tl-timemarker-text h2.tl-headline{
+    color: white;
+}

@@ -1,0 +1,69 @@
+<div class="container">
+  <h2>{{ node.title.value }}</h2>
+
+  <h4 class="">{{ node.field_sous_titre.value }}</h4>
+
+  <div class="my-3">
+    {% for musee in node.field_musee %}
+      {{ musee.entity.name.value }} -
+    {% endfor %}
+  </div>
+
+  <div class="my-3">
+    Catégorie :
+    {% for cat in node.field_cat_agenda %}
+      {{ cat.entity.name.value }} -
+    {% endfor %}
+  </div>
+
+  <div class="my-3">Public : {{ node.field_public.entity.name.value }}</div>
+
+  <div class="my-3">
+    {% if(node.field_date_debut.value) %}
+      {% if(node.field_date_fin.value != node.field_date_debut.value) %}Du {% else %}Le {% endif %}
+      {{ node.field_date_debut.value|date('U')|format_date('date_courte_fr') }}
+    {% endif %}
+
+    {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+      au {{ node.field_date_fin.value|date('U')|format_date('date_courte_fr') }}
+    {% endif %}
+  </div>
+
+  <div class="">
+    {% for access in node.field_accessibilite %}
+      <img
+        class="mr-2"
+        width="40"
+        title="{{ access.entity.name.value }}"
+        src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
+    {% endfor %}
+  </div>
+
+  <div class="">{{ bamboo_render_field('field_reservation', 'node') }}</div>
+  <div class="">{{ bamboo_render_field('field_link_resa', 'node') }}</div>
+
+  <div class="my-3">
+    {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
+    <img class="" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+  </div>
+
+  <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+
+
+  <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
+  <div class="my-3">{{ bamboo_render_field('field_infos_sup', 'node') }}</div>
+  <div class="my-3">Horaire : {{ bamboo_render_field('field_horaire', 'node') }}</div>
+  <div class="my-3">Durée : {{ bamboo_render_field('field_duree', 'node') }}</div>
+  <div class="my-3">Tarif(s) : {{ bamboo_render_field('field_tarif', 'node') }}</div>
+
+  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+    <div class="my-3 alert-dark p-3">
+      <h4 class="text-uppercase">En savoir +</h4>
+      <div class="">
+        {{ bamboo_render_field('field_liens', 'node') }}
+        {{ bamboo_render_field('field_fichiers', 'node') }}
+      </div>
+    </div>
+  {% endif %}
+
+</div>

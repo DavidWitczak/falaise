@@ -3,7 +3,7 @@
     <div class="row">
 
       <div class="col-sm-6 col-lg-3 mb-1">
-        {% set media = getMediaInfos(var.main_page.media_id, 'carre_crop') %}
+        {% set media = getMediaInfos(var.main_page.media_id, '500_recadrer') %}
 
         {% if var.current_id == var.main_page_id %}
           {% set class_link = 'txt-blue' %}
@@ -27,7 +27,7 @@
       </div>
 
       {% for node in var.page %}
-        {% set media = getMediaInfos(node.media_id, 'carre_crop') %}
+        {% set media = getMediaInfos(node.media_id, '500_recadrer') %}
 
         {% if var.current_id == node.current_page_liee_id %}
           {% set class_link = 'txt-blue' %}

@@ -1,0 +1,37 @@
+  <div class="container">
+    <h2 class="mb-4">CHRONOLOGIE</h2>
+  </div>
+
+  <div id='timeline-embed' style="height:500px"></div>
+
+  <script type="text/javascript">
+      function show_tl() {
+          var content_tl = document.getElementById('timeline-embed');
+          var client = new XMLHttpRequest();
+          var theme_tl = '';
+
+          content_tl.innerHTML = '<div style="margin-top: 200px" class="text-center"><h2>Chargement...</h2><div class="loader"></div></div>';
+
+          theme_tl = {{ var.theme_tl }};
+          nid = {{ var.nid }};
+
+          client.open("GET", "/rest/timeline/" + theme_tl + "?_format=json", true);
+          client.setRequestHeader("Content-Type", "application/json");
+          client.send();
+
+          client.onreadystatechange = function () {
+              if (client.readyState == 4) {
+                  var additionalOptions = {
+                      language: 'fr',
+                  };
+                  var timeline = new TL.Timeline('timeline-embed', JSON.parse(client.responseText), additionalOptions);
+                  timeline.goToId(nid.toString());
+              }
+          };
+      }
+
+      window.addEventListener("load", function (event) {
+          show_tl();
+      });
+
+  </script>

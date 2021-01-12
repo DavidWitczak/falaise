@@ -1,0 +1,69 @@
+/* Menu local tasks */
+#block-mah-local-tasks {
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  z-index: 1000;
+}
+#block-mah-local-tasks a {
+  color: white;
+}
+.list-inline-item:not(:last-child) {
+  margin-right: 0;
+}
+/*  */
+
+.txt-blue{
+  color: #0a6eb4;
+}
+
+.txt-black{
+  color: black;
+}
+
+.chapo{
+  font-weight: bold;
+}
+
+.bg-grey{
+  background: #e0e0e0;
+}
+
+.bloc_close img {
+  transform: rotate(-180deg);
+  transition: 0.5s;
+}
+
+.bloc_open img {
+  transition: 0.5s;
+}
+
+h2.bloc_close, h2.bloc_open {
+  cursor: pointer;
+}
+
+#block-webform{
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #e0e0e0;
+  padding: 15px;
+}
+
+.infos-object{
+  background: #128387;
+  color: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.infos-object:hover {
+  opacity: 1;
+  transition: 0.5s;
+}

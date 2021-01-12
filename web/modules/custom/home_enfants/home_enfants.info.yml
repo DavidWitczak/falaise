@@ -1,0 +1,5 @@
+name: 'Home enfants'
+type: module
+description: 'Accueil espace enfants'
+core: 8.x
+package: 'Custom'

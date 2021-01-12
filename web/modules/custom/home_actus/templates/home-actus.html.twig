@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Les actus</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for actu in var.actus %}
+      {% set media = getMediaInfos(actu.visuel_id, '500_recadrer') %}
+      <div class="col-lg-3">
+        <a class="txt-white text-uppercase" href="{{ actu.url }}">
+          <div class="card mb-4">
+              <img class="card-img-top" title="{{ media.name }}" src="{{ media.url }}">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ actu.title }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

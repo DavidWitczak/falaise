@@ -1,0 +1,5 @@
+name: 'Home ateliers'
+type: module
+description: 'Accueil des ateliers'
+core: 8.x
+package: 'Custom'

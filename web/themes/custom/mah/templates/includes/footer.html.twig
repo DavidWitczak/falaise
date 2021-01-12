@@ -1,0 +1,36 @@
+{% set alert_1 = bamboo_config_get('site_config.config', 'alert_1_txt') %}
+{% set alert_2 = bamboo_config_get('site_config.config', 'alert_2_txt') %}
+
+<div class="container mb-5">
+  <h1>Footer test</h1>
+  {{ page.footer }}
+</div>
+
+{% if is_front %}
+  <div class="container-fluid bg-dark fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div id="alerts" class="carousel slide carousel-fade col-10 offset-1" data-ride="carousel">
+          <div class="carousel-inner">
+            {% if alert_1 %}
+              <div class="carousel-item active txt-white py-2">
+                <img width="35" src="/{{ directory }}/images/alerte.png" class="mr-3">
+                <a class="txt-white ml-2" href="{{ bamboo_config_get('site_config.config', 'alert_1_url') }}">
+                  {{ alert_1 }}
+                </a>
+              </div>
+            {% endif %}
+            {% if alert_2 %}
+              <div class="carousel-item txt-white py-2">
+                <img width="35" src="/{{ directory }}/images/alerte.png" class="mr-3">
+                <a class="txt-white ml-2" href="{{ bamboo_config_get('site_config.config', 'alert_2_url') }}">
+                  {{ alert_2 }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

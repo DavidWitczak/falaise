@@ -1,0 +1,7 @@
+timelinejs:
+  js:
+    timelinejs/js/timeline.min.js: {}
+  css:
+    theme:
+      timelinejs/css/timeline.css: {}
+      timelinejs/css/custom.css: {}

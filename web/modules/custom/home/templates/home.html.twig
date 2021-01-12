@@ -1,0 +1,23 @@
+<div class="container">
+  <h2>Accueil</h2>
+</div>
+
+<div class="container-fluid">
+  {{ bamboo_render_block('incontournables_block', {'type_object':'object'}) }}
+</div>
+
+<div class="container my-4">
+  <h2>Actualités</h2>
+  <div class="row">
+    {% for actu in var.actus %}
+      {% set media = getMediaInfos(actu.visuel_id, '500_recadrer') %}
+      <div class="col-lg-4">
+        <a href="{{ actu.url }}">
+          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+          <h4>{{ actu.title }}</h4>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="/actualites" class="btn btn-dark">Toutes les actualités</a>
+</div>

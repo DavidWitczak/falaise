@@ -1,0 +1,8 @@
+
+home_edition.edition_controller_home:
+  path: '/editions'
+  defaults:
+    _controller: '\Drupal\home_edition\Controller\EditionController::home'
+    _title: 'Nos éditions'
+  requirements:
+    _permission: 'access content'

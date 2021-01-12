@@ -1,0 +1,5 @@
+name: 'Block timeline'
+type: module
+description: 'Block affichant une timeline'
+core: 8.x
+package: 'Custom'

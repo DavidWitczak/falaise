@@ -12,6 +12,7 @@ use Drupal\file\Entity\File;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpKernel\Exception\AccessDeniedHttpException;
+use Drupal\image\Entity\ImageStyle;
 
 /**
  * Provides a resource to get view modes by entity and bundle.
@@ -132,7 +133,7 @@ class TimelineRestResource extends ResourceBase {
     if ($bundle == 'image') {
       $img_entity = $media->get('field_media_image');
       $file = File::load($img_entity->target_id);
-      $media_attr['url'] = file_create_url($file->uri->value);
+      $media_attr['url'] = file_url_transform_relative(ImageStyle::load('large')->buildUrl($file->uri->value));
     }
 
     return $media_attr;

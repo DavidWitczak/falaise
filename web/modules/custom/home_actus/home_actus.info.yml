@@ -1,0 +1,5 @@
+name: 'Home actualités'
+type: module
+description: 'Accueil des actualités'
+core: 8.x
+package: 'Custom'

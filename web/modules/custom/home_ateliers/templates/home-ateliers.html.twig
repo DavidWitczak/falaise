@@ -1,0 +1,40 @@
+<div class="container">
+  <h1 class="text-uppercase text-center my-4">Ateliers pédagogiques</h1>
+
+  <div class="chapo">Le Muséum conçoit spécifiquement des ateliers pédagogiques en lien avec les thématiques abordées
+    dans le parcours d’exposition et les collections scientifiques qu’il conserve. Adaptés aux élèves de petite section
+    à l’enseignement supérieur, en passant par les centres de loisir ou encore l’éducation spécialisée, les ateliers
+    sont réalisés en classe entière ou en demi-classe.<br/>
+    Pour les ateliers réalisés en demi-classe, l’enseignant et les accompagnateurs auront la responsabilité du groupe en
+    visite libre. Il est important de prévoir un nombre d’accompagnateurs suffisant pour encadrer le groupe durant cette
+    visite libre. Les dossiers pédagogiques sont à télécharger dans chacune des pages ateliers ci-dessous.<br/>
+    N’hésitez pas à nous contacter pour tout projet pédagogique sur-mesure !
+  </div>
+
+  <div class="text-align-center py-4">
+    {% for tid, term in var.term %}
+      <button class="object-filter btn btn-outline-info mb-2" data-tid="{{ tid }}">{{ term }}</button>
+    {% endfor %}
+    <button class="object-filter-all btn btn-outline-info mb-2" >Tout</button>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for object in var.ateliers %}
+      {% set media = getMediaInfos(object.visuel_id, '500_recadrer') %}
+      <div class="col-lg-3 grid-object {% for tid in object.tid %}{{ tid.target_id }} {% endfor %}">
+        <div class="position-relative gray-hover">
+          <a class="txt-white" href="{{ object.url }}">
+              <img class="w-100" title="{{ media.name }}" src="{{ media.url }}">
+          </a>
+          <a class="txt-black" href="{{ object.url }}">
+            <h6 class="mt-2 mb-0 txt-black font-weight-bold">{{ object.title }}</h6>
+            <p class="txt-black mb-4">{{ object.sub_title }}</p>
+          </a>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+</div>

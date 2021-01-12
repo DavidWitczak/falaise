@@ -1,0 +1,78 @@
+<div class="container-fluid m-0 p-0">
+  <div class="banniere">
+    {% set media = getMediaInfos(node.field_medias.target_id, 'full_max') %}
+    <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+  </div>
+</div>
+<div class="container content-image-quiz bg-white py-5 px-4">
+  <div class="row">
+    <div class="col-lg-3">
+
+    </div>
+    <div class="col-lg-9">
+      <h1 class="pacifico txt-violet text-center mb-5 font-weight-normal">{{ node.title.value }}</h1>
+      {{ bamboo_render_field('field_chapo', 'node') }}
+    </div>
+
+    <div class="col-lg-12 d-none" id="quiz-gagne">
+      <h4>{{ bamboo_render_field('field_quiz_gagne', 'node') }}</h4>
+    </div>
+    <div class="col-lg-12 d-none" id="quiz-perdu">
+      <h4>{{ bamboo_render_field('field_quiz_perdu', 'node') }}</h4>
+    </div>
+
+  </div>
+
+  {% for questions in node.field_questions %}
+    {% set question = bamboo_load_entity('paragraph', questions.target_id) %}
+    <div class="row mt-5">
+
+      <div class="col-lg-6">
+        {% set media = getMediaInfos(question.field_image.target_id, 'large') %}
+        <img class="w-100 rounded" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+             src="{{ media.url }}">
+      </div>
+
+      <div class="col-lg-6">
+        <h3 class="txt-violet font-weight-bold quiz_question">Question N°{{ loop.index }}</h3>
+
+        <p class="mb-3"><strong>{{ question.field_question.value }}</strong></p>
+
+        {% for reponses in question.field_group_reponse %}
+
+          {% set reponse = bamboo_load_entity('paragraph', reponses.target_id) %}
+
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <input type="radio"
+                       class="quiz_reponse"
+                       name="reponse_{{ questions.target_id }}"
+                       id="id_{{ reponses.target_id }}"
+                       value="{{ reponse.field_bonne_reponse.value }}"
+                       data-question="q-{{ questions.target_id }}">
+              </div>
+            </div>
+            <label for="id_{{ reponses.target_id }}" class="form-control quiz quiz-label" data-value="{{ reponse.field_bonne_reponse.value }}">{{ reponse.field_reponse.value }}</label>
+          </div>
+
+        {% endfor %}
+        <br/>
+        <div class="d-none quiz-nop q-{{ questions.target_id }} text-center mb-3">
+          <img width="50" title="Aventure Museum" alt="Aventure Museum" src="/{{ directory }}/images/quiz-ko.png">
+        </div>
+        <div class="d-none quiz-yes q-{{ questions.target_id }} text-center mb-3">
+          <img width="50" title="Aventure Museum" alt="Aventure Museum" src="/{{ directory }}/images/quiz-ok.png">
+        </div>
+        <div class="d-none quiz-explication"><h4 class="txt-violet text-uppercase">Réponse</h4>{{ question.field_explication.value|raw }}</div>
+      </div>
+    </div>
+  {% endfor %}
+
+  <div class="row">
+    <div class="col-lg-6 offset-6 text-center">
+      <button class="btn btn-outline-info" id="quiz-action">VALIDER</button>
+      <button class="btn btn-outline-info text-uppercase d-none" id="quiz-refresh">Recommencer le quiz</button>
+    </div>
+  </div>
+</div>

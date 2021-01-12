@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains block_incontournables.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function block_incontournables_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the block_incontournables module.
+    case 'help.page.block_incontournables':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Bloc des objets incontournables') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function block_incontournables_theme() {
+  return [
+    'incontournables_block' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}

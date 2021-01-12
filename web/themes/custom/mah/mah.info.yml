@@ -1,0 +1,18 @@
+name: MAH
+type: theme
+description: 'Thème principal'
+package: Custom
+core: 8.x
+
+libraries:
+  - mah/global-css
+  - mah/global-js
+
+base theme: false
+
+regions:
+  header: "Header"
+  alert: "Alerte"
+  content: "Contenu"
+  tabs: "Onglets"
+  footer: "footer"

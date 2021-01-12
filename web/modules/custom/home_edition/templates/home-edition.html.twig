@@ -1,0 +1,21 @@
+<div class="container">
+  <h2>Nos éditions</h2>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for edition in var.editions %}
+      {% set media = getMediaInfos(edition.visuel_id, '500_recadrer') %}
+      <div class="col-lg-3">
+        <a class="txt-white text-uppercase" href="{{ edition.url }}">
+          <div class="card mb-4">
+            <img class="card-img-top" title="{{ media.name }}" src="{{ media.url }}">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ edition.title }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

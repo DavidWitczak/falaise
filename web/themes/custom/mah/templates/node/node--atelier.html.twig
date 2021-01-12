@@ -1,0 +1,152 @@
+<div class="container">
+  <h1 class="text-uppercase my-4">Atelier pédagogique</h1>
+
+  <div class="row">
+    <div class="col-12">
+      <h3 class="">{{ node.title.value }}</h3>
+      <h5 class="">{{ bamboo_render_field('field_sous_titre', 'node') }}</h5>
+    </div>
+
+    <div class="col-lg-5">
+      {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
+      <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+    </div>
+
+    <div class="col-lg-7">
+      <div class="row mt-2">
+        <div class="col-2">
+          <div class="text-uppercase font-weight-bold">Durée</div>
+          <div class="font-weight-bold">
+            {{ node.field_duree.value }}
+          </div>
+        </div>
+
+        <div class="col-5">
+          <div class="txt-blue text-uppercase font-weight-bold">Public</div>
+          <div class="font-weight-bold">
+            {% for public in node.field_niveaux_scolaires %}
+              {{ public.entity.name.value }}{% if not loop.last %},{% endif %}
+            {% endfor %}
+          </div>
+        </div>
+
+        <div class="col-5">
+          {% for access in node.field_accessibilite %}
+            <img
+              class="mr-2"
+              width="40"
+              title="{{ access.entity.name.value }}"
+              src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
+          {% endfor %}
+        </div>
+
+        <div class="col-12 mt-2 pb-2 border-bb-bleu">
+          <div class="txt-blue text-uppercase font-weight-bold">Tarif</div>
+          {{ bamboo_render_field('field_tarif', 'node') }}
+        </div>
+
+        <div class="col-12 mt-3">
+          Les réservations pour les groupes se font par mail via le formulaire de réservation accessible ci-dessous.
+          Besoin d’informations complémentaires ? Envie d’un projet sur-mesure ?
+          Contactez-nous au 02 35 41 69 15 ou 02 35 41 69 17 ou par mail : reservation.mah@lehavre.fr
+
+          <a href="/ateliers-pedagogiques/reservation" class="mt-2">
+            Réservation
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 mt-5">
+      <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+      {{ bamboo_render_field('field_description', 'node') }}
+    </div>
+
+  </div>
+
+  <div class="row">
+    {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+      <div class="col-lg-6">
+        <div class="bg-blue p-4 my-5">
+          <h4 class="text-uppercase p-0">Ressources pédagogiques</h4>
+          <div class="txt-white">
+            {{ bamboo_render_field('field_liens', 'node') }}
+            {{ bamboo_render_field('field_fichiers', 'node') }}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+
+    <div class="col-lg-6">
+      <div class="bg-violet p-4 my-5">
+        <h4 class="text-uppercase p-0 txt-white">Réservation obligatoire</h4>
+        <p class="txt-white">
+          Les réservations pour les groupes se font par mail via le formulaire de réservation accessible
+          ci-dessous.<br/>
+          Besoin d’informations complémentaires ? Envie d’un projet sur-mesure ? <br/>
+          Contactez-nous au 02 35 41 37 28 ou par mail : reservationmuseum@lehavre.fr
+        </p>
+        <a href="/ateliers-pedagogiques/reservation">
+          Réservation
+        </a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% if node.field_prog_assoc|length > 0 %}
+  <div class="container-fluid bg-blue p-4 my-5">
+    <div class="container">
+      <h4 class="text-uppercase p-0 mb-4 txt-black">Evénements associés</h4>
+      <div class="row justify-content-around">
+        {% for nodes in node.field_prog_assoc %}
+          {% set node = bamboo_load_entity('node', nodes.target_id) %}
+          {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
+          {% set url = path('entity.node.canonical', {'node': node.id}) %}
+
+          {% if node.getType == 'agenda' %}
+            {% set type = "Agenda" %}
+          {% elseif node.getType == 'atelier' %}
+            {% set type = "Atelier pédagogique" %}
+          {% else %}
+            {% set type = "Exposition" %}
+          {% endif %}
+
+          <div class="col-lg-4 px-5 mb-3 gray-hover">
+            <a href="{{ url }}">
+              <div class="position-relative">
+                <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+                     src="{{ media.url }}">
+                <div class="type-node position-absolute bg-blue-light d-inline-block txt-white py-1 px-3">
+                  {{ type }}
+                </div>
+              </div>
+              <h5 class="txt-white">{{ node.title.value }}</h5>
+              <div class="txt-white">
+                {% if node.getType == 'agenda' %}
+                  {% if(node.field_date_debut.value) %}
+                    {% if(node.field_date_fin.value != node.field_date_debut.value) %}Du {% else %}Le {% endif %}
+                    {{ node.field_date_debut.value|date('U')|format_date('date_jfy') }}
+                  {% endif %}
+
+                  {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+                    au {{ node.field_date_fin.value|date('U')|format_date('date_jfy') }}
+                  {% endif %}
+                {% else %}
+                  Du {{ node.field_dates.value|date('U')|format_date('date_jfy') }}
+                  au {{ node.field_dates.end_value|date('U')|format_date('date_jfy') }}
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+        <div class="text-center mt-4">
+          <a href="/ateliers-pedagogiques">
+            <img height="60" src="/{{ directory }}/images/all_ateliers.png">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

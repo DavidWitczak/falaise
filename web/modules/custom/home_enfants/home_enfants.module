@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains home_enfants.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function home_enfants_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the home_enfants module.
+    case 'help.page.home_enfants':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Accueil espace enfants') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function home_enfants_theme() {
+  return [
+    'home_enfants' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}

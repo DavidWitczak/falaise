@@ -1,0 +1,26 @@
+<div class="container">
+  <h2>Les collections</h2>
+</div>
+
+  <div class="container-fluid">
+    {{ bamboo_render_block('incontournables_block', {'type_object':'object'}) }}
+  </div>
+
+<div class="container">
+  <h1 class="text-align-center mt-5 mb-4">Toutes les collections</h1>
+  <div class="row">
+    {% for collection in var.collections %}
+      {% set media = getMediaInfos(collection.visuel_id, '500_recadrer') %}
+      <div class="col-lg-6">
+        <a class="txt-white text-uppercase" href="{{ collection.url }}">
+          <div class="card mb-4">
+              <img class="card-img-top" title="{{ media.name }}" src="{{ media.url }}">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{ collection.title }}</h5>
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>

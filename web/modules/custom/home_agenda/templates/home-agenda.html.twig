@@ -1,0 +1,62 @@
+<div class="container-fluid my-4 mx-0">
+  <div class="container">
+    <div class="row">
+      {% for event in var.en_avant %}
+        {% set media = getMediaInfos(event.visuel_id, '500_recadrer') %}
+        <div class="col-lg-4">
+          <a href="{{ event.url }}">
+            <img class="w-100" alt="{{ media.alt }}" title="{{ media.title }}" src="{{ media.url }}">
+            <div class="">
+              <h4 class="mt-1">{{ event.title }}</h4>
+              <h5 class="mt-2 text-uppercase">{{ event.bundle }}</h5>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+      <div class="col text-right">
+        <a href="/expositions" class="btn btn-primary">Toutes les expositions</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="block-webform" class="mt-5 mb-3">
+    {{ bamboo_render_entity('webform', 'agenda') }}
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {% for agenda in var.agenda %}
+        {% set media = getMediaInfos(agenda.visuel_id, '500_recadrer') %}
+
+        <div class="col-lg-4 mb-4">
+          <a href="{{ agenda.url }}" class="">
+            <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                 src="{{ media.url }}">
+            <div class="">
+              {% for cat in agenda.tid %}
+                {{ cat.entity.name.value }}{% if not loop.last %} - {% endif %}
+              {% endfor %}
+            </div>
+            <h5 class="">{{ agenda.title }}</h5>
+            <div class=""></div>
+            {% if(agenda.date_debut.value) %}
+              {% if(agenda.date_fin.value != agenda.date_debut.value) %}Du {% else %}Le {% endif %}
+              {{ agenda.date_debut.value|date('U')|format_date('date_courte_fr') }}
+            {% endif %}
+
+            {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %}
+              au {{ agenda.date_fin.value|date('U')|format_date('date_courte_fr') }}
+            {% endif %}
+            <div class="">
+              {{ agenda.jours.value }}
+            </div>
+            <div class="">
+              {{ agenda.public.entity.name.value }}
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+</div>

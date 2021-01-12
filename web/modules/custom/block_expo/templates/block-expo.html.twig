@@ -1,0 +1,38 @@
+{% if var.agenda|length > 0 %}
+<div class="container-fluid">
+  <div class="container">
+    <h4 class="text-uppercase p-0 mb-4 ">Autour de l'exposition</h4>
+    <div class="row">
+      {% for agenda in var.agenda %}
+        {% set media = getMediaInfos(agenda.visuel_id, '500_recadrer') %}
+
+        <div class="col-lg-3 mb-4">
+          <a href="{{ agenda.url }}">
+            <div class="">
+              <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+              <div class="">
+                {% for cat in agenda.tid %}
+                  {{ cat.entity.name.value }}{% if not loop.last %} - {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+            <h5 class="">{{ agenda.title }}</h5>
+            <div class="">
+              {% if(agenda.date_debut.value) %}
+                {% if(agenda.date_fin.value != agenda.date_debut.value) %}Du {% else %}Le {% endif %}
+                {{ agenda.date_debut.value|date('U')|format_date('date_courte_fr') }}
+              {% endif %}
+
+              {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %}
+                au {{ agenda.date_fin.value|date('U')|format_date('date_courte_fr') }}
+              {% endif %}
+              <div class="font-small">{{ agenda.jours.value }}</div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

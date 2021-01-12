@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Contains home.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function home_theme() {
+  return [
+    'home' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}

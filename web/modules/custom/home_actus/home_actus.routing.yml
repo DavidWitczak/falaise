@@ -1,0 +1,8 @@
+
+home_actus.actus_controller_home:
+  path: 'actualites'
+  defaults:
+    _controller: '\Drupal\home_actus\Controller\ActusController::home'
+    _title: 'Actualités'
+  requirements:
+    _permission: 'access content'

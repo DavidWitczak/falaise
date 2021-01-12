@@ -1,0 +1,8 @@
+
+home.home_controller_home:
+  path: '/accueil'
+  defaults:
+    _controller: '\Drupal\home\Controller\HomeController::home'
+    _title: 'home'
+  requirements:
+    _permission: 'access content'

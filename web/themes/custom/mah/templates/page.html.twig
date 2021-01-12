@@ -1,0 +1,16 @@
+{% include directory ~ '/templates/includes/header.html.twig' %}
+
+<div class="alert-success text-align-center font-weight-bold container-fluid p-0 m-auto">
+  {{ page.alert }}
+</div>
+
+<div class="p-0">
+  {{ page.content }}
+</div>
+
+<div class="container-fluid">
+  {{ page.tabs }}
+</div>
+
+{% include directory ~ '/templates/includes/footer.html.twig' %}
+

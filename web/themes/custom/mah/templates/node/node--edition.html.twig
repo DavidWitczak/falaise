@@ -1,0 +1,54 @@
+<div class="container">
+  <h2>{{ node.title.value }}</h2>
+
+  <h4 class="my-3">{{ node.field_sous_titre.value }}</h4>
+
+  <div class="my-3">Auteur : {{ bamboo_render_field('field_auteur', 'node') }}</div>
+  <div class="my-3">Editeur : {{ bamboo_render_field('field_editeur', 'node') }}</div>
+  <div class="my-3">Publication : {{ node.field_date_pub.value|date('U')|format_date('date_courte_fr') }}</div>
+  <div class="my-3">{{ bamboo_render_field('field_technique', 'node') }}</div>
+
+  <div class="my-3">
+    {% for musee in node.field_musee %}
+      {{ musee.entity.name.value }} -
+    {% endfor %}
+  </div>
+
+  <div class="my-3">
+    {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
+    <img class="" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+  </div>
+
+  <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+
+  <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
+
+  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+    <div class="my-3 alert-dark p-3">
+      <h4 class="text-uppercase">En savoir +</h4>
+      <div class="">
+        {{ bamboo_render_field('field_liens', 'node') }}
+        {{ bamboo_render_field('field_fichiers', 'node') }}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if node.field_editions_liees|length > 0 %}
+    <div class="row">
+      {% for nodes in node.field_editions_liees %}
+        {% set node = bamboo_load_entity('node', nodes.target_id) %}
+        {% set media = getMediaInfos(node.field_medias.target_id, '500_recadrer') %}
+        {% set url = path('entity.node.canonical', {'node': node.id}) %}
+
+        <div class="my-3 col-lg-4 p-3">
+          <a href="{{ url }}">
+            <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+                 src="{{ media.url }}">
+            <h5 class="text-center txt-white">{{ node.title.value }}</h5>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+</div>

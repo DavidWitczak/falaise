@@ -1,0 +1,8 @@
+
+home_agenda.agenda_controller_home:
+  path: 'agenda'
+  defaults:
+    _controller: '\Drupal\home_agenda\Controller\AgendaController::home'
+    _title: 'Agenda'
+  requirements:
+    _permission: 'access content'

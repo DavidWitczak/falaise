@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains home_agenda.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function home_agenda_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the home_agenda module.
+    case 'help.page.home_agenda':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Accueil agenda') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function home_agenda_theme() {
+  return [
+    'home_agenda' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}
