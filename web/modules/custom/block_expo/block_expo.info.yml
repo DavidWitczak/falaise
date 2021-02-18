@@ -1,5 +1,0 @@
-name: 'Block expo'
-type: module
-description: "Block d'agenda liés à l'exposition"
-core: 8.x
-package: 'Custom'

@@ -1,8 +1,0 @@
-
-home_collections.home_collection_controller_home:
-  path: '/collections'
-  defaults:
-    _controller: '\Drupal\home_collections\Controller\HomeCollectionController::home'
-    _title: 'Collections'
-  requirements:
-    _permission: 'access content'

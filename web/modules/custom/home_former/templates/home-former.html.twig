@@ -1,0 +1,59 @@
+<div class="container">
+  <h1 id="filter" name="filter" class="bebas text-uppercase">Disciplines, se former</h1>
+  <div class="chapo mb-5">
+    {{ bamboo_config_get('site_config.config', 'se_former')['value']|raw }}
+  </div>
+
+  <div class="row block-collapse collapse show">
+    <div class="col-lg-5"><hr class="bg-red"/></div>
+    <div class="col-lg-2 text-align-center">
+      <button class="btn btn-outline-danger text-uppercase" data-toggle="collapse" data-target=".block-collapse">
+        Afficher plus
+      </button>
+    </div>
+    <div class="col-lg-5"><hr class="bg-red"/></div>
+  </div>
+
+  <div class="collapse block-collapse" id="se_former">
+    <div class="">
+      {{ bamboo_config_get('site_config.config', 'se_former_suite')['value']|raw }}</div>
+  </div>
+
+  <div class="row collapse block-collapse">
+    <div class="col-lg-5"><hr class="bg-red"/></div>
+    <div class="col-lg-2 text-align-center">
+      <button class="btn btn-outline-danger text-uppercase" data-toggle="collapse" data-target=".block-collapse">
+        Afficher moins
+      </button>
+    </div>
+    <div class="col-lg-5"><hr class="bg-red"/></div>
+  </div>
+
+  <div id="block-webform" class="mt-6 mb-4">
+    <h2 class="bebas text-uppercase mb-4">Filtrer les disciplines par :</h2>
+    {{ bamboo_render_entity('webform', 'se_former') }}
+  </div>
+
+</div>
+
+<div class="container-fluid bg-black mt-8 py-5 mb-5">
+  <div class="container list-content">
+    <div class="row">
+      {% if var.former %}
+      {% for discipline in var.former %}
+        {% set media = getMediaInfos(discipline.visuel_id, 'carre_crop') %}
+        <div class="col-lg-2 col-md-4 col-sm-6 mb-5">
+          <a href="{{ discipline.url }}">
+            <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+            <div class="w-100 border-tag tag-{{ discipline.tid.target_id }}"></div>
+            <div class="txt-white font-small">{{ discipline.tid.entity.name.value }}</div>
+            <div class="txt-white h5 bebas">{{ discipline.title }}</div>
+          </a>
+        </div>
+      {% endfor %}
+      {% else %}
+      <h4 class="txt-white text-uppercase mt-8">Aucun résultat</h4>
+      {% endif %}
+    </div>
+  </div>
+</div>

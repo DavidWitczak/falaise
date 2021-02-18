@@ -1,5 +1,0 @@
-name: 'Home expositions'
-type: module
-description: 'Accueil des expositions'
-core: 8.x
-package: 'Custom'

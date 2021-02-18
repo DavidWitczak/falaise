@@ -1,0 +1,98 @@
+{% set alert_1 = bamboo_config_get('site_config.config', 'alert_1_txt') %}
+{% set alert_2 = bamboo_config_get('site_config.config', 'alert_2_txt') %}
+
+<div class="container-fluid bg-black py-5 {% if is_front %}mb-5{% endif %}">
+  <div class="container">
+    <div class="row mb-3">
+      <div class="col-lg-12 mb-4">
+        <a href="{{ url('<front>') }}">
+          <img src="/{{ directory }}/images/logo_bg_black.svg" class="mr-3">
+        </a>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="txt-grey-light font-small">
+          Conservatoire Arthur Honegger<br/>
+          70 Cours de la République<br/>
+          76600 Le Havre<br/><br/><br/>
+          <i class="fas fa-phone txt-grey-light mr-2"></i>02 35 11 33 80
+        </div>
+      </div>
+
+      <div class="col-lg-3 font-small txt-grey-light">
+        <div class="font-weight-bold">Accueil</div>
+        Lundi, mardi, jeudi, vendredi : 9h - 20h30<br/>
+        Mercredi : 8h30 - 20h30<br/>
+        Samedi : 9h - 17h
+        <div class="font-weight-bold mt-1">Secrétariat</div>
+        Du lundi au vendredi : 9h - 17h30
+      </div>
+
+      <div class="col-lg-3 txt-grey-light text-align-center">
+        <div class="btn-black text-uppercase mb-3 bebas">Nous contacter</div>
+        <br/>
+        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
+          <i class="fab fa-facebook-f"></i>
+        </a>&nbsp;|&nbsp;
+        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
+          <i class="fab fa-instagram"></i>
+        </a>&nbsp;|&nbsp;
+        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+
+      <div class="col-lg-3 txt-grey-light">
+        <h2 class="text-uppercase bebas">Newsletter</h2>
+        <div class="font-small mb-3">Tenez-vous informé de toute l'actualité du conservatoire Arthur Honegger !</div>
+        <form action="">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend"><i class="fas fa-at txt-red font-big mr-1"></i></div>
+            <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup"
+                   placeholder="Saisir une adresse valide">
+          </div>
+          <input type="submit" value="Je m'abonne" class="btn btn-sm bg-red txt-white text-uppercase">
+        </form>
+      </div>
+
+
+      <div class="col-lg-3">
+        <a href="https://lehavre.fr" target="_blank">
+          <img src="/{{ directory }}/images/logo_lh_white.svg" class="mr-3">
+        </a>
+      </div>
+
+      <div class="col-lg-9 mt-4">
+        {{ page.footer }}
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% if is_front %}
+  <div class="container-fluid bg-red fixed-bottom">
+    <div class="container">
+      <div class="row">
+        <div id="alerts" class="carousel slide carousel-fade col-10 offset-1" data-ride="carousel">
+          <div class="carousel-inner">
+            {% if alert_1 %}
+              <div class="carousel-item active txt-white py-2">
+                <a class="txt-white ml-2" href="{{ bamboo_config_get('site_config.config', 'alert_1_url') }}">
+                  {{ alert_1 }}
+                </a>
+              </div>
+            {% endif %}
+            {% if alert_2 %}
+              <div class="carousel-item txt-white py-2">
+                <a class="txt-white ml-2" href="{{ bamboo_config_get('site_config.config', 'alert_2_url') }}">
+                  {{ alert_2 }}
+                </a>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}

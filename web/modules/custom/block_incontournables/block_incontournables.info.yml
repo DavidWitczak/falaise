@@ -1,5 +1,0 @@
-name: 'Block incontournables'
-type: module
-description: 'Bloc des objets incontournables'
-core: 8.x
-package: 'Custom'

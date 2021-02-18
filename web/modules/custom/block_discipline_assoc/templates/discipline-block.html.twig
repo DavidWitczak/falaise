@@ -1,0 +1,41 @@
+{% if var.agenda %}
+  <div class="mt-6">
+    <div class="h1 font-weight-bold text-uppercase mb-4 bebas"><span class="txt-red">Têtes</span> d'affiche !</div>
+    <div class="row">
+      {% for agenda in var.agenda %}
+        {% set media = getMediaInfos(agenda.visuel_id, 'portrait_crop') %}
+        <div class="col-lg-4 mb-3">
+          <a href="{{ agenda.url }}">
+            <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                 src="{{ media.url }}">
+
+            <div class="infos-object">
+              <div class="infos-content">
+                <div class="row align-items-end">
+                  <div class="col-8 p-0">
+                    <div class="tag bg-red mb-2 font-small">{{ agenda.tid.entity.name.value }}</div>
+                    <h2 class="bebas">{{ agenda.title }}</h2>
+                    <p>{{ agenda.lieu.value }}</p>
+                  </div>
+                  <div class="col-4 pr-0 pl-1 bebas">
+                    <div class="h2 m-0">{{ agenda.date_debut.value|date('U')|date("d") }}</div>
+                    <div>{{ agenda.date_debut.value|date('U')|format_date('mois_fr') }}</div>
+                    <div>{{ agenda.date_debut.value|date('U')|date("Y") }}</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="h3 mt-3">
+      <a href="/agenda">
+        <i class="far fa-calendar txt-red"></i>
+        <span class="bebas text-uppercase">Toute la programmation</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,5 @@
+name: 'Block profs'
+type: module
+description: 'Bloc des enseignants sur les pages disciplines'
+core: 8.x
+package: 'Custom'

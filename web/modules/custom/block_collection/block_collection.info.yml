@@ -1,5 +1,0 @@
-name: 'Block collection'
-type: module
-description: 'Bloc collection'
-core: 8.x
-package: 'Custom'

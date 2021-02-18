@@ -1,0 +1,59 @@
+<div id="header" class="container-fluid px-5 position-fixed bg-white shadow-sm">
+  <div id="row-menu" class="row mx-auto justify-content-center d-flex h-100 align-items-center my-3">
+    <div id="col-logo" class="col-lg-2 p-0">
+      <h1 class="logo m-0">
+        <a href="{{ url('<front>') }}">
+          <img id="logo" src="/{{ directory }}/images/logo.svg">
+        </a>
+      </h1>
+    </div>
+    <div id="col-menu" class="col-lg-7 offset-lg-1 px-0">
+      <div id="social-bar" class="row justify-content-between txt-grey-light pb-2 mx-1">
+        <div class="col-md-2 pl-0">
+          <a href="{{ bamboo_config_get('site_config.config', 'facebook') }}">
+            <i class="fab fa-facebook-f mr-2"></i>
+          </a>
+          <a href="{{ bamboo_config_get('site_config.config', 'facebook') }}">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+        <div class="col-md-10 text-align-right p-0">
+          <div class="d-inline-block mr-2">
+            <a class="txt-grey-light" href="/">
+              <i class="far fa-envelope mr-1"></i>Newsletter
+            </a>
+          </div>
+          <div class="d-inline-block mr-2">
+            <a class="txt-grey-light" href="/">
+              <i class="far fa-user-circle mr-1"></i>Espace membre
+            </a>
+          </div>
+          <div class="d-inline-block">
+            <a class="txt-grey-light" href="/">
+              <i class="fas fa-search mr-1"></i>Rechercher
+            </a>
+          </div>
+        </div>
+      </div>
+      {{ page.header }}
+    </div>
+    <div id="social-reduce" class="col-lg-1 txt-grey-light mt-xl-1 text-align-right pr-0 offset-1">
+      <div class="col-2 mr-2 w-50">
+        <a class="" href="/">
+          <i class="far fa-envelope mr-1 ico_anim" data-toggle="tooltip" data-placement="left" title="Newsletter"></i>
+        </a>
+      </div>
+      <div class="col-2 mr-2 w-50">
+        <a class="txt-grey-light" href="/">
+          <i class="far fa-user-circle mr-1 ico_anim"  data-toggle="tooltip" data-placement="bottom" title="Espace membre"></i>
+        </a>
+      </div>
+      <div class="col-2 w-50">
+        <a class="txt-grey-light" href="/">
+          <i class="fas fa-search mr-1 ico_anim" data-toggle="tooltip" data-placement="right" title="Rechercher"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+

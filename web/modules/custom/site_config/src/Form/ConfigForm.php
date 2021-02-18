@@ -77,26 +77,6 @@ class ConfigForm extends ConfigFormBase {
       '#default_value' => $config->get('alert_2_url'),
     ];
 
-    // Les incontournables
-    $form['incontournable'] = [
-      '#type' => 'details',
-      '#title' => 'Collections Incontournable',
-      '#open' => FALSE,
-    ];
-
-    for ($i = 1; $i <= 8; $i++) {
-
-      $form['incontournable']['object_' . $i] = [
-        '#type' => 'entity_autocomplete',
-        '#title' => 'Object n°' . $i,
-        '#target_type' => 'node',
-        '#selection_handler' => 'default',
-        '#selection_settings' => [
-          'target_bundles' => array('objet'),
-        ],
-        '#default_value' => Node::load($config->get('object_' . $i)),
-      ];
-    }
 
     // Agenda - Mise en avant
     $form['agenda'] = [
@@ -105,7 +85,7 @@ class ConfigForm extends ConfigFormBase {
       '#open' => FALSE,
     ];
 
-    for ($i = 1; $i <= 3; $i++) {
+    for ($i = 1; $i <= 2; $i++) {
 
       $form['agenda']['event_' . $i] = [
         '#type' => 'entity_autocomplete',
@@ -119,26 +99,26 @@ class ConfigForm extends ConfigFormBase {
       ];
     }
 
-    // Collection enfants
-    $form['collection_enfants'] = [
+    //Texte home disciplines
+    $form['presentation'] = [
       '#type' => 'details',
-      '#title' => 'Collections Enfants',
+      '#title' => 'Presentations - Se former / pratiquer',
       '#open' => FALSE,
     ];
 
-    for ($i = 1; $i <= 8; $i++) {
+    $form['presentation']['se_former'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Chapô - Se former',
+      '#default_value' => $config->get('se_former')['value'],
+      '#format' => 'ckeditor',
+    );
 
-      $form['collection_enfants']['object_enfant_' . $i] = [
-        '#type' => 'entity_autocomplete',
-        '#title' => 'Object n°' . $i,
-        '#target_type' => 'node',
-        '#selection_handler' => 'default',
-        '#selection_settings' => [
-          'target_bundles' => array('objet'),
-        ],
-        '#default_value' => Node::load($config->get('object_enfant_' . $i)),
-      ];
-    }
+    $form['presentation']['se_former_suite'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Présentation - Se former',
+      '#default_value' => $config->get('se_former_suite')['value'],
+      '#format' => 'ckeditor',
+    );
 
     return parent::buildForm($form, $form_state);
   }
@@ -152,16 +132,6 @@ class ConfigForm extends ConfigFormBase {
     //RS
     $this->configFactory->getEditable('site_config.config')->set('facebook', $form_state->getValue('facebook'));
 
-    // Les incontournables
-    for ($i = 1; $i <= 8; $i++) {
-      $this->configFactory->getEditable('site_config.config')->set('object_' . $i, $form_state->getValue('object_' . $i));
-    }
-
-    // Collection enfants
-    for ($i = 1; $i <= 8; $i++) {
-      $this->configFactory->getEditable('site_config.config')->set('object_enfant_' . $i, $form_state->getValue('object_enfant_' . $i));
-    }
-
     // Mise en avant agenda
     for ($i = 1; $i <= 3; $i++) {
       $this->configFactory->getEditable('site_config.config')->set('event_' . $i, $form_state->getValue('event_' . $i));
@@ -172,6 +142,10 @@ class ConfigForm extends ConfigFormBase {
     $this->configFactory->getEditable('site_config.config')->set('alert_1_url', $form_state->getValue('alert_1_url'));
     $this->configFactory->getEditable('site_config.config')->set('alert_2_txt', $form_state->getValue('alert_2_txt'));
     $this->configFactory->getEditable('site_config.config')->set('alert_2_url', $form_state->getValue('alert_2_url'));
+
+    // Se former
+    $this->configFactory->getEditable('site_config.config')->set('se_former', $form_state->getValue('se_former'));
+    $this->configFactory->getEditable('site_config.config')->set('se_former_suite', $form_state->getValue('se_former_suite'));
 
     $this->configFactory->getEditable('site_config.config')->save();
   }

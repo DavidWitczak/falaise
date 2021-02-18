@@ -1,0 +1,25 @@
+
+/* BEBAS FONT */
+
+@font-face {
+    font-family: 'bebas';
+    src: url('../fonts/bebas_neue/BebasNeue-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* POPPINS FONT */
+
+@font-face {
+    font-family: 'poppins regular';
+    src: url('../fonts/poppins/Poppins-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'poppins bold';
+    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

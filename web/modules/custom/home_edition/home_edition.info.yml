@@ -1,5 +1,0 @@
-name: 'Home édition'
-type: module
-description: 'Accueil des éditions'
-core: 8.x
-package: 'Custom'

@@ -1,0 +1,23 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-4">
+      {% set media = getMediaInfos(node.field_medias.target_id, '500_recadrer') %}
+      <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+    </div>
+    <div class="col-lg-8">
+      <h2>{{ node.title.value }}</h2>
+
+      <div>
+        {% for discipline in node.field_discipline_profs %}
+          <div class="btn btn-outline-primary">{{ discipline.entity.name.value }}</div>
+        {% endfor %}
+      </div>
+
+      <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+    </div>
+
+      <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
+  </div>
+
+</div>

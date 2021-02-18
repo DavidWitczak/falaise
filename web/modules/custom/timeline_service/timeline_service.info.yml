@@ -1,5 +1,0 @@
-name: 'Timeline service'
-type: module
-description: 'Service rest pour la frise chronologique'
-core: 8.x
-package: 'Custom'

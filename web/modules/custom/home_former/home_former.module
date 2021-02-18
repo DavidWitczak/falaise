@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains home_former.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function home_former_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the home_former module.
+    case 'help.page.home_former':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Accueil se former') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function home_former_theme() {
+  return [
+    'home_former' => [
+      'variables' => [
+        'var' => [],
+      ],
+    ],
+  ];
+}
