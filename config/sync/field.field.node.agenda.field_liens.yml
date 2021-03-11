@@ -1,0 +1,23 @@
+uuid: 9c4d542a-578e-4014-a7a0-05f704e986ed
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liens
+    - node.type.agenda
+  module:
+    - link
+id: node.agenda.field_liens
+field_name: field_liens
+entity_type: node
+bundle: agenda
+label: Liens
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,53 @@
+uuid: 14dba56f-75ef-4609-9544-c3a3a514f487
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.page_carrefour.field_chapo
+    - field.field.node.page_carrefour.field_liens
+    - field.field.node.page_carrefour.field_medias
+    - node.type.page_carrefour
+  module:
+    - link
+    - text
+    - user
+id: node.page_carrefour.default
+targetEntityType: node
+bundle: page_carrefour
+mode: default
+content:
+  field_chapo:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_liens:
+    weight: 103
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_medias:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

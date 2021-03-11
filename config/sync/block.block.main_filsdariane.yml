@@ -1,0 +1,29 @@
+uuid: 7a5ddc52-0864-4906-b5e5-2dedaa862d47
+langcode: fr
+status: true
+dependencies:
+  module:
+    - ctools
+    - system
+  theme:
+    - main
+id: main_filsdariane
+theme: main
+region: content
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: 'Fils d''ariane'
+  provider: system
+  label_display: '0'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      page_base: page_base
+      page_carrefour: page_carrefour
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'

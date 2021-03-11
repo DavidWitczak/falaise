@@ -1,0 +1,79 @@
+uuid: 2ee58c93-7c8f-4b61-945f-e0fcf4a85960
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.actu.field_chapo
+    - field.field.node.actu.field_description
+    - field.field.node.actu.field_fichiers
+    - field.field.node.actu.field_liens
+    - field.field.node.actu.field_medias
+    - field.field.node.actu.field_sous_titre
+    - node.type.actu
+  module:
+    - link
+    - text
+    - user
+id: node.actu.default
+targetEntityType: node
+bundle: actu
+mode: default
+content:
+  field_chapo:
+    weight: 101
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_description:
+    weight: 103
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_fichiers:
+    weight: 106
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_liens:
+    weight: 105
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_medias:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_sous_titre:
+    weight: 102
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

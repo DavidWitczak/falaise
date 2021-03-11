@@ -1,0 +1,11 @@
+uuid: 0a3cecb8-995b-452d-a4a1-2ca782da06a2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.pratiquer
+id: node.pratiquer
+target_entity_type_id: node
+target_bundle: pratiquer
+default_langcode: site_default
+language_alterable: false

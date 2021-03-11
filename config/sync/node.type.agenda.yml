@@ -1,0 +1,18 @@
+uuid: 3d1ad3fc-7ef9-4b05-8738-0e60a7d80e59
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:menu_link_content:f59c0b28-6617-4c96-a4e4-d099ca65f6eb'
+name: Agenda
+type: agenda
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

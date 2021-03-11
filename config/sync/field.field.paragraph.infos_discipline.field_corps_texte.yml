@@ -1,0 +1,21 @@
+uuid: b60e7974-41b9-4450-b0a2-fb3b1a69dc5a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_corps_texte
+    - paragraphs.paragraphs_type.infos_discipline
+  module:
+    - text
+id: paragraph.infos_discipline.field_corps_texte
+field_name: field_corps_texte
+entity_type: paragraph
+bundle: infos_discipline
+label: Texte
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

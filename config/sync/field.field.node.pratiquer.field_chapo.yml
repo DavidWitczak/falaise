@@ -1,0 +1,21 @@
+uuid: 03c35c1b-663d-4390-9ba6-50e562c5d244
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - node.type.pratiquer
+  module:
+    - text
+id: node.pratiquer.field_chapo
+field_name: field_chapo
+entity_type: node
+bundle: pratiquer
+label: Chapô
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,19 @@
+uuid: 45ac24c5-c808-4a09-aa83-5c6235fa06c0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sous_titre
+    - node.type.actu
+id: node.actu.field_sous_titre
+field_name: field_sous_titre
+entity_type: node
+bundle: actu
+label: 'Sous titre'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

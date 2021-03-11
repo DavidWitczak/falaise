@@ -1,0 +1,28 @@
+uuid: 882b704d-9464-4a11-940d-79273ae1fba6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fichiers
+    - media.type.fichier
+    - node.type.atelier
+id: node.atelier.field_fichiers
+field_name: field_fichiers
+entity_type: node
+bundle: atelier
+label: Fichiers
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      fichier: fichier
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

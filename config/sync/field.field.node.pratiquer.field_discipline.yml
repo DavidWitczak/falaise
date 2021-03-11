@@ -1,0 +1,29 @@
+uuid: 197a913f-3f9e-4cda-82b7-afc7dab29a61
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_discipline
+    - node.type.pratiquer
+    - taxonomy.vocabulary.pratiquer
+id: node.pratiquer.field_discipline
+field_name: field_discipline
+entity_type: node
+bundle: pratiquer
+label: Discipline
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      pratiquer: pratiquer
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

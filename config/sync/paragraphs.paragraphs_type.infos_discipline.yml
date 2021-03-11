@@ -1,0 +1,10 @@
+uuid: b5ff45d3-2552-41ed-9082-3e67423efdc0
+langcode: fr
+status: true
+dependencies: {  }
+id: infos_discipline
+label: 'Infos discipline'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

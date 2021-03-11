@@ -1,0 +1,21 @@
+uuid: 052e5341-8f6e-4ce2-b13b-4df03bb601a8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_no_front
+    - node.type.agenda
+id: node.agenda.field_no_front
+field_name: field_no_front
+entity_type: node
+bundle: agenda
+label: 'Ne pas remonter sur l''accueil'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

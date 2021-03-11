@@ -1,11 +1,11 @@
 uuid: e965933a-53d0-4e42-b5e0-970f24568f80
-name: MAH
+name: Conservatoire
 mail: david.witczak@lehavre.fr
 slogan: ''
 page:
   403: ''
   404: ''
-  front: /user/login
+  front: /accueil
 admin_compact_mode: false
 weight_select_max: 100
 langcode: fr

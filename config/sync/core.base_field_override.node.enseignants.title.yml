@@ -1,0 +1,18 @@
+uuid: 87f06235-383e-4458-bc3b-11e29853b8ac
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.enseignants
+id: node.enseignants.title
+field_name: title
+entity_type: node
+bundle: enseignants
+label: 'Nom Prénom'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

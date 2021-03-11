@@ -1,0 +1,21 @@
+uuid: 1fbaa468-2bf0-4255-86ac-c6f47fd0559e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - node.type.enseignants
+  module:
+    - text
+id: node.enseignants.field_chapo
+field_name: field_chapo
+entity_type: node
+bundle: enseignants
+label: Chapô
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

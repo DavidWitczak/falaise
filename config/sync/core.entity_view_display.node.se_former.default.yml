@@ -1,0 +1,133 @@
+uuid: 2dcf0c09-5e02-43b4-8953-87b3bde8f4ca
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.se_former.field_audio
+    - field.field.node.se_former.field_chapo
+    - field.field.node.se_former.field_description
+    - field.field.node.se_former.field_discipline
+    - field.field.node.se_former.field_disciplines_asso
+    - field.field.node.se_former.field_famille_instruments
+    - field.field.node.se_former.field_infos_pratiques_discipline
+    - field.field.node.se_former.field_medias
+    - field.field.node.se_former.field_niveaux_scolaires
+    - field.field.node.se_former.field_pratiques_collectives_asso
+    - field.field.node.se_former.field_saviez_vous
+    - field.field.node.se_former.field_videos
+    - node.type.se_former
+  module:
+    - entity_reference_revisions
+    - text
+    - user
+id: node.se_former.default
+targetEntityType: node
+bundle: se_former
+mode: default
+content:
+  field_audio:
+    type: entity_reference_entity_view
+    weight: 109
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_chapo:
+    weight: 106
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_description:
+    weight: 107
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_discipline:
+    weight: 102
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_disciplines_asso:
+    weight: 115
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_famille_instruments:
+    weight: 103
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_infos_pratiques_discipline:
+    type: entity_reference_revisions_entity_view
+    weight: 113
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_medias:
+    weight: 105
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_niveaux_scolaires:
+    weight: 104
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_pratiques_collectives_asso:
+    weight: 114
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  field_saviez_vous:
+    type: entity_reference_revisions_entity_view
+    weight: 110
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+  field_videos:
+    type: entity_reference_entity_view
+    weight: 108
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

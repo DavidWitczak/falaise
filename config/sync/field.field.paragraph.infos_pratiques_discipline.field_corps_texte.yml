@@ -1,0 +1,21 @@
+uuid: 9d9b656c-15e9-453d-93da-81c83e3fe822
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_corps_texte
+    - paragraphs.paragraphs_type.infos_pratiques_discipline
+  module:
+    - text
+id: paragraph.infos_pratiques_discipline.field_corps_texte
+field_name: field_corps_texte
+entity_type: paragraph
+bundle: infos_pratiques_discipline
+label: Texte
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

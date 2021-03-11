@@ -3,11 +3,11 @@
     {% set file = media.field_media_file.entity %}
     {% set uri = file_url(file.uri.value) %}
     <div class="row row-fichier-liens py-2">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             {{ item.content['#title'] }}
         </div>
-        <div class="col-lg-6">
-            <a href="{{ uri }}" target="_blank">
+        <div class="col-lg-4">
+            <a href="{{ uri }}" target="_blank" class="txt-white">
                 <img class="mr-1" width="20" src="/{{ directory }}/images/file-ico.png">
                 Télécharger
             </a>

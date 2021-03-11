@@ -1,0 +1,20 @@
+uuid: 0eeb13be-8886-4674-88e2-d8cc4b452c64
+langcode: fr
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_infos_pratiques_discipline
+field_name: field_infos_pratiques_discipline
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

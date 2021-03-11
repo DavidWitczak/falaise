@@ -1,0 +1,30 @@
+uuid: 88a03902-ef83-4b72-a34c-ad450ae49cee
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disciplines_asso
+    - node.type.agenda
+    - node.type.pratiquer
+    - node.type.se_former
+id: node.agenda.field_disciplines_asso
+field_name: field_disciplines_asso
+entity_type: node
+bundle: agenda
+label: 'Disciplines associées'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      pratiquer: pratiquer
+      se_former: se_former
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: pratiquer
+field_type: entity_reference

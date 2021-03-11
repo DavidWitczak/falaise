@@ -1,0 +1,22 @@
+uuid: 2c64ffd8-6c06-4d15-8d2f-f4a183d49f0b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.se_former
+id: node.se_former.promote
+field_name: promote
+entity_type: node
+bundle: se_former
+label: 'Promu en page d''accueil'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

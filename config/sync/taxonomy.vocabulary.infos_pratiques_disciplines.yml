@@ -1,0 +1,8 @@
+uuid: 1e9cb4dc-f567-4753-98bb-67ceb827c01b
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Infos pratiques disciplines'
+vid: infos_pratiques_disciplines
+description: ''
+weight: 0

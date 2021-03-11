@@ -1,0 +1,29 @@
+uuid: fca42ed9-82d7-48a1-bc24-9d0bdc3447b8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessibilite
+    - node.type.agenda
+    - taxonomy.vocabulary.accessibilite
+id: node.agenda.field_accessibilite
+field_name: field_accessibilite
+entity_type: node
+bundle: agenda
+label: Accessibilité
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      accessibilite: accessibilite
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

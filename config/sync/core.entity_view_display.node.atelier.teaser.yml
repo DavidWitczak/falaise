@@ -1,0 +1,50 @@
+uuid: c781617e-a7aa-4bdc-9989-3b5731351c48
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.atelier.field_accessibilite
+    - field.field.node.atelier.field_chapo
+    - field.field.node.atelier.field_description
+    - field.field.node.atelier.field_duree
+    - field.field.node.atelier.field_fichiers
+    - field.field.node.atelier.field_liens
+    - field.field.node.atelier.field_medias
+    - field.field.node.atelier.field_musee
+    - field.field.node.atelier.field_nb_personnes
+    - field.field.node.atelier.field_niveaux_scolaires
+    - field.field.node.atelier.field_prog_assoc
+    - field.field.node.atelier.field_sous_titre
+    - field.field.node.atelier.field_tarif
+    - field.field.node.atelier.field_type_groupe
+    - node.type.atelier
+  module:
+    - user
+id: node.atelier.teaser
+targetEntityType: node
+bundle: atelier
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_accessibilite: true
+  field_chapo: true
+  field_description: true
+  field_duree: true
+  field_fichiers: true
+  field_liens: true
+  field_medias: true
+  field_musee: true
+  field_nb_personnes: true
+  field_niveaux_scolaires: true
+  field_prog_assoc: true
+  field_sous_titre: true
+  field_tarif: true
+  field_type_groupe: true
+  langcode: true
+  search_api_excerpt: true

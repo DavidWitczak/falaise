@@ -1,0 +1,25 @@
+uuid: cf6b4932-5c42-4678-a57f-ea022d0b69fa
+langcode: fr
+status: true
+dependencies:
+  config:
+    - crop.type.carre_crop
+  module:
+    - crop
+name: carre_crop
+label: 'Carre crop'
+effects:
+  62f3d0fe-3bfb-4259-b19f-7186140be028:
+    uuid: 62f3d0fe-3bfb-4259-b19f-7186140be028
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: carre_crop
+  1e992a91-bfb5-4993-a297-3fb09648520d:
+    uuid: 1e992a91-bfb5-4993-a297-3fb09648520d
+    id: image_scale
+    weight: 2
+    data:
+      width: 500
+      height: null
+      upscale: false

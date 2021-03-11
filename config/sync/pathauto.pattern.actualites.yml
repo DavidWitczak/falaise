@@ -1,0 +1,22 @@
+uuid: d02329bb-937f-4b85-a725-b1e7d171edd2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: actualites
+label: Actualités
+type: 'canonical_entities:node'
+pattern: '/actualites/[node:title]'
+selection_criteria:
+  5156b0d2-ca1d-4ac2-9bec-5616ffc3c459:
+    id: node_type
+    bundles:
+      actu: actu
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 5156b0d2-ca1d-4ac2-9bec-5616ffc3c459
+selection_logic: and
+weight: -5
+relationships: {  }

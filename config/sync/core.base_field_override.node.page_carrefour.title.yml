@@ -1,0 +1,18 @@
+uuid: bcbb3707-7835-4154-a4f3-b8e4533e679a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_carrefour
+id: node.page_carrefour.title
+field_name: title
+entity_type: node
+bundle: page_carrefour
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

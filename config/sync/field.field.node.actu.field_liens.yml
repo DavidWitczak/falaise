@@ -1,0 +1,23 @@
+uuid: 4e250b4b-bf43-4ede-9f77-b1b24c373964
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liens
+    - node.type.actu
+  module:
+    - link
+id: node.actu.field_liens
+field_name: field_liens
+entity_type: node
+bundle: actu
+label: Liens
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

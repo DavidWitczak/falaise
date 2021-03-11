@@ -1,0 +1,23 @@
+uuid: 8f4ca3e5-a856-42db-9248-71c40bf8fd1c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liens
+    - node.type.page_base
+  module:
+    - link
+id: node.page_base.field_liens
+field_name: field_liens
+entity_type: node
+bundle: page_base
+label: Liens
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

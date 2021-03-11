@@ -1,0 +1,27 @@
+uuid: 08caab09-7260-4e37-82a0-3d8c3765d696
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disciplines_asso
+    - node.type.se_former
+id: node.se_former.field_disciplines_asso
+field_name: field_disciplines_asso
+entity_type: node
+bundle: se_former
+label: 'Disciplines associées'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      se_former: se_former
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

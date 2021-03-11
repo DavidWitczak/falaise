@@ -1,60 +1,124 @@
 <div class="container">
-  <h2>{{ node.title.value }}</h2>
 
-  <h4 class="">{{ node.field_sous_titre.value }}</h4>
-
-  <div class="my-3">
-    {% for musee in node.field_musee %}
-      {{ musee.entity.name.value }} -
-    {% endfor %}
-  </div>
-
-  <div class="my-3">
-    Catégorie :
+  <div class="mb-4">
     {% for cat in node.field_cat_agenda %}
-      {{ cat.entity.name.value }} -
+      <div class="tag">{{ cat.entity.name.value }}</div>
     {% endfor %}
   </div>
 
-  <div class="my-3">Public : {{ node.field_public.entity.name.value }}</div>
+  <h1>{{ node.title.value }}</h1>
 
-  <div class="my-3">
-    {% if(node.field_date_debut.value) %}
-      {% if(node.field_date_fin.value != node.field_date_debut.value) %}Du {% else %}Le {% endif %}
-      {{ node.field_date_debut.value|date('U')|format_date('date_courte_fr') }}
-    {% endif %}
+  <div class="row">
+    <div class="col-lg-5">
+      <div class="row">
+        <div class="col-lg-9 pr-0">
+          {% set media = getMediaInfos(node.field_medias.target_id, 'paysage_crop') %}
+          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+        </div>
+        <div class="col-lg-3 bg-red txt-white date-event">
+          <div class="row my-4 bebas align-items-center">
+            <div class="col-lg-12 col-md-1">
+              {% if(node.field_date_debut.value) %}
+                <div class="m-0 h2">{{ node.field_date_debut.value|date('d') }}</div>
+                <div>{{ node.field_date_debut.value|date('d')|format_date('mois_fr') }}</div>
+                <div>{{ node.field_date_debut.value|date('Y') }}</div>
+              {% endif %}
+            </div>
+            {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+              <div class="col-lg-12 col-md-1">
+                <div class="my-4 d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
+                <div class="d-md-block d-lg-none"><i class="fas fa-arrow-right txt-white font-big"></i></div>
+              </div>
+              <div class="col-lg-12 col-md-1">
+                <div class="m-0 h2">{{ node.field_date_fin.value|date('d') }}</div>
+                <div>{{ node.field_date_fin.value|date('d')|format_date('mois_fr') }}</div>
+                <div>{{ node.field_date_fin.value|date('Y') }}</div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
 
-    {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
-      au {{ node.field_date_fin.value|date('U')|format_date('date_courte_fr') }}
-    {% endif %}
+
+    <div class="col-lg-7">
+      <h5 class="font-weight-bold text-uppercase">{{ node.field_sous_titre.value }}</h5>
+
+      {% if node.field_infos_sup.value %}
+        <p class="mt-3">
+          <span class="font-weight-bold">Infos complémentaires :</span>
+          {{ node.field_infos_sup.value }}
+        </p>
+      {% endif %}
+
+      <div class="row justify-content-between mt-3">
+        {% if node.field_horaire.value %}
+          <div class="col-lg-2 font-big border-right">
+            <i class="far fa-clock mr-2 txt-red"></i>{{ node.field_horaire.value }}
+          </div>
+        {% endif %}
+
+        {% if node.field_duree.value %}
+          <div class="col-lg-2 font-big border-right">
+            <i class="fas fa-hourglass-half mr-2 ml-4 txt-red"></i>{{ node.field_duree.value }}
+          </div>
+        {% endif %}
+
+        {% if node.field_tarif.value %}
+          <div class="col-lg-3 font-big border-right">
+            <i class="fas fa-euro-sign mr-2 ml-4 txt-red"></i>{{ node.field_tarif.value }}
+          </div>
+        {% endif %}
+
+        {% if node.field_lieu.value %}
+          <div class="col-lg-5 font-big">
+            <i class="fas fa-map-marker-alt mr-2 ml-4 txt-red"></i>{{ node.field_lieu.value }}
+          </div>
+        {% endif %}
+      </div>
+
+      {% if node.field_reservation.value %}
+        <div class="mt-3">{{ bamboo_render_field('field_reservation', 'node') }}</div>
+      {% endif %}
+
+      <div class="btn bg-red txt-white">{{ bamboo_render_field('field_link_resa', 'node') }}</div>
+
+      {% if node.field_public.entity.name.value %}
+        <div class="mt-3">
+          <span class="font-weight-bold">Public :</span> {{ node.field_public.entity.name.value }}
+        </div>
+      {% endif %}
+
+      <div class="mt-3">
+        {% for access in node.field_accessibilite %}
+          <img class="mr-2" width="40" title="{{ access.entity.name.value }}"
+               src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
+        {% endfor %}
+      </div>
+
+    </div>
   </div>
 
-  <div class="">
-    {% for access in node.field_accessibilite %}
-      <img
-        class="mr-2"
-        width="40"
-        title="{{ access.entity.name.value }}"
-        src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
-    {% endfor %}
-  </div>
-
-  <div class="">{{ bamboo_render_field('field_reservation', 'node') }}</div>
-  <div class="">{{ bamboo_render_field('field_link_resa', 'node') }}</div>
-
-  <div class="my-3">
-    {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
-    <img class="" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-  </div>
-
-  <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
-
+  <div class="chapo mt-4">{{ bamboo_render_field('field_chapo', 'node') }}</div>
 
   <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
-  <div class="my-3">{{ bamboo_render_field('field_infos_sup', 'node') }}</div>
-  <div class="my-3">Horaire : {{ bamboo_render_field('field_horaire', 'node') }}</div>
-  <div class="my-3">Durée : {{ bamboo_render_field('field_duree', 'node') }}</div>
-  <div class="my-3">Tarif(s) : {{ bamboo_render_field('field_tarif', 'node') }}</div>
+
+  <div class="border-top mt-6 pt-4">
+    {% for audio in node.field_audio %}
+      <div class="mb-5">
+        {{ bamboo_render_entity('media', audio.target_id) }}
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-6 text-align-center">
+    {% for video in node.field_videos %}
+      <div class="mb-5 video txt-grey pb-4">
+        {{ bamboo_render_entity('media', video.target_id) }}
+      </div>
+    {% endfor %}
+  </div>
+
 
   {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
     <div class="my-3 alert-dark p-3">
@@ -65,5 +129,5 @@
       </div>
     </div>
   {% endif %}
-
 </div>
+

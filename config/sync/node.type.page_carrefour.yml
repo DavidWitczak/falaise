@@ -1,0 +1,18 @@
+uuid: 242064dd-26f7-4015-ac61-3ad33bb15fba
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Page carrefour'
+type: page_carrefour
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

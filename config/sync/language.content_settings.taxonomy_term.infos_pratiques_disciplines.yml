@@ -1,0 +1,11 @@
+uuid: 64af5eee-c6dd-4040-af89-4f8c29c097cb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.infos_pratiques_disciplines
+id: taxonomy_term.infos_pratiques_disciplines
+target_entity_type_id: taxonomy_term
+target_bundle: infos_pratiques_disciplines
+default_langcode: site_default
+language_alterable: false

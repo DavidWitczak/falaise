@@ -1,23 +1,69 @@
 <div class="container">
 
+  <div>
+    {% for discipline in node.field_discipline_profs %}
+      <div class="mb-4 tag tag-{{ discipline.target_id }}">{{ discipline.entity.name.value }}</div>
+    {% endfor %}
+  </div>
+
+  <h1>{{ node.title.value }}</h1>
+
   <div class="row">
     <div class="col-lg-4">
-      {% set media = getMediaInfos(node.field_medias.target_id, '500_recadrer') %}
-      <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+      {% set media = getMediaInfos(node.field_medias.target_id, 'carre_crop') %}
+      <img class="w-100 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
     </div>
-    <div class="col-lg-8">
-      <h2>{{ node.title.value }}</h2>
-
-      <div>
-        {% for discipline in node.field_discipline_profs %}
-          <div class="btn btn-outline-primary">{{ discipline.entity.name.value }}</div>
-        {% endfor %}
-      </div>
-
+    <div class="col-lg-8 mt-4">
       <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
     </div>
 
-      <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
+      <div class="col-lg-12 mt-5 my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
   </div>
 
 </div>
+
+{% if node.field_disciplines_asso.target_id or node.field_pratiques_collectives_asso.target_id %}
+  {% if node.field_disciplines_asso.target_id %}
+    <div class="container-fluid bg-black mt-6 py-5 mb-5">
+    <div class="container">
+      <div class="h1 bebas text-uppercase txt-white">Disciplines associées</div>
+      <div class="row">
+        {% for discipline in node.field_disciplines_asso %}
+          {% set discipline_entity = bamboo_load_entity('node', discipline.target_id) %}
+          {% set media = getMediaInfos(discipline_entity.field_medias.target_id, 'carre_crop') %}
+          {% set url = path('entity.node.canonical', {'node': discipline_entity.id}) %}
+          <div class="col-lg-2">
+            <a href="{{ url }}">
+              <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+              <div class="w-100 border-tag tag-{{ discipline_entity.field_discipline.target_id }}"></div>
+              <div class="txt-white h5 bebas">{{ discipline_entity.title.value }}</div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+
+  {% if node.field_pratiques_collectives_asso.target_id %}
+    <div class="container mt-5">
+      <div class="h1 bebas text-uppercase txt-white">Pratiques collectives associées</div>
+      <div class="row">
+        {% for pratique in node.field_pratiques_collectives_asso %}
+          {% set pratique_entity = bamboo_load_entity('node', pratique.target_id) %}
+          {% set media = getMediaInfos(pratique_entity.field_medias.target_id, 'carre_crop') %}
+          {% set url = path('entity.node.canonical', {'node': pratique_entity.id}) %}
+          <div class="col-lg-2">
+            <a href="{{ url }}">
+              <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+              <div class="w-100 border-tag tag-{{ pratique_entity.field_discipline.target_id }}"></div>
+              <div class="txt-white h5 bebas">{{ pratique_entity.title.value }}</div>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  {% endif %}
+  </div>
+{% endif %}

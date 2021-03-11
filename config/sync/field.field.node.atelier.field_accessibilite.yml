@@ -1,0 +1,29 @@
+uuid: 8e27f6e8-1913-4590-84a6-ecf74dd882b0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_accessibilite
+    - node.type.atelier
+    - taxonomy.vocabulary.accessibilite
+id: node.atelier.field_accessibilite
+field_name: field_accessibilite
+entity_type: node
+bundle: atelier
+label: Accessibilité
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      accessibilite: accessibilite
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,22 @@
+uuid: d6403e3b-8f3e-4693-9ff0-f951babbbadd
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - main
+_core:
+  default_config_hash: c-06bbElRY5sKmglk74ppgTW93Et4-EJFyNiUZMb8JY
+id: main_local_tasks
+theme: main
+region: tabs
+weight: -1
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Onglets
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

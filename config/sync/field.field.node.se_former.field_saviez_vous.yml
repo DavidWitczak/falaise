@@ -1,0 +1,34 @@
+uuid: e149a092-baa7-461f-aa59-64b7e43b8469
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_saviez_vous
+    - node.type.se_former
+    - paragraphs.paragraphs_type.infos_discipline
+  module:
+    - entity_reference_revisions
+id: node.se_former.field_saviez_vous
+field_name: field_saviez_vous
+entity_type: node
+bundle: se_former
+label: 'Le saviez vous'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      infos_discipline: infos_discipline
+    target_bundles_drag_drop:
+      infos_discipline:
+        enabled: true
+        weight: 3
+      paragraphe_accordeon:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

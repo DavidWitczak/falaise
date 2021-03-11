@@ -124,7 +124,10 @@ class AgendaController extends ControllerBase {
         $output[$i]['title'] = $node->getTitle();
         $output[$i]['visuel_id'] = $field_media[0]['target_id'];
         $output[$i]['url'] = $url;
-        $output[$i]['bundle'] = $node->bundle();
+        $output[$i]['tid'] = $node->get('field_cat_agenda');
+        $output[$i]['date_debut'] = $node->get('field_date_debut');
+        $output[$i]['date_fin'] = $node->get('field_date_fin');
+        $output[$i]['lieu'] = $node->get('field_lieu');
       }
     }
 

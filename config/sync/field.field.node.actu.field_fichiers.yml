@@ -1,0 +1,28 @@
+uuid: aeaf0fc1-7308-49d4-a448-dfe2a7334d58
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fichiers
+    - media.type.fichier
+    - node.type.actu
+id: node.actu.field_fichiers
+field_name: field_fichiers
+entity_type: node
+bundle: actu
+label: Fichiers
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      fichier: fichier
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

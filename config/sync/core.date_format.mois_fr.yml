@@ -1,0 +1,8 @@
+uuid: a399e6a1-6dfa-448c-a7ba-b66917d7ffae
+langcode: fr
+status: true
+dependencies: {  }
+id: mois_fr
+label: 'Mois fr'
+locked: false
+pattern: F

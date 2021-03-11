@@ -1,0 +1,8 @@
+uuid: 6efb4755-b9fd-47f1-8dce-89c9ba69444c
+langcode: fr
+status: true
+dependencies: {  }
+name: Accessibilité
+vid: accessibilite
+description: ''
+weight: 0

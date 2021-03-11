@@ -1,0 +1,27 @@
+uuid: 2bf1a54d-b253-4005-a2a9-4e65747d70d1
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_base_liee
+    - node.type.page_base
+id: node.page_base.field_page_base_liee
+field_name: field_page_base_liee
+entity_type: node
+bundle: page_base
+label: 'Page de base principale liée'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      page_base: page_base
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

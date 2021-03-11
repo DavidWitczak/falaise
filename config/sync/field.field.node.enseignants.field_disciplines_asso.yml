@@ -1,0 +1,28 @@
+uuid: ae50cc3b-7c72-41f9-b450-ba0c3267d55b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_disciplines_asso
+    - node.type.enseignants
+    - node.type.se_former
+id: node.enseignants.field_disciplines_asso
+field_name: field_disciplines_asso
+entity_type: node
+bundle: enseignants
+label: 'Disciplines associées'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      se_former: se_former
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

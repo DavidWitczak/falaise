@@ -1,0 +1,22 @@
+uuid: 56117353-56b8-4dab-9e6d-ab58a9d5e714
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_carrefour
+id: node.page_carrefour.promote
+field_name: promote
+entity_type: node
+bundle: page_carrefour
+label: 'Promu en page d''accueil'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

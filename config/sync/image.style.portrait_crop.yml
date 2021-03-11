@@ -1,0 +1,17 @@
+uuid: 6a6edb0c-1193-4874-8901-9c56486bfc60
+langcode: fr
+status: true
+dependencies:
+  config:
+    - crop.type.portrait_crop
+  module:
+    - crop
+name: portrait_crop
+label: 'Portrait crop'
+effects:
+  219b86af-e24a-4231-ab94-523d1fdc92c8:
+    uuid: 219b86af-e24a-4231-ab94-523d1fdc92c8
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: portrait_crop

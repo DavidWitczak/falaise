@@ -1,0 +1,12 @@
+uuid: b15d9a0b-8991-4f1a-b2f2-239c74d88194
+langcode: fr
+status: true
+dependencies: {  }
+label: 'Paysage crop'
+id: paysage_crop
+description: ''
+aspect_ratio: '12:10'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

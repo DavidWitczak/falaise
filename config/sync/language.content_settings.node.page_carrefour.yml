@@ -1,0 +1,11 @@
+uuid: cb7e122f-7ef6-4626-a122-42ac089b410a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_carrefour
+id: node.page_carrefour
+target_entity_type_id: node
+target_bundle: page_carrefour
+default_langcode: site_default
+language_alterable: false

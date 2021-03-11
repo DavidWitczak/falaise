@@ -1,0 +1,21 @@
+uuid: 3fc4f308-44a8-4569-94cb-ab836e2aaffa
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_etat_bloc
+    - paragraphs.paragraphs_type.paragraphe_accordeon
+  module:
+    - options
+id: paragraph.paragraphe_accordeon.field_etat_bloc
+field_name: field_etat_bloc
+entity_type: paragraph
+bundle: paragraphe_accordeon
+label: 'Etat du bloc'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,81 @@
+uuid: eb10cec6-bb79-4bda-acc6-eea2948e6ec5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.node.page_carrefour.field_chapo
+    - field.field.node.page_carrefour.field_liens
+    - field.field.node.page_carrefour.field_medias
+    - node.type.page_carrefour
+  module:
+    - entity_browser_entity_form
+    - inline_entity_form
+    - link
+    - path
+    - text
+id: node.page_carrefour.default
+targetEntityType: node
+bundle: page_carrefour
+mode: default
+content:
+  field_chapo:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_liens:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_medias:
+    weight: 2
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_entity_browser_modal
+    type: inline_entity_form_complex
+    region: content
+  path:
+    type: path
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 5
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  promote: true
+  sticky: true
+  uid: true

@@ -30,7 +30,7 @@ class HomeController extends ControllerBase {
     $query = \Drupal::entityQuery('node');
     $query->condition('type', 'se_former');
     $query->condition('status', 1);
-    $query->sort('created', 'DESC');
+    $query->sort('title', 'ASC');
 
     if (\Drupal::request()->query->get('discipline')) {
       $discipline = \Drupal::request()->query->get('discipline');

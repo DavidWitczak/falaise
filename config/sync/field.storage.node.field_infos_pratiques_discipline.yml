@@ -1,0 +1,21 @@
+uuid: be166302-1fa2-4d03-999b-0bd39508d588
+langcode: fr
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_infos_pratiques_discipline
+field_name: field_infos_pratiques_discipline
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 8
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

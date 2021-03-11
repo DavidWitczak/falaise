@@ -1,0 +1,28 @@
+uuid: 621d8166-202b-4aac-aaf9-2c05cb617ab1
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audio
+    - media.type.audio
+    - node.type.se_former
+id: node.se_former.field_audio
+field_name: field_audio
+entity_type: node
+bundle: se_former
+label: Audio
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: 49e79565-501d-47a3-9111-dd56fa821e61
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.agenda
+id: node.agenda.title
+field_name: title
+entity_type: node
+bundle: agenda
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

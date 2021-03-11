@@ -1,0 +1,68 @@
+uuid: cd78a2fe-d99c-4de7-8f0d-2872ed2985ae
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.agenda.field_accessibilite
+    - field.field.node.agenda.field_audio
+    - field.field.node.agenda.field_cat_agenda
+    - field.field.node.agenda.field_chapo
+    - field.field.node.agenda.field_date_debut
+    - field.field.node.agenda.field_date_fin
+    - field.field.node.agenda.field_description
+    - field.field.node.agenda.field_disciplines_asso
+    - field.field.node.agenda.field_duree
+    - field.field.node.agenda.field_fichiers
+    - field.field.node.agenda.field_horaire
+    - field.field.node.agenda.field_infos_sup
+    - field.field.node.agenda.field_liens
+    - field.field.node.agenda.field_lieu
+    - field.field.node.agenda.field_link_resa
+    - field.field.node.agenda.field_medias
+    - field.field.node.agenda.field_no_front
+    - field.field.node.agenda.field_prog_assoc
+    - field.field.node.agenda.field_public
+    - field.field.node.agenda.field_reservation
+    - field.field.node.agenda.field_sous_titre
+    - field.field.node.agenda.field_tarif
+    - field.field.node.agenda.field_videos
+    - node.type.agenda
+  module:
+    - user
+id: node.agenda.teaser
+targetEntityType: node
+bundle: agenda
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_accessibilite: true
+  field_audio: true
+  field_cat_agenda: true
+  field_chapo: true
+  field_date_debut: true
+  field_date_fin: true
+  field_description: true
+  field_disciplines_asso: true
+  field_duree: true
+  field_fichiers: true
+  field_horaire: true
+  field_infos_sup: true
+  field_liens: true
+  field_lieu: true
+  field_link_resa: true
+  field_medias: true
+  field_no_front: true
+  field_prog_assoc: true
+  field_public: true
+  field_reservation: true
+  field_sous_titre: true
+  field_tarif: true
+  field_videos: true
+  langcode: true
+  search_api_excerpt: true

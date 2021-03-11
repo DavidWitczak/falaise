@@ -1,0 +1,29 @@
+uuid: 83e9733a-815a-4d61-ae6f-5a5a4b07f296
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_infos_pratiques_discipline
+    - paragraphs.paragraphs_type.infos_pratiques_discipline
+    - taxonomy.vocabulary.infos_pratiques_disciplines
+id: paragraph.infos_pratiques_discipline.field_infos_pratiques_discipline
+field_name: field_infos_pratiques_discipline
+entity_type: paragraph
+bundle: infos_pratiques_discipline
+label: 'Infos pratiques discipline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      infos_pratiques_disciplines: infos_pratiques_disciplines
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

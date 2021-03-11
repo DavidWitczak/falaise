@@ -1,0 +1,21 @@
+uuid: 81f3fe07-e080-4ba3-8961-7425fee23730
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - node.type.se_former
+  module:
+    - text
+id: node.se_former.field_chapo
+field_name: field_chapo
+entity_type: node
+bundle: se_former
+label: Chapô
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

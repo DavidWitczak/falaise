@@ -1,0 +1,19 @@
+uuid: 954970c2-6f26-4251-8e5e-5489796a6337
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sous_titre
+    - node.type.agenda
+id: node.agenda.field_sous_titre
+field_name: field_sous_titre
+entity_type: node
+bundle: agenda
+label: 'Sous titre'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

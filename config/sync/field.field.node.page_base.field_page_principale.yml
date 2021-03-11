@@ -1,0 +1,21 @@
+uuid: be1e3719-63d6-4e47-8fae-46078474bdeb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_principale
+    - node.type.page_base
+id: node.page_base.field_page_principale
+field_name: field_page_principale
+entity_type: node
+bundle: page_base
+label: 'Page principale'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

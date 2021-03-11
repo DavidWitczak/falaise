@@ -1,0 +1,28 @@
+uuid: fbf2115d-4880-46fd-a7c0-9ee0ce15d0fe
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_medias
+    - media.type.image
+    - node.type.page_carrefour
+id: node.page_carrefour.field_medias
+field_name: field_medias
+entity_type: node
+bundle: page_carrefour
+label: Médias
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

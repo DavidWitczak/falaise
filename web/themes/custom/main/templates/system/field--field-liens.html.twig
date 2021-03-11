@@ -1,10 +1,10 @@
 {% for item in items %}
     <div class="row row-fichier-liens py-2">
-        <div class="col-lg-6">
+        <div class="col-lg-8">
             {{ item.content['#title'] }}
         </div>
-        <div class="col-lg-6">
-            <a href="{{ item.content['#url'] }}" target="_blank">
+        <div class="col-lg-4">
+            <a href="{{ item.content['#url'] }}" target="_blank" class="txt-white">
                 <img class="mr-1" width="20" src="/{{ directory }}/images/link-ico.png">
                 Voir cette page
             </a>

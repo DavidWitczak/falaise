@@ -1,0 +1,22 @@
+uuid: c53718a4-9de2-4afc-99c8-5f83485e2541
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.agenda
+id: node.agenda.promote
+field_name: promote
+entity_type: node
+bundle: agenda
+label: 'Promu en page d''accueil'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

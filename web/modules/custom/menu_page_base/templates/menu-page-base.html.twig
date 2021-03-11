@@ -3,7 +3,7 @@
     <div class="row">
 
       <div class="col-sm-6 col-lg-3 mb-1">
-        {% set media = getMediaInfos(var.main_page.media_id, '500_recadrer') %}
+        {% set media = getMediaInfos(var.main_page.media_id, 'carre_crop') %}
 
         {% if var.current_id == var.main_page_id %}
           {% set class_link = 'txt-blue' %}
@@ -18,8 +18,8 @@
             <img class="w-100" title="{{ media.name }}" alt="{{ media.name }}" src="{{ media.url }}">
             {{ div_color|raw }}
           </div>
-          <div class="row mx-0 align-items-center">
-            <div class="col text-align-center">
+          <div class="row mx-0 align-items-center mt-2">
+            <div class="col px-0">
               <h5 class="{{ class_link }} font-weight-bold">{{ var.main_page.title }}</h5>
             </div>
           </div>
@@ -27,7 +27,7 @@
       </div>
 
       {% for node in var.page %}
-        {% set media = getMediaInfos(node.media_id, '500_recadrer') %}
+        {% set media = getMediaInfos(node.media_id, 'carre_crop') %}
 
         {% if var.current_id == node.current_page_liee_id %}
           {% set class_link = 'txt-blue' %}
@@ -43,8 +43,8 @@
               <img class="w-100" title="{{ media.name }}" alt="{{ media.name }}" src="{{ media.url }}">
               {{ div_color|raw }}
             </div>
-            <div class="row mx-0 align-items-center">
-              <div class="col text-align-center">
+            <div class="row mx-0 align-items-center mt-2">
+              <div class="col px-0">
                 <h5 class="{{ class_link }} font-weight-bold">{{ node.title }}</h5>
               </div>
             </div>

@@ -1,0 +1,46 @@
+uuid: 43c22d3e-2e01-47da-a4c1-927d8c09206b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.se_former.field_audio
+    - field.field.node.se_former.field_chapo
+    - field.field.node.se_former.field_description
+    - field.field.node.se_former.field_discipline
+    - field.field.node.se_former.field_disciplines_asso
+    - field.field.node.se_former.field_famille_instruments
+    - field.field.node.se_former.field_infos_pratiques_discipline
+    - field.field.node.se_former.field_medias
+    - field.field.node.se_former.field_niveaux_scolaires
+    - field.field.node.se_former.field_pratiques_collectives_asso
+    - field.field.node.se_former.field_saviez_vous
+    - field.field.node.se_former.field_videos
+    - node.type.se_former
+  module:
+    - user
+id: node.se_former.teaser
+targetEntityType: node
+bundle: se_former
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_audio: true
+  field_chapo: true
+  field_description: true
+  field_discipline: true
+  field_disciplines_asso: true
+  field_famille_instruments: true
+  field_infos_pratiques_discipline: true
+  field_medias: true
+  field_niveaux_scolaires: true
+  field_pratiques_collectives_asso: true
+  field_saviez_vous: true
+  field_videos: true
+  langcode: true
+  search_api_excerpt: true

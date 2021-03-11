@@ -1,0 +1,18 @@
+uuid: 3f3323c4-3b72-412a-b9da-2b51e23b48a8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.actu
+id: node.actu.title
+field_name: title
+entity_type: node
+bundle: actu
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

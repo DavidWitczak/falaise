@@ -1,0 +1,27 @@
+uuid: 20aba0fa-daff-446b-a986-1cd182e815e8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_prog_assoc
+    - node.type.agenda
+id: node.agenda.field_prog_assoc
+field_name: field_prog_assoc
+entity_type: node
+bundle: agenda
+label: 'Programmation associée'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      agenda: agenda
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

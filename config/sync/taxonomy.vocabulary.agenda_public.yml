@@ -1,0 +1,8 @@
+uuid: 4ec129cc-8dbc-4289-9fee-589f0325eec0
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Agenda - public'
+vid: agenda_public
+description: ''
+weight: 0

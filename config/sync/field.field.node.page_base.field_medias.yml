@@ -1,0 +1,28 @@
+uuid: 060ad149-761e-4660-a53f-c5e5adc130f8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_medias
+    - media.type.image
+    - node.type.page_base
+id: node.page_base.field_medias
+field_name: field_medias
+entity_type: node
+bundle: page_base
+label: Médias
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

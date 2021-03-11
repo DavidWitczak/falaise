@@ -1,0 +1,8 @@
+uuid: 24866c63-380d-4429-93b9-b76306e92ef1
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Se former'
+vid: se_former
+description: ''
+weight: 0

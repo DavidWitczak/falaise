@@ -1,0 +1,18 @@
+uuid: 54e26c92-6f08-4d6d-9445-5251a56688b4
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Enseignants
+type: enseignants
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

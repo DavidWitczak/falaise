@@ -1,0 +1,21 @@
+uuid: 294769ea-b865-4f45-9a58-577520dbc61a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - node.type.page_carrefour
+  module:
+    - text
+id: node.page_carrefour.field_chapo
+field_name: field_chapo
+entity_type: node
+bundle: page_carrefour
+label: Chapô
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

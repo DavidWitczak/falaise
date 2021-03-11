@@ -1,0 +1,21 @@
+uuid: ba219ae5-8c96-4279-a071-e5d16a7fd87a
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_reservation
+    - node.type.agenda
+  module:
+    - text
+id: node.agenda.field_reservation
+field_name: field_reservation
+entity_type: node
+bundle: agenda
+label: Réservation
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

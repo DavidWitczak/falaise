@@ -1,0 +1,19 @@
+uuid: 1b5a0054-b3dd-41c9-adb1-980c3a008df0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_infos_sup
+    - node.type.agenda
+id: node.agenda.field_infos_sup
+field_name: field_infos_sup
+entity_type: node
+bundle: agenda
+label: 'Infos complémentaires'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

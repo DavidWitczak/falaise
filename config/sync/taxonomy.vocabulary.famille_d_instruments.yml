@@ -1,0 +1,8 @@
+uuid: ea462122-be73-47d8-95a9-37dcb607e361
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Famille d’instruments'
+vid: famille_d_instruments
+description: ''
+weight: 0

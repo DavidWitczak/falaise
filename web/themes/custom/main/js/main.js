@@ -33,9 +33,11 @@ jQuery('.bloc_close, .bloc_open').on('click', function () {
   if (jQuery(this).next().is(':hidden')) {
     jQuery(this).removeClass('bloc_close');
     jQuery(this).addClass('bloc_open');
-    jQuery(this).next().css({'display': 'block'});
+    // jQuery(this).next().css({'display': 'block'});
+    jQuery(this).next().slideDown(300);
   } else {
-    jQuery(this).next().css({'display': 'none'});
+    // jQuery(this).next().css({'display': 'none'});
+    jQuery(this).next().slideUp(300);
     jQuery(this).removeClass('bloc_open');
     jQuery(this).addClass('bloc_close');
   }

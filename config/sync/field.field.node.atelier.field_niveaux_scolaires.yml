@@ -1,0 +1,29 @@
+uuid: ba6f1356-0356-453a-8778-d1892b2b6374
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_niveaux_scolaires
+    - node.type.atelier
+    - taxonomy.vocabulary.niveaux_scolaires
+id: node.atelier.field_niveaux_scolaires
+field_name: field_niveaux_scolaires
+entity_type: node
+bundle: atelier
+label: 'Niveaux scolaires'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      niveaux_scolaires: niveaux_scolaires
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

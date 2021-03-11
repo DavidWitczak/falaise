@@ -1,0 +1,46 @@
+uuid: 411ee537-afab-490a-98ea-37f9e4027ee6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.pratiquer.field_audio
+    - field.field.node.pratiquer.field_chapo
+    - field.field.node.pratiquer.field_description
+    - field.field.node.pratiquer.field_discipline
+    - field.field.node.pratiquer.field_disciplines_asso
+    - field.field.node.pratiquer.field_infos_pratiques_discipline
+    - field.field.node.pratiquer.field_medias
+    - field.field.node.pratiquer.field_pratiques_collectives_asso
+    - field.field.node.pratiquer.field_public
+    - field.field.node.pratiquer.field_saviez_vous
+    - field.field.node.pratiquer.field_sous_titre
+    - field.field.node.pratiquer.field_videos
+    - node.type.pratiquer
+  module:
+    - user
+id: node.pratiquer.teaser
+targetEntityType: node
+bundle: pratiquer
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_audio: true
+  field_chapo: true
+  field_description: true
+  field_discipline: true
+  field_disciplines_asso: true
+  field_infos_pratiques_discipline: true
+  field_medias: true
+  field_pratiques_collectives_asso: true
+  field_public: true
+  field_saviez_vous: true
+  field_sous_titre: true
+  field_videos: true
+  langcode: true
+  search_api_excerpt: true

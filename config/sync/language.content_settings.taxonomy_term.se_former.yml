@@ -1,0 +1,11 @@
+uuid: eebd6c11-1089-4a9d-b4ac-b00cd090b6f6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.se_former
+id: taxonomy_term.se_former
+target_entity_type_id: taxonomy_term
+target_bundle: se_former
+default_langcode: site_default
+language_alterable: false

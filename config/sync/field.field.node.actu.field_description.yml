@@ -1,0 +1,21 @@
+uuid: 13dabf4c-ef80-46f4-8ae1-7ff2fa4ed2d5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description
+    - node.type.actu
+  module:
+    - text
+id: node.actu.field_description
+field_name: field_description
+entity_type: node
+bundle: actu
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,18 @@
+uuid: 9b80b155-2daf-4fe8-9025-a9d2f5995622
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.page_base
+id: node.page_base.title
+field_name: title
+entity_type: node
+bundle: page_base
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

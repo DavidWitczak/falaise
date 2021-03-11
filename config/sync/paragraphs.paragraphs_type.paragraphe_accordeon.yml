@@ -1,0 +1,10 @@
+uuid: ec87fd82-db17-4a21-aab4-b3f90a60947b
+langcode: fr
+status: true
+dependencies: {  }
+id: paragraphe_accordeon
+label: 'Paragraphe accordéon'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

@@ -1,0 +1,15 @@
+uuid: 6ed7be3e-fd31-40f0-be54-946c9e97b1c5
+langcode: fr
+status: true
+dependencies:
+  module:
+    - media_entity_soundcloud
+id: audio
+label: Audio
+description: ''
+source: soundcloud
+queue_thumbnail_downloads: false
+new_revision: false
+source_configuration:
+  source_field: field_media_soundcloud
+field_map: {  }

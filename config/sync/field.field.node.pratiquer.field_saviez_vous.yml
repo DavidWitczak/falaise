@@ -1,0 +1,37 @@
+uuid: 056ae77e-18dd-432f-a882-3a9860bfbdfb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_saviez_vous
+    - node.type.pratiquer
+    - paragraphs.paragraphs_type.infos_discipline
+  module:
+    - entity_reference_revisions
+id: node.pratiquer.field_saviez_vous
+field_name: field_saviez_vous
+entity_type: node
+bundle: pratiquer
+label: 'Le saviez vous'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      infos_discipline: infos_discipline
+    target_bundles_drag_drop:
+      infos_discipline:
+        enabled: true
+        weight: 4
+      infos_pratiques_discipline:
+        weight: 5
+        enabled: false
+      paragraphe_accordeon:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

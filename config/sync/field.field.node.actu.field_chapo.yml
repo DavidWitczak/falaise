@@ -1,0 +1,21 @@
+uuid: 3392ab70-183c-4bb0-baff-48b275dcb442
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - node.type.actu
+  module:
+    - text
+id: node.actu.field_chapo
+field_name: field_chapo
+entity_type: node
+bundle: actu
+label: Chapô
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

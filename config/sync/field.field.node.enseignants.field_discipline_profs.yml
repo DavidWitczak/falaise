@@ -1,0 +1,31 @@
+uuid: 581a4f25-b32c-4187-bcee-5217210cffbb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_discipline_profs
+    - node.type.enseignants
+    - taxonomy.vocabulary.pratiquer
+    - taxonomy.vocabulary.se_former
+id: node.enseignants.field_discipline_profs
+field_name: field_discipline_profs
+entity_type: node
+bundle: enseignants
+label: Discipline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      pratiquer: pratiquer
+      se_former: se_former
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: pratiquer
+field_type: entity_reference

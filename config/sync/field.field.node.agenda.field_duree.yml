@@ -1,0 +1,19 @@
+uuid: 5b509e68-284f-41f9-8e73-f339ce4e3fc2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duree
+    - node.type.agenda
+id: node.agenda.field_duree
+field_name: field_duree
+entity_type: node
+bundle: agenda
+label: Durée
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

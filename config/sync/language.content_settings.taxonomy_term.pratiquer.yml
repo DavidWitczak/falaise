@@ -1,0 +1,11 @@
+uuid: 373ad8d6-260d-4bb7-91df-90b18d398046
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.pratiquer
+id: taxonomy_term.pratiquer
+target_entity_type_id: taxonomy_term
+target_bundle: pratiquer
+default_langcode: site_default
+language_alterable: false

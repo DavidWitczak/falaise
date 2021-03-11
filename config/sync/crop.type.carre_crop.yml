@@ -1,0 +1,12 @@
+uuid: c45dedd3-de5e-4fff-8a56-f6a62a10fc2d
+langcode: fr
+status: true
+dependencies: {  }
+label: 'Carre crop'
+id: carre_crop
+description: ''
+aspect_ratio: '1:1'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

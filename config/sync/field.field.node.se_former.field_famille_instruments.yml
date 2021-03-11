@@ -1,0 +1,29 @@
+uuid: fb433f5c-0729-4f06-bb66-0c80791fe527
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_famille_instruments
+    - node.type.se_former
+    - taxonomy.vocabulary.famille_d_instruments
+id: node.se_former.field_famille_instruments
+field_name: field_famille_instruments
+entity_type: node
+bundle: se_former
+label: 'Famille d’instruments'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      famille_d_instruments: famille_d_instruments
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

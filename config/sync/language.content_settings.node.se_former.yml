@@ -1,0 +1,11 @@
+uuid: 0c43263a-cc4b-4862-b8f1-fe8ce315c160
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.se_former
+id: node.se_former
+target_entity_type_id: node
+target_bundle: se_former
+default_langcode: site_default
+language_alterable: false

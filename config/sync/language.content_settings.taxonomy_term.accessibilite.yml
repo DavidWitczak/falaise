@@ -1,0 +1,11 @@
+uuid: 74b8220f-96f8-488b-9556-91538a9034db
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.accessibilite
+id: taxonomy_term.accessibilite
+target_entity_type_id: taxonomy_term
+target_bundle: accessibilite
+default_langcode: site_default
+language_alterable: false

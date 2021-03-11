@@ -120,6 +120,41 @@ class ConfigForm extends ConfigFormBase {
       '#format' => 'ckeditor',
     );
 
+    $form['presentation']['pratiquer'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Chapô - Pratiquer',
+      '#default_value' => $config->get('pratiquer')['value'],
+      '#format' => 'ckeditor',
+    );
+
+    $form['presentation']['pratiquer_suite'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Présentation - Pratiquer',
+      '#default_value' => $config->get('pratiquer_suite')['value'],
+      '#format' => 'ckeditor',
+    );
+
+    //Texte home agenda
+    $form['presentation_agenda'] = [
+      '#type' => 'details',
+      '#title' => 'Presentations - Agenda',
+      '#open' => FALSE,
+    ];
+
+    $form['presentation_agenda']['agenda'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Chapô - Agenda',
+      '#default_value' => $config->get('agenda')['value'],
+      '#format' => 'ckeditor',
+    );
+
+    $form['presentation_agenda']['agenda_suite'] = array(
+      '#type' => 'text_format',
+      '#title' => 'Présentation - Agenda',
+      '#default_value' => $config->get('agenda_suite')['value'],
+      '#format' => 'ckeditor',
+    );
+
     return parent::buildForm($form, $form_state);
   }
 
@@ -137,6 +172,10 @@ class ConfigForm extends ConfigFormBase {
       $this->configFactory->getEditable('site_config.config')->set('event_' . $i, $form_state->getValue('event_' . $i));
     }
 
+    // texte agenda
+    $this->configFactory->getEditable('site_config.config')->set('agenda', $form_state->getValue('agenda'));
+    $this->configFactory->getEditable('site_config.config')->set('agenda_suite', $form_state->getValue('agenda_suite'));
+
     //alerts
     $this->configFactory->getEditable('site_config.config')->set('alert_1_txt', $form_state->getValue('alert_1_txt'));
     $this->configFactory->getEditable('site_config.config')->set('alert_1_url', $form_state->getValue('alert_1_url'));
@@ -146,6 +185,11 @@ class ConfigForm extends ConfigFormBase {
     // Se former
     $this->configFactory->getEditable('site_config.config')->set('se_former', $form_state->getValue('se_former'));
     $this->configFactory->getEditable('site_config.config')->set('se_former_suite', $form_state->getValue('se_former_suite'));
+
+    // pratiquer
+    $this->configFactory->getEditable('site_config.config')->set('pratiquer', $form_state->getValue('pratiquer'));
+    $this->configFactory->getEditable('site_config.config')->set('pratiquer_suite', $form_state->getValue('pratiquer_suite'));
+
 
     $this->configFactory->getEditable('site_config.config')->save();
   }

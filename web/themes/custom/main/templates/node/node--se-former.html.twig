@@ -4,7 +4,7 @@
   <div class="row">
     <div class="col-lg-5">
       <div>
-        {% set media = getMediaInfos(node.field_medias.target_id, 'large') %}
+        {% set media = getMediaInfos(node.field_medias.target_id, 'paysage_crop') %}
         <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
       </div>
     </div>
@@ -21,8 +21,8 @@
   <div class="row mt-6">
     {% for image in node.field_medias %}
       {% if loop.index != 1 %}
-        {% set media = getMediaInfos(image.target_id, 'carre_crop') %}
-        <div class="col-lg-4 my-3">
+        {% set media = getMediaInfos(image.target_id, 'paysage_crop') %}
+        <div class="col-lg-4 p-0">
           <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
             <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
           </a>

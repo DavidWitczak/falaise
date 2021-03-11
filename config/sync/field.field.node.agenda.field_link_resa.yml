@@ -1,0 +1,23 @@
+uuid: 63ff2fef-f6f1-4f69-a403-a87928985761
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link_resa
+    - node.type.agenda
+  module:
+    - link
+id: node.agenda.field_link_resa
+field_name: field_link_resa
+entity_type: node
+bundle: agenda
+label: 'Lien de réservation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

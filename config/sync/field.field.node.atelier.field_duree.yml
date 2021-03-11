@@ -1,0 +1,19 @@
+uuid: 2337bca0-f3c1-4635-9595-f5cfbe37d777
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_duree
+    - node.type.atelier
+id: node.atelier.field_duree
+field_name: field_duree
+entity_type: node
+bundle: atelier
+label: Durée
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,11 @@
+uuid: 46024827-d83f-41b7-8a94-83633271f78e
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.agenda_types
+id: taxonomy_term.agenda_types
+target_entity_type_id: taxonomy_term
+target_bundle: agenda_types
+default_langcode: site_default
+language_alterable: false

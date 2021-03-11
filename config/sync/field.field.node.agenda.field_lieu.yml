@@ -1,0 +1,19 @@
+uuid: 1da10545-173f-48c2-bf4c-6d8aaa6d2fc2
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lieu
+    - node.type.agenda
+id: node.agenda.field_lieu
+field_name: field_lieu
+entity_type: node
+bundle: agenda
+label: Lieu
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

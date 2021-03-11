@@ -1,0 +1,28 @@
+uuid: 036ba1f1-013f-49f6-8a7e-b9f514687b95
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audio
+    - media.type.audio
+    - node.type.pratiquer
+id: node.pratiquer.field_audio
+field_name: field_audio
+entity_type: node
+bundle: pratiquer
+label: Audio
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,32 @@
+uuid: bd191ae9-cc32-464e-8f30-da087652a643
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.infos_pratiques_discipline.field_corps_texte
+    - field.field.paragraph.infos_pratiques_discipline.field_infos_pratiques_discipline
+    - paragraphs.paragraphs_type.infos_pratiques_discipline
+  module:
+    - text
+id: paragraph.infos_pratiques_discipline.default
+targetEntityType: paragraph
+bundle: infos_pratiques_discipline
+mode: default
+content:
+  field_corps_texte:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_infos_pratiques_discipline:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+hidden:
+  created: true
+  status: true

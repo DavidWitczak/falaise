@@ -1,0 +1,19 @@
+uuid: cc0e1e0a-7f73-494a-8e6a-1aeed75215dc
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sous_titre
+    - node.type.atelier
+id: node.atelier.field_sous_titre
+field_name: field_sous_titre
+entity_type: node
+bundle: atelier
+label: 'Sous titre'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

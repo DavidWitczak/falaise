@@ -1,0 +1,28 @@
+uuid: e0e1e47b-81b8-43ed-88c1-ab5a3f81705b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_carrefour.field_chapo
+    - field.field.node.page_carrefour.field_liens
+    - field.field.node.page_carrefour.field_medias
+    - node.type.page_carrefour
+  module:
+    - user
+id: node.page_carrefour.teaser
+targetEntityType: node
+bundle: page_carrefour
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_chapo: true
+  field_liens: true
+  field_medias: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,34 @@
+uuid: e52cbee6-251b-4bbf-a6f0-ebc9f812c070
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.enseignants.field_chapo
+    - field.field.node.enseignants.field_description
+    - field.field.node.enseignants.field_discipline_profs
+    - field.field.node.enseignants.field_disciplines_asso
+    - field.field.node.enseignants.field_medias
+    - field.field.node.enseignants.field_pratiques_collectives_asso
+    - node.type.enseignants
+  module:
+    - user
+id: node.enseignants.teaser
+targetEntityType: node
+bundle: enseignants
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_chapo: true
+  field_description: true
+  field_discipline_profs: true
+  field_disciplines_asso: true
+  field_medias: true
+  field_pratiques_collectives_asso: true
+  langcode: true
+  search_api_excerpt: true

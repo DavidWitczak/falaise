@@ -3,6 +3,6 @@ home_pratiquer.home_controller_home:
   path: '/pratiquer'
   defaults:
     _controller: '\Drupal\home_pratiquer\Controller\HomeController::home'
-    _title: 'home'
+    _title: 'Pratiquer'
   requirements:
     _permission: 'access content'

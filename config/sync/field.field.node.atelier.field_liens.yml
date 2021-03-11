@@ -1,0 +1,23 @@
+uuid: 268e951a-6b09-46f8-a77b-d0a2a8946764
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_liens
+    - node.type.atelier
+  module:
+    - link
+id: node.atelier.field_liens
+field_name: field_liens
+entity_type: node
+bundle: atelier
+label: Liens
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

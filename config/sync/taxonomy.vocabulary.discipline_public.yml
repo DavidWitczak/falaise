@@ -1,0 +1,8 @@
+uuid: ba08e5bb-e5df-449e-8ddb-c9780e64ff5f
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Discipline public'
+vid: discipline_public
+description: ''
+weight: 0

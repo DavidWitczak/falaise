@@ -1,0 +1,11 @@
+uuid: f33273b4-baf0-484e-b972-4c758c440576
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.enseignants
+id: node.enseignants
+target_entity_type_id: node
+target_bundle: enseignants
+default_langcode: site_default
+language_alterable: false

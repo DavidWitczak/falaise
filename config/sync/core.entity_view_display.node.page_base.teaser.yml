@@ -1,0 +1,38 @@
+uuid: 989e7f41-f7fd-4170-8d4b-bf12e987f0a9
+langcode: fr
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page_base.field_bloc_txt
+    - field.field.node.page_base.field_chapo
+    - field.field.node.page_base.field_fichiers
+    - field.field.node.page_base.field_liens
+    - field.field.node.page_base.field_medias
+    - field.field.node.page_base.field_page_base_liee
+    - field.field.node.page_base.field_page_principale
+    - field.field.node.page_base.field_sous_titre
+    - node.type.page_base
+  module:
+    - user
+id: node.page_base.teaser
+targetEntityType: node
+bundle: page_base
+mode: teaser
+content:
+  links:
+    weight: 100
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_bloc_txt: true
+  field_chapo: true
+  field_fichiers: true
+  field_liens: true
+  field_medias: true
+  field_page_base_liee: true
+  field_page_principale: true
+  field_sous_titre: true
+  langcode: true
+  search_api_excerpt: true

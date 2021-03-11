@@ -1,0 +1,10 @@
+uuid: 27a0c23e-ad59-4ead-a970-27276fe2fd6c
+langcode: fr
+status: true
+dependencies: {  }
+id: infos_pratiques_discipline
+label: 'Infos pratiques discipline'
+icon_uuid: null
+icon_default: null
+description: ''
+behavior_plugins: {  }

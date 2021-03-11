@@ -1,19 +1,18 @@
-<div class="container">
+<div class="container-fluid p-0 banner">
+  {% if node.field_medias.target_id != '' %}
+    {% set media = getMediaInfos(node.field_medias.target_id, 'pano_crop') %}
+    <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+  {% endif %}
+</div>
+<div class="container bg-white sub-banner pt-3">
+  {{ bamboo_render_block('system_breadcrumb_block') }}
+  <h1 class="mb-4">{{ node.title.value }}</h1>
 
-  <h2 class="">{{ node.title.value }}</h2>
-
-  <h4 class="">{{ node.field_sous_titre.value }}</h4>
+  {# <h4 class="">{{ node.field_sous_titre.value }}</h4> #}
 
   <div>{{ bamboo_render_block('menu_page_block') }}</div>
 
   <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
-
-  <div class="">
-    {% if node.field_medias.target_id != '' %}
-      {% set media = getMediaInfos(node.field_medias.target_id, '500_recadrer') %}
-      <img class="" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-    {% endif %}
-  </div>
 
   {% for paragraph in node.field_bloc_txt %}
     {% set paragraph_entity = bamboo_load_entity('paragraph', paragraph.target_id) %}
@@ -23,7 +22,9 @@
     <div class="clearfix">
       <h2 class="{{ etat }} txt-blue border-bt-bleu mt-5 mb-3">
         {% if etat == 'bloc_open' or etat == 'bloc_close' %}
-          <img width="40" src="/{{ directory }}/images/arrow_bloc.png">
+          <div class="btn btn-danger">
+            <i class="txt-white fas fa-chevron-up"></i>
+          </div>
         {% endif %}
         {{ title }}
       </h2>
@@ -31,22 +32,8 @@
     </div>
   {% endfor %}
 
-  <div class="row">
-    {% for image in node.field_medias %}
-      {% if loop.index != 1 %}
-        {% set media = getMediaInfos(image.target_id, '500_recadrer') %}
-        <div class="col-sm-3 my-3">
-          <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
-            <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" width="95%"
-                 src="{{ media.url }}">
-          </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-
   {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
-    <div class="my-3 alert-dark p-3">
+    <div class="my-3 bg-black txt-white p-3">
       <h4 class="text-uppercase">En savoir +</h4>
       <div class="">
         {{ bamboo_render_field('field_liens', 'node') }}
@@ -54,5 +41,19 @@
       </div>
     </div>
   {% endif %}
+
+  {# Galerie #}
+  <div class="row mt-6 mb-5">
+    {% for image in node.field_medias %}
+      {% if loop.index != 1 %}
+        {% set media = getMediaInfos(image.target_id, 'paysage_crop') %}
+        <div class="col-lg-4 p-0 m-0">
+          <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
+            <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
+          </a>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 
 </div>

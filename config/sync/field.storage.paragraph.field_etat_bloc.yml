@@ -1,0 +1,30 @@
+uuid: d57b78f4-f913-478f-ae19-727d978aa38f
+langcode: fr
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_etat_bloc
+field_name: field_etat_bloc
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: bloc_visible
+      label: Visible
+    -
+      value: bloc_open
+      label: Ouvert
+    -
+      value: bloc_close
+      label: Fermé
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

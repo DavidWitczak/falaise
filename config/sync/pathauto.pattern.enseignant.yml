@@ -1,0 +1,22 @@
+uuid: 8f8448ff-fbaa-44b4-b074-a178e8b33988
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: enseignant
+label: enseignant
+type: 'canonical_entities:node'
+pattern: '/conservatoire/equipe/[node:title]'
+selection_criteria:
+  259f6bb3-7169-4c4d-989a-7c7af97578d2:
+    id: node_type
+    bundles:
+      enseignants: enseignants
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 259f6bb3-7169-4c4d-989a-7c7af97578d2
+selection_logic: and
+weight: -5
+relationships: {  }

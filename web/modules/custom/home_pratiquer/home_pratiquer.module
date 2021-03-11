@@ -29,7 +29,9 @@ function home_pratiquer_help($route_name, RouteMatchInterface $route_match) {
 function home_pratiquer_theme() {
   return [
     'home_pratiquer' => [
-      'render element' => 'children',
+      'variables' => [
+        'var' => [],
+      ],
     ],
   ];
 }

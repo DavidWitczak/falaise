@@ -1,0 +1,28 @@
+uuid: 5d6ca623-0dd6-41c6-a5d4-98735aa75c08
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_medias
+    - media.type.image
+    - node.type.enseignants
+id: node.enseignants.field_medias
+field_name: field_medias
+entity_type: node
+bundle: enseignants
+label: Médias
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

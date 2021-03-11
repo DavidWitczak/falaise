@@ -1,0 +1,48 @@
+<div class="container">
+  {{ bamboo_render_block('system_breadcrumb_block') }}
+
+  <h1 id="filter" name="filter" class="bebas text-uppercase">L'équipe enseignante</h1>
+
+  <div id="block-webform" class="mt-6 mb-4">
+    <h2 class="bebas text-uppercase mb-4">Filtrer les fiches par :</h2>
+    {{ bamboo_render_entity('webform', 'enseignants') }}
+  </div>
+</div>
+
+<div class="container-fluid py-5 mb-5">
+  <div class="container">
+    <div class="row">
+      {% if var.profs %}
+        {% for prof in var.profs %}
+          {% set media = getMediaInfos(prof.visuel_id, 'carre_crop') %}
+          <div class="col-lg-4 px-5 mb-5 text-align-center">
+              <div class="mb-2">
+                <a href="{{ prof.url }}">
+                  <img class="w-75 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                       src="{{ media.url }}">
+                </a>
+              </div>
+              <div class="">
+                <a href="{{ prof.url }}">
+                  <div class="h5 font-weight-bold">{{ prof.title }}</div>
+                </a>
+                <div>
+                  <div class="mb-4">
+                    {% for cat in prof.tid %}
+                      {{ cat.entity.name.value }}{% if not loop.last %} - {% endif %}
+                    {% endfor %}
+                  </div>
+                </div>
+                <div class="border-bottom pb-3">
+                  {{ prof.chapo.value|raw }}
+                </div>
+              </div>
+
+          </div>
+        {% endfor %}
+      {% else %}
+        <h4 class="text-uppercase">Aucun résultat</h4>
+      {% endif %}
+    </div>
+  </div>
+</div>

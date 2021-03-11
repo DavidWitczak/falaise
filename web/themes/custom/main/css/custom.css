@@ -27,6 +27,12 @@ body {
   background: none;
 }
 
+#breadcrumb-wrapper{
+  /*background: white;*/
+  position: relative;
+  z-index: 9;
+}
+
 .breadcrumb a{
   color: black;
 }
@@ -57,7 +63,7 @@ body {
 
 h1{
   font-family: bebas;
-  font-size: 5rem;
+  font-size: 4rem;
   text-transform: uppercase;
 }
 
@@ -104,7 +110,8 @@ a:hover {
   color: #a3a3a3;
 }
 
-.txt-white{
+.txt-white,
+.txt-white a{
   color: white;
 }
 
@@ -145,7 +152,7 @@ a:hover {
 }
 
 .font-big{
-  font-size: 1.7rem;
+  font-size: 1.3rem;
 }
 
 .chapo {
@@ -169,8 +176,8 @@ a:hover {
   background: #EC6608;
 }
 
-.tag-117 {
-
+.tag-red {
+background: #E30B17;
 }
 
 .tag-134 {
@@ -259,13 +266,17 @@ a:hover {
   margin-top: 5px;
 }
 
-.bloc_close img {
+.bloc_close i {
   transform: rotate(-180deg);
-  transition: 0.5s;
+  transition: 0.3s;
 }
 
-.bloc_open img {
-  transition: 0.5s;
+.bloc_open i {
+  transition: 0.3s;
+}
+
+.description{
+  /*min-height: 50px;*/
 }
 
 h2.bloc_close, h2.bloc_open {
@@ -279,7 +290,14 @@ h2.bloc_close, h2.bloc_open {
   left: 15px;
   right: 15px;
   bottom: 0;
-  background: linear-gradient(transparent 50%, black 97%, #E30B17 3%);
+  background: linear-gradient(transparent 30%, black 97%, #E30B17 3%);
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.infos-object:hover {
+  background: linear-gradient(transparent 0%, black 97%, #E30B17 3%);
+  opacity: 1;
 }
 
 .infos-content{
@@ -292,7 +310,7 @@ h2.bloc_close, h2.bloc_open {
 
 .btn:hover{
   color: white;
-  background: #d64b53;
+  /*background: #d64b53;*/
 }
 
 .btn{
@@ -340,6 +358,72 @@ h2.bloc_close, h2.bloc_open {
 .form-control:focus{
   box-shadow: none;
   background: #fafafa;
+}
+
+.form-control{
+  font-size: 1.3rem;
+}
+
+.form-control.form-control-sm{
+  font-size: 0.6rem;
+}
+
+.form-group:before{
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  color: #E30B17;
+  font-size: 1.3rem;
+}
+
+optgroup {
+  font-size: 1.8rem;
+}
+
+.form-item-discipline:before {
+  content: "\f069";
+}
+
+.form-item-public:before {
+  content: "\f0c0";
+}
+
+.form-item-famille-d-instruments:before {
+  content: "\f7a6";
+}
+
+.form-item-pratiquer:before {
+  content: "\f569";
+}
+
+.banner{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.sub-banner{
+  position: relative;
+  z-index: 8;
+  margin-top: 300px;
+}
+
+.date-event{
+  line-height: 0.9rem;
+}
+
+.event_infos{
+  margin-top: -25%;
+  position: relative;
+  z-index: 2;
+}
+
+.hover-img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(transparent 25%, black 97%);
 }
 
 /*Bootstrap 4 Tooltip*/

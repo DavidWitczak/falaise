@@ -1,0 +1,18 @@
+uuid: 28946187-30d2-48e9-bb62-5ab077c5816c
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.se_former
+id: node.se_former.title
+field_name: title
+entity_type: node
+bundle: se_former
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

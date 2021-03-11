@@ -1,0 +1,19 @@
+uuid: b5c7b9f8-2472-464e-aae1-f2eb87653e35
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_nb_personnes
+    - node.type.atelier
+id: node.atelier.field_nb_personnes
+field_name: field_nb_personnes
+entity_type: node
+bundle: atelier
+label: 'Nombre de personnes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

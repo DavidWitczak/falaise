@@ -1,0 +1,29 @@
+uuid: 73706c12-b9fe-47d6-8977-01c709d3020f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_discipline
+    - node.type.se_former
+    - taxonomy.vocabulary.se_former
+id: node.se_former.field_discipline
+field_name: field_discipline
+entity_type: node
+bundle: se_former
+label: Discipline
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      se_former: se_former
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

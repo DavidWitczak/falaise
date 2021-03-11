@@ -1,0 +1,21 @@
+uuid: d7f4a02d-0f3a-4b4b-849f-3588d3d85dbb
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_corps_texte
+    - paragraphs.paragraphs_type.paragraphe_accordeon
+  module:
+    - text
+id: paragraph.paragraphe_accordeon.field_corps_texte
+field_name: field_corps_texte
+entity_type: paragraph
+bundle: paragraphe_accordeon
+label: 'Corps de texte'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

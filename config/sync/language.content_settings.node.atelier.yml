@@ -1,0 +1,11 @@
+uuid: 1d35fff2-d030-4a85-893b-12fd435cda18
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.atelier
+id: node.atelier
+target_entity_type_id: node
+target_bundle: atelier
+default_langcode: site_default
+language_alterable: false

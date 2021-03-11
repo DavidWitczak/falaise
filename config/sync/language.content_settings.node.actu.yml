@@ -1,0 +1,11 @@
+uuid: 931592c9-41e7-4ecc-90f0-6e614b88cd30
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.actu
+id: node.actu
+target_entity_type_id: node
+target_bundle: actu
+default_langcode: site_default
+language_alterable: false

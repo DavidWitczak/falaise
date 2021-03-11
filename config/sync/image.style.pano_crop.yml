@@ -1,0 +1,17 @@
+uuid: 1d8fe715-8d92-4685-995e-9f08d30b4fe0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - crop.type.pano_crop
+  module:
+    - crop
+name: pano_crop
+label: 'panoramique crop'
+effects:
+  f57c0111-cde9-4b76-ae10-89835fe8862f:
+    uuid: f57c0111-cde9-4b76-ae10-89835fe8862f
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: pano_crop

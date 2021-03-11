@@ -1,0 +1,12 @@
+uuid: d14c2824-cd84-47d9-a6aa-4270a55b4f42
+langcode: fr
+status: true
+dependencies: {  }
+label: 'panoramique crop'
+id: pano_crop
+description: ''
+aspect_ratio: '16:7'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null

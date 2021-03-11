@@ -1,0 +1,17 @@
+uuid: 33f1ea1d-69e9-492b-93b1-506b28247b7f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - crop.type.paysage_crop
+  module:
+    - crop
+name: paysage_crop
+label: 'Paysage crop'
+effects:
+  d689fd70-22ba-4b29-ad8d-2fc3fb59f392:
+    uuid: d689fd70-22ba-4b29-ad8d-2fc3fb59f392
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: paysage_crop

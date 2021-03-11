@@ -1,0 +1,22 @@
+uuid: 69cb6d80-b4c9-4452-bec5-af74f128a649
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.enseignants
+id: node.enseignants.promote
+field_name: promote
+entity_type: node
+bundle: enseignants
+label: 'Promu en page d''accueil'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: Activé
+  off_label: Désactivé
+field_type: boolean

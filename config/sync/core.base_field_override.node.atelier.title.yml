@@ -1,0 +1,18 @@
+uuid: b22107ed-40dd-463f-8afa-4ab9b8066c20
+langcode: fr
+status: true
+dependencies:
+  config:
+    - node.type.atelier
+id: node.atelier.title
+field_name: title
+entity_type: node
+bundle: atelier
+label: Titre
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

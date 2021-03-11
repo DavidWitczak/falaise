@@ -1,0 +1,19 @@
+uuid: f47e46e7-e8b6-4268-af07-71ff2998e148
+langcode: fr
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_link_resa
+field_name: field_link_resa
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

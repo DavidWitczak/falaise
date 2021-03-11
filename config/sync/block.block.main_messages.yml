@@ -1,0 +1,22 @@
+uuid: 5d3e5c88-0a0b-4dd9-8155-af60116b94b3
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - main
+_core:
+  default_config_hash: 5MNdk3fpMKx_xxBTcz2T11DL4XEU1H5SgHl8BsYdFsA
+id: main_messages
+theme: main
+region: alert
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Messages de statut'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,20 @@
+uuid: d6f001c7-ea81-4814-86ec-aefde334a019
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - seven
+id: filsdariane
+theme: seven
+region: header
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: 'Fils d''ariane'
+  provider: system
+  label_display: visible
+visibility: {  }

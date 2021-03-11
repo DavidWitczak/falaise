@@ -1,0 +1,37 @@
+uuid: 56f5f3af-0dd5-4b18-9593-9028132532e0
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_infos_pratiques_discipline
+    - node.type.se_former
+    - paragraphs.paragraphs_type.infos_pratiques_discipline
+  module:
+    - entity_reference_revisions
+id: node.se_former.field_infos_pratiques_discipline
+field_name: field_infos_pratiques_discipline
+entity_type: node
+bundle: se_former
+label: 'Infos pratiques discipline'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      infos_pratiques_discipline: infos_pratiques_discipline
+    target_bundles_drag_drop:
+      infos_discipline:
+        weight: 5
+        enabled: false
+      infos_pratiques_discipline:
+        enabled: true
+        weight: 4
+      paragraphe_accordeon:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

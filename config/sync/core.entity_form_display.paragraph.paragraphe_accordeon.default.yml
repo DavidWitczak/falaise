@@ -1,0 +1,41 @@
+uuid: ac9b3d7e-e015-40f3-9316-70aa734705ee
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphe_accordeon.field_corps_texte
+    - field.field.paragraph.paragraphe_accordeon.field_etat_bloc
+    - field.field.paragraph.paragraphe_accordeon.field_titre
+    - paragraphs.paragraphs_type.paragraphe_accordeon
+  module:
+    - text
+id: paragraph.paragraphe_accordeon.default
+targetEntityType: paragraph
+bundle: paragraphe_accordeon
+mode: default
+content:
+  field_corps_texte:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_etat_bloc:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_titre:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

@@ -1,0 +1,27 @@
+uuid: d11101df-d405-4348-be6f-59ac066f2215
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_musee
+    - node.type.atelier
+id: node.atelier.field_musee
+field_name: field_musee
+entity_type: node
+bundle: atelier
+label: Musée
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles: {  }
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

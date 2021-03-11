@@ -1,0 +1,19 @@
+uuid: e40e063e-6eb1-4784-9aef-62d678cdd093
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_titre
+    - paragraphs.paragraphs_type.infos_discipline
+id: paragraph.infos_discipline.field_titre
+field_name: field_titre
+entity_type: paragraph
+bundle: infos_discipline
+label: Titre
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

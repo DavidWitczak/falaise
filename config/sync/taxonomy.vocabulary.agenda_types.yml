@@ -1,0 +1,8 @@
+uuid: c457c435-2cac-4f74-8594-472ecaac7729
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Agenda - types'
+vid: agenda_types
+description: ''
+weight: 0

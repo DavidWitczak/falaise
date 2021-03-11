@@ -1,0 +1,27 @@
+uuid: a1d64bee-ab74-4e1d-89de-c64ba0a2c697
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pratiques_collectives_asso
+    - node.type.pratiquer
+id: node.pratiquer.field_pratiques_collectives_asso
+field_name: field_pratiques_collectives_asso
+entity_type: node
+bundle: pratiquer
+label: 'Pratiques collectives associées'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      pratiquer: pratiquer
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

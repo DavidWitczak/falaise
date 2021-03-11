@@ -1,0 +1,19 @@
+uuid: e3a36bce-8b18-4a93-822b-775405aff260
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sous_titre
+    - node.type.pratiquer
+id: node.pratiquer.field_sous_titre
+field_name: field_sous_titre
+entity_type: node
+bundle: pratiquer
+label: 'Sous titre'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

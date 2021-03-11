@@ -1,0 +1,18 @@
+uuid: 7afcd83e-a602-49eb-9ad0-63143bc034cb
+langcode: fr
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Se former'
+type: se_former
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

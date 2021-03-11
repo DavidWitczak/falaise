@@ -1,0 +1,28 @@
+uuid: 43e3b38b-1272-4af4-b0a8-c327c4469965
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_videos
+    - media.type.video
+    - node.type.se_former
+id: node.se_former.field_videos
+field_name: field_videos
+entity_type: node
+bundle: se_former
+label: Vidéos
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

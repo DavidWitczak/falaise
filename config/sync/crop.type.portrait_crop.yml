@@ -1,0 +1,12 @@
+uuid: b42d049b-04fa-4618-b561-c27a42a36153
+langcode: fr
+status: true
+dependencies: {  }
+label: 'Portrait crop'
+id: portrait_crop
+description: ''
+aspect_ratio: '10:12'
+soft_limit_width: null
+soft_limit_height: null
+hard_limit_width: null
+hard_limit_height: null
