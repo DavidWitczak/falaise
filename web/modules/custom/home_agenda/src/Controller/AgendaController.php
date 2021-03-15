@@ -115,7 +115,7 @@ class AgendaController extends ControllerBase {
     $output = [];
     $config = \Drupal::config('site_config.config');
 
-    for ($i = 1; $i <= 3; $i++) {
+    for ($i = 1; $i <= 2; $i++) {
       $node = Node::load($config->get('event_' . $i));
       if($node) {
         $field_media = $node->get('field_medias')->getValue();
