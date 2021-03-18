@@ -1,4 +1,7 @@
 <div class="container">
+
+  {{ bamboo_render_block('system_breadcrumb_block') }}
+
   <h1 id="filter" name="filter" class="bebas text-uppercase">Disciplines, se former</h1>
   <div class="chapo mb-5">
     {{ bamboo_config_get('site_config.config', 'se_former')['value']|raw }}

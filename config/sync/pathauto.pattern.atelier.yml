@@ -1,0 +1,22 @@
+uuid: 232905a8-e6d3-445a-88e3-550dd4e09ca1
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: atelier
+label: Atelier
+type: 'canonical_entities:node'
+pattern: '/offre-educative/ateliers-educatifs/[node:title]'
+selection_criteria:
+  53fbfd3d-5691-44c3-ad28-4409dc036a79:
+    id: node_type
+    bundles:
+      atelier: atelier
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 53fbfd3d-5691-44c3-ad28-4409dc036a79
+selection_logic: and
+weight: -5
+relationships: {  }

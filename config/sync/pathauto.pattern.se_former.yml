@@ -1,0 +1,22 @@
+uuid: 886742f2-4d5a-429f-82fd-4af6c396f30e
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: se_former
+label: 'Se former'
+type: 'canonical_entities:node'
+pattern: '/se-former/disciplines/[node:title]'
+selection_criteria:
+  6e11d29d-e7db-41fc-80d5-782e30f014a9:
+    id: node_type
+    bundles:
+      se_former: se_former
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 6e11d29d-e7db-41fc-80d5-782e30f014a9
+selection_logic: and
+weight: -5
+relationships: {  }

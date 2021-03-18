@@ -1,6 +1,6 @@
 
 home_former.home_controller_home:
-  path: '/se-former'
+  path: '/se-former/disciplines'
   defaults:
     _controller: '\Drupal\home_former\Controller\HomeController::home'
     _title: 'Se former'

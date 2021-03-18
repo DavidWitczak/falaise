@@ -1,0 +1,22 @@
+uuid: 8b473be5-0314-4d32-b9f8-981992c8b735
+langcode: fr
+status: true
+dependencies:
+  module:
+    - node
+id: pratiquer
+label: Pratiquer
+type: 'canonical_entities:node'
+pattern: '/pratiquer/disciplines/[node:title]'
+selection_criteria:
+  2cb901ec-df86-49fd-8c1a-b9d9a1eef770:
+    id: node_type
+    bundles:
+      pratiquer: pratiquer
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 2cb901ec-df86-49fd-8c1a-b9d9a1eef770
+selection_logic: and
+weight: -5
+relationships: {  }
