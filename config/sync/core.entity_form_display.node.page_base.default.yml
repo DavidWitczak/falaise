@@ -11,6 +11,7 @@ dependencies:
     - field.field.node.page_base.field_page_base_liee
     - field.field.node.page_base.field_page_principale
     - field.field.node.page_base.field_sous_titre
+    - field.field.node.page_base.field_videos
     - node.type.page_base
   module:
     - entity_browser_entity_form
@@ -45,7 +46,7 @@ content:
     type: text_textarea
     region: content
   field_fichiers:
-    weight: 8
+    weight: 9
     settings:
       form_mode: default
       label_singular: ''
@@ -63,7 +64,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_liens:
-    weight: 7
+    weight: 8
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -112,6 +113,24 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_videos:
+    weight: 7
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_entity_browser_modal
+    type: inline_entity_form_complex
     region: content
   path:
     type: path

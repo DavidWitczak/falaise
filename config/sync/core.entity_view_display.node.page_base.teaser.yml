@@ -12,6 +12,7 @@ dependencies:
     - field.field.node.page_base.field_page_base_liee
     - field.field.node.page_base.field_page_principale
     - field.field.node.page_base.field_sous_titre
+    - field.field.node.page_base.field_videos
     - node.type.page_base
   module:
     - user
@@ -34,5 +35,6 @@ hidden:
   field_page_base_liee: true
   field_page_principale: true
   field_sous_titre: true
+  field_videos: true
   langcode: true
   search_api_excerpt: true

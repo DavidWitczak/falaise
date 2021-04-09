@@ -32,6 +32,14 @@
     </div>
   {% endfor %}
 
+  <div class="mt-6 text-align-center">
+    {% for video in node.field_videos %}
+      <div class="mb-5 video txt-grey pb-4">
+        {{ bamboo_render_entity('media', video.target_id) }}
+      </div>
+    {% endfor %}
+  </div>
+
   {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
     <div class="my-3 bg-black txt-white p-3">
       <h4 class="text-uppercase">En savoir +</h4>

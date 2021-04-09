@@ -5,7 +5,7 @@
 <div class="container">
   <div class="row">
     {% for actu in var.actus %}
-      {% set media = getMediaInfos(actu.visuel_id, '500_recadrer') %}
+      {% set media = getMediaInfos(actu.visuel_id, 'carre_crop') %}
       <div class="col-lg-3">
         <a class="txt-white text-uppercase" href="{{ actu.url }}">
           <div class="card mb-4">

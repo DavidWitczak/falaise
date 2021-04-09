@@ -3,12 +3,14 @@ langcode: fr
 status: true
 dependencies:
   config:
+    - field.field.node.actu.field_audio
     - field.field.node.actu.field_chapo
     - field.field.node.actu.field_description
     - field.field.node.actu.field_fichiers
     - field.field.node.actu.field_liens
     - field.field.node.actu.field_medias
     - field.field.node.actu.field_sous_titre
+    - field.field.node.actu.field_videos
     - node.type.actu
   module:
     - entity_browser_entity_form
@@ -23,10 +25,28 @@ mode: default
 content:
   created:
     type: datetime_timestamp
-    weight: 8
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_audio:
+    weight: 5
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_entity_browser_modal
+    type: inline_entity_form_complex
+    region: content
   field_chapo:
     weight: 3
     settings:
@@ -44,7 +64,7 @@ content:
     type: text_textarea
     region: content
   field_fichiers:
-    weight: 6
+    weight: 8
     settings:
       form_mode: default
       label_singular: ''
@@ -62,7 +82,7 @@ content:
     type: inline_entity_form_complex
     region: content
   field_liens:
-    weight: 5
+    weight: 7
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -95,9 +115,27 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_videos:
+    weight: 6
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_entity_browser_modal
+    type: inline_entity_form_complex
+    region: content
   path:
     type: path
-    weight: 7
+    weight: 11
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -105,7 +143,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 9
+    weight: 10
     region: content
     third_party_settings: {  }
   title:

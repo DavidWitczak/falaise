@@ -1,0 +1,28 @@
+uuid: ee5d6b2c-2821-4111-99d4-05128b4698ce
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_videos
+    - media.type.video
+    - node.type.page_base
+id: node.page_base.field_videos
+field_name: field_videos
+entity_type: node
+bundle: page_base
+label: Vidéos
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      video: video
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

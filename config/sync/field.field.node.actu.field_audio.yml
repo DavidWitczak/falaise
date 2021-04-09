@@ -1,0 +1,28 @@
+uuid: 77e63a51-5709-45f8-b762-29ed5c690d62
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_audio
+    - media.type.audio
+    - node.type.actu
+id: node.actu.field_audio
+field_name: field_audio
+entity_type: node
+bundle: actu
+label: Audio
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      audio: audio
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
