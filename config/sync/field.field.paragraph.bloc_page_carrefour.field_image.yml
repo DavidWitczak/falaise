@@ -1,0 +1,28 @@
+uuid: 0caa97d3-2b72-499b-9c13-4a6b6f727755
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.bloc_page_carrefour
+id: paragraph.bloc_page_carrefour.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: bloc_page_carrefour
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

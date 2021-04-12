@@ -10,14 +10,27 @@
 
   <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
 
-  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
-    <div class="my-3 bg-black txt-white p-3">
-      <h4 class="text-uppercase">En savoir +</h4>
-      <div class="">
-        {{ bamboo_render_field('field_liens', 'node') }}
-        {{ bamboo_render_field('field_fichiers', 'node') }}
+  <div class="row mt-6 mb-5">
+    {% for paragraph in node.field_page %}
+      {% set paragraph_entity = bamboo_load_entity('paragraph', paragraph.target_id) %}
+      {% set title = paragraph_entity.field_titre.value %}
+      {% set lien = paragraph_entity.field_lien.get(0).getUrl().toString() %}
+      {% set media = getMediaInfos(paragraph_entity.field_image.target_id, 'paysage_crop') %}
+
+      <div class="col-lg-4 mb-4">
+        <a href="{{ lien }}">
+        <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+        <div class="infos-object">
+          <div class="infos-content">
+            <h2 class="bebas">{{ title }}</h2>
+          </div>
+        </div>
+        </a>
       </div>
-    </div>
-  {% endif %}
+
+
+    {% endfor %}
+  </div>
 
 </div>
+

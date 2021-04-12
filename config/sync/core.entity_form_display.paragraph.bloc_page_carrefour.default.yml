@@ -1,0 +1,55 @@
+uuid: 4cc903b1-de45-44cf-b988-ff153b059e53
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bloc_page_carrefour.field_image
+    - field.field.paragraph.bloc_page_carrefour.field_lien
+    - field.field.paragraph.bloc_page_carrefour.field_titre
+    - paragraphs.paragraphs_type.bloc_page_carrefour
+  module:
+    - entity_browser_entity_form
+    - inline_entity_form
+    - link
+id: paragraph.bloc_page_carrefour.default
+targetEntityType: paragraph
+bundle: bloc_page_carrefour
+mode: default
+content:
+  field_image:
+    weight: 1
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: media_entity_browser_modal
+    type: inline_entity_form_complex
+    region: content
+  field_lien:
+    weight: 2
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  field_titre:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true

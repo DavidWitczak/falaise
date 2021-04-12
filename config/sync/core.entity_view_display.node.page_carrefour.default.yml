@@ -4,11 +4,11 @@ status: true
 dependencies:
   config:
     - field.field.node.page_carrefour.field_chapo
-    - field.field.node.page_carrefour.field_liens
     - field.field.node.page_carrefour.field_medias
+    - field.field.node.page_carrefour.field_page
     - node.type.page_carrefour
   module:
-    - link
+    - entity_reference_revisions
     - text
     - user
 id: node.page_carrefour.default
@@ -23,18 +23,6 @@ content:
     third_party_settings: {  }
     type: text_default
     region: content
-  field_liens:
-    weight: 103
-    label: above
-    settings:
-      trim_length: 80
-      url_only: false
-      url_plain: false
-      rel: ''
-      target: ''
-    third_party_settings: {  }
-    type: link
-    region: content
   field_medias:
     weight: 102
     label: above
@@ -42,6 +30,15 @@ content:
       link: true
     third_party_settings: {  }
     type: entity_reference_label
+    region: content
+  field_page:
+    type: entity_reference_revisions_entity_view
+    weight: 103
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
     region: content
   links:
     weight: 100

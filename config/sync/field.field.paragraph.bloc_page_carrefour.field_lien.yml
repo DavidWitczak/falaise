@@ -1,0 +1,23 @@
+uuid: a1f5f596-8d52-4f7a-b7c9-6ceab5bc0f2f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lien
+    - paragraphs.paragraphs_type.bloc_page_carrefour
+  module:
+    - link
+id: paragraph.bloc_page_carrefour.field_lien
+field_name: field_lien
+entity_type: paragraph
+bundle: bloc_page_carrefour
+label: Lien
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 0
+field_type: link

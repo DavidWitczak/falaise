@@ -1,0 +1,47 @@
+uuid: 75ba8fbc-971e-4447-afc8-8441c786f9ec
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.bloc_page_carrefour.field_image
+    - field.field.paragraph.bloc_page_carrefour.field_lien
+    - field.field.paragraph.bloc_page_carrefour.field_titre
+    - paragraphs.paragraphs_type.bloc_page_carrefour
+  module:
+    - link
+id: paragraph.bloc_page_carrefour.default
+targetEntityType: paragraph
+bundle: bloc_page_carrefour
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    weight: 2
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: content
+  field_lien:
+    weight: 1
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_titre:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  search_api_excerpt: true

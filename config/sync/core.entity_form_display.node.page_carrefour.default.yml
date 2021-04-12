@@ -4,13 +4,13 @@ status: true
 dependencies:
   config:
     - field.field.node.page_carrefour.field_chapo
-    - field.field.node.page_carrefour.field_liens
     - field.field.node.page_carrefour.field_medias
+    - field.field.node.page_carrefour.field_page
     - node.type.page_carrefour
   module:
     - entity_browser_entity_form
     - inline_entity_form
-    - link
+    - paragraphs
     - path
     - text
 id: node.page_carrefour.default
@@ -25,14 +25,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
-    region: content
-  field_liens:
-    weight: 3
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    type: link_default
     region: content
   field_medias:
     weight: 2
@@ -51,6 +43,18 @@ content:
       entity_browser_entity_form:
         entity_browser_id: media_entity_browser_modal
     type: inline_entity_form_complex
+    region: content
+  field_page:
+    type: entity_reference_paragraphs
+    weight: 3
+    settings:
+      title: Paragraphe
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
     region: content
   path:
     type: path
