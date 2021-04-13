@@ -10,6 +10,8 @@ dependencies:
     - field.field.node.enseignants.field_disciplines_asso
     - field.field.node.enseignants.field_medias
     - field.field.node.enseignants.field_pratiques_collectives_asso
+    - field.field.node.enseignants.field_prenom
+    - field.field.node.enseignants.field_sous_titre
     - node.type.enseignants
   module:
     - user
@@ -30,5 +32,7 @@ hidden:
   field_disciplines_asso: true
   field_medias: true
   field_pratiques_collectives_asso: true
+  field_prenom: true
+  field_sous_titre: true
   langcode: true
   search_api_excerpt: true

@@ -45,7 +45,12 @@ class ProfsBlock extends BlockBase {
     $query = \Drupal::entityQuery('node');
     $query->condition('type', 'enseignants');
     $query->condition('status', 1);
-    $query->condition('field_disciplines_asso', $nid);
+
+    $condition_or = $query->orConditionGroup();
+    $condition_or->condition('field_disciplines_asso', $nid);
+    $condition_or->condition('field_pratiques_collectives_asso', $nid);
+
+    $query->condition($condition_or);
 
     $profs_ids = $query->execute();
 
@@ -59,6 +64,7 @@ class ProfsBlock extends BlockBase {
       $output['#var']['prof'][$key]['visuel_id'] = $field_media[0]['target_id'];
       $output['#var']['prof'][$key]['url'] = $url;
       $output['#var']['prof'][$key]['title'] = $node->getTitle();
+      $output['#var']['prof'][$key]['prenom'] = $node->get('field_prenom');
       $output['#var']['prof'][$key]['chapo'] = $chapo;
     }
 

@@ -1,17 +1,18 @@
-uuid: 87f06235-383e-4458-bc3b-11e29853b8ac
+uuid: 63ec5422-7e89-48e9-9928-9dcb630879d4
 langcode: fr
 status: true
 dependencies:
   config:
+    - field.storage.node.field_prenom
     - node.type.enseignants
-id: node.enseignants.title
-field_name: title
+id: node.enseignants.field_prenom
+field_name: field_prenom
 entity_type: node
 bundle: enseignants
-label: Nom
+label: Prénom
 description: ''
-required: true
-translatable: true
+required: false
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings: {  }

@@ -51,10 +51,11 @@ class HomeController extends ControllerBase {
       $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
 
       $output[$key]['title'] = $node->getTitle();
+      $output[$key]['prenom'] = $node->get('field_prenom');
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];
       $output[$key]['url'] = $url;
       $output[$key]['tid'] = $node->get('field_discipline_profs');
-      $output[$key]['chapo'] = $node->get('field_chapo');
+      $output[$key]['sous_titre'] = $node->get('field_sous_titre');
     }
 
     return $output;

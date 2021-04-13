@@ -1,23 +1,23 @@
 <div class="container">
-
   <div>
     {% for discipline in node.field_discipline_profs %}
-      <div class="mb-4 tag tag-{{ discipline.target_id }}">{{ discipline.entity.name.value }}</div>
+      <div class="mb-3 tag tag-{{ discipline.target_id }}">{{ discipline.entity.name.value }}</div>
     {% endfor %}
   </div>
 
-  <h1>{{ node.title.value }}</h1>
-
+  <h1 class="mb-0">{{ node.field_prenom.value }} {{ node.title.value }}</h1>
+  <div class="txt-black mb-4 poppins font-weight-bold">{{ node.field_sous_titre.value }}</div>
   <div class="row">
     <div class="col-lg-4">
       {% set media = getMediaInfos(node.field_medias.target_id, 'carre_crop') %}
-      <img class="w-100 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+      <img class="w-100 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+           src="{{ media.url }}">
     </div>
     <div class="col-lg-8 mt-4">
       <div class="chapo">{{ bamboo_render_field('field_chapo', 'node') }}</div>
     </div>
 
-      <div class="col-lg-12 mt-5 my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
+    <div class="col-lg-12 mt-5 my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
   </div>
 
 </div>

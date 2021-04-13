@@ -1,16 +1,17 @@
-uuid: 87f06235-383e-4458-bc3b-11e29853b8ac
+uuid: a9993d59-e714-4220-89da-142a4e4314fe
 langcode: fr
 status: true
 dependencies:
   config:
+    - field.storage.node.field_sous_titre
     - node.type.enseignants
-id: node.enseignants.title
-field_name: title
+id: node.enseignants.field_sous_titre
+field_name: field_sous_titre
 entity_type: node
 bundle: enseignants
-label: Nom
+label: 'Sous titre'
 description: ''
-required: true
+required: false
 translatable: true
 default_value: {  }
 default_value_callback: ''

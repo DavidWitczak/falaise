@@ -24,17 +24,17 @@
               </div>
               <div class="">
                 <a href="{{ prof.url }}">
-                  <div class="h5 font-weight-bold">{{ prof.title }}</div>
+                  <div class="h5 font-weight-bold">{{ prof.prenom.value }} {{ prof.title }}</div>
                 </a>
                 <div>
-                  <div class="mb-4">
+                  <div class="mb-1">
                     {% for cat in prof.tid %}
-                      {{ cat.entity.name.value }}{% if not loop.last %} - {% endif %}
+                    <div class="mb-1 tag tag-{{ cat.target_id }}">{{ cat.entity.name.value }}</div>
                     {% endfor %}
                   </div>
                 </div>
                 <div class="border-bottom pb-3">
-                  {{ prof.chapo.value|raw }}
+                  {{ prof.sous_titre.value|raw }}
                 </div>
               </div>
 
