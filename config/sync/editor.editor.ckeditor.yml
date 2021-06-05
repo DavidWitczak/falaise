@@ -35,6 +35,7 @@ settings:
             - JustifyCenter
             - JustifyRight
             - JustifyBlock
+            - Styles
             - Format
         -
           name: Media
@@ -42,7 +43,7 @@ settings:
             - media_entity_embed
   plugins:
     stylescombo:
-      styles: ''
+      styles: 'span.btn_resa.btn|Bouton réservation'
     language:
       language_list: un
 image_upload:

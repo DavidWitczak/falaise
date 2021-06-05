@@ -27,7 +27,7 @@ class AteliersController extends ControllerBase {
   }
 
   public function getTerm(){
-    $filtres_second_niveau = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('scolaires');
+    $filtres_second_niveau = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadTree('ateliers_structures');
     $output = [];
 
     foreach ($filtres_second_niveau as $term) {
@@ -50,7 +50,7 @@ class AteliersController extends ControllerBase {
     foreach ($medias as $key => $node) {
       $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
       $field_media = $node->get('field_medias')->getValue();
-      $field_tid = $node->get('field_type_groupe')->getValue();
+      $field_tid = $node->get('field_structure')->getValue();
       $term = Term::load($field_tid[0]['target_id']);
       $name = $term->getName();
 
@@ -58,7 +58,7 @@ class AteliersController extends ControllerBase {
       $output[$key]['url'] = $url;
       $output[$key]['title'] = $node->getTitle();
       $output[$key]['sub_title'] = $node->get('field_sous_titre')->value;
-      $output[$key]['tid'] = $field_tid;//$field_tid[0]['target_id'];
+      $output[$key]['tid'] = $field_tid;
       $output[$key]['type'] = $name;
     }
 

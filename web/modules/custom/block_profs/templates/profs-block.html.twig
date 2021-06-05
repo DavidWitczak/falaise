@@ -6,7 +6,7 @@
       <div class="row pb-3 mt-3 {% if not loop.last %}border-bottom {% endif %}">
         <div class="col-lg-2">
           <a href="{{ prof.url }}">
-            <img class="w-100 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+            <img class="w-100 rounded-circle sepia" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
                  src="{{ media.url }}">
           </a>
         </div>
@@ -16,8 +16,8 @@
           </div>
         </div>
         <div class="col-lg-7">
-          <div class="d-flex h-100 align-items-center">
-            {{ prof.chapo|raw }}
+          <div class="d-flex h-100 align-items-center text-justify">
+            {{ prof.chapo }}
           </div>
         </div>
       </div>

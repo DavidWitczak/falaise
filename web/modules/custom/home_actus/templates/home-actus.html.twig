@@ -1,19 +1,17 @@
 <div class="container">
-  <h2>Les actus</h2>
+  {{ bamboo_render_block('system_breadcrumb_block') }}
+  <h1>Les actualités</h1>
 </div>
 
 <div class="container">
   <div class="row">
     {% for actu in var.actus %}
-      {% set media = getMediaInfos(actu.visuel_id, 'carre_crop') %}
-      <div class="col-lg-3">
-        <a class="txt-white text-uppercase" href="{{ actu.url }}">
-          <div class="card mb-4">
-              <img class="card-img-top" title="{{ media.name }}" src="{{ media.url }}">
-            <div class="card-body">
-              <h5 class="card-title text-center">{{ actu.title }}</h5>
-            </div>
-          </div>
+      {% set media = getMediaInfos(actu.visuel_id, 'paysage_crop') %}
+      <div class="col-lg-6 mb-5">
+        <a class="" href="{{ actu.url }}">
+              <img class="w-100" title="{{ media.name }}" src="{{ media.url }}">
+              <h2 class="bebas text-uppercase mt-4">{{ actu.title }}</h2>
+              <div class="text-uppercase small">Publié le {{ actu.date.value|date('U')|format_date('date_jfy') }}</div>
         </a>
       </div>
     {% endfor %}

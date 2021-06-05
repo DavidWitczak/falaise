@@ -2,17 +2,45 @@ uuid: 45951ee4-ced7-445f-8e56-7175eb6f62c3
 langcode: fr
 status: true
 dependencies:
+  config:
+    - field.storage.node.field_chapo
+    - field.storage.node.field_description
+    - field.storage.node.field_sous_titre
+    - search_api.server.database_index
   module:
     - node
     - search_api
     - user
-  config:
-    - search_api.server.database_index
 id: main
 name: Main
 description: ''
 read_only: false
 field_settings:
+  field_chapo:
+    label: Chapô
+    datasource_id: 'entity:node'
+    property_path: field_chapo
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_chapo
+  field_description:
+    label: Description
+    datasource_id: 'entity:node'
+    property_path: field_description
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.field_description
+  field_sous_titre:
+    label: 'Sous titre'
+    datasource_id: 'entity:node'
+    property_path: field_sous_titre
+    type: text
+    boost: !!float 2
+    dependencies:
+      config:
+        - field.storage.node.field_sous_titre
   title:
     label: Title
     datasource_id: 'entity:node'

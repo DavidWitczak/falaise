@@ -6,17 +6,19 @@ dependencies:
     - field.field.node.atelier.field_accessibilite
     - field.field.node.atelier.field_chapo
     - field.field.node.atelier.field_description
+    - field.field.node.atelier.field_description_reservation
     - field.field.node.atelier.field_duree
     - field.field.node.atelier.field_fichiers
     - field.field.node.atelier.field_liens
+    - field.field.node.atelier.field_lieu
     - field.field.node.atelier.field_medias
-    - field.field.node.atelier.field_musee
     - field.field.node.atelier.field_nb_personnes
     - field.field.node.atelier.field_niveaux_scolaires
     - field.field.node.atelier.field_prog_assoc
     - field.field.node.atelier.field_sous_titre
+    - field.field.node.atelier.field_structure
     - field.field.node.atelier.field_tarif
-    - field.field.node.atelier.field_type_groupe
+    - field.field.node.atelier.field_titre_reservation
     - node.type.atelier
   module:
     - entity_browser_entity_form
@@ -36,7 +38,7 @@ content:
     type: options_buttons
     region: content
   field_chapo:
-    weight: 2
+    weight: 9
     settings:
       rows: 5
       placeholder: ''
@@ -44,7 +46,15 @@ content:
     type: text_textarea
     region: content
   field_description:
-    weight: 3
+    weight: 10
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_description_reservation:
+    weight: 15
     settings:
       rows: 5
       placeholder: ''
@@ -52,7 +62,7 @@ content:
     type: text_textarea
     region: content
   field_duree:
-    weight: 6
+    weight: 3
     settings:
       size: 60
       placeholder: ''
@@ -60,7 +70,7 @@ content:
     type: string_textfield
     region: content
   field_fichiers:
-    weight: 14
+    weight: 13
     settings:
       form_mode: default
       label_singular: ''
@@ -78,15 +88,23 @@ content:
     type: inline_entity_form_complex
     region: content
   field_liens:
-    weight: 13
+    weight: 12
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
     type: link_default
     region: content
-  field_medias:
+  field_lieu:
     weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_medias:
+    weight: 1
     settings:
       form_mode: default
       label_singular: ''
@@ -103,14 +121,8 @@ content:
         entity_browser_id: media_entity_browser_modal
     type: inline_entity_form_complex
     region: content
-  field_musee:
-    weight: 5
-    settings: {  }
-    third_party_settings: {  }
-    type: options_buttons
-    region: content
   field_nb_personnes:
-    weight: 11
+    weight: 5
     settings:
       size: 60
       placeholder: ''
@@ -118,13 +130,13 @@ content:
     type: string_textfield
     region: content
   field_niveaux_scolaires:
-    weight: 10
+    weight: 7
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
   field_prog_assoc:
-    weight: 12
+    weight: 16
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -134,30 +146,38 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_sous_titre:
-    weight: 1
+    weight: 2
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
     region: content
-  field_tarif:
-    weight: 7
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: string_textfield
-    region: content
-  field_type_groupe:
-    weight: 9
+  field_structure:
+    weight: 11
     settings: {  }
     third_party_settings: {  }
     type: options_buttons
     region: content
+  field_tarif:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_titre_reservation:
+    weight: 14
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
   path:
     type: path
-    weight: 15
+    weight: 17
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -165,7 +185,7 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 16
+    weight: 18
     region: content
     third_party_settings: {  }
   title:

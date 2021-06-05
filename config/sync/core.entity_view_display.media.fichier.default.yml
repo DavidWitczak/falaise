@@ -5,28 +5,27 @@ dependencies:
   config:
     - field.field.media.fichier.field_media_file
     - field.field.media.fichier.field_vignette
-    - image.style.full_max
     - media.type.fichier
   module:
-    - image
+    - file
 id: media.fichier.default
 targetEntityType: media
 bundle: fichier
 mode: default
 content:
-  field_vignette:
+  field_media_file:
+    type: file_default
     weight: 0
+    region: content
     label: hidden
     settings:
-      image_style: full_max
-      image_link: ''
+      use_description_as_link_text: true
     third_party_settings: {  }
-    type: image
-    region: content
 hidden:
   created: true
-  field_media_file: true
+  field_vignette: true
   langcode: true
   name: true
+  search_api_excerpt: true
   thumbnail: true
   uid: true

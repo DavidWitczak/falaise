@@ -69,16 +69,10 @@ class GetMediaInfoTwigExtension extends \Twig_Extension {
       }
       elseif ($bundle == 'fichier') {
         $file = $media->get('field_media_file')->entity;
-        $image = $media->get('field_vignette');
         $output["size"] = round($file->getSize() / (1024 * 1024), 2);
 
         $extension = explode("/", $file->getMimeType());
         $output["type"] = $extension[1];
-        $uri = $image->entity->getFileUri();
-
-        if ($image_style != NULL) {
-          $output['thumb'] = file_url_transform_relative(ImageStyle::load($image_style)->buildUrl($uri));
-        }
 
         $output['url'] = file_create_url($file->getFileUri());
       }

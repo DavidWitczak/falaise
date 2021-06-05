@@ -58,34 +58,16 @@ class AgendaController extends ControllerBase {
 
     $query->condition($condition_and);
 
-    //Musée
-    $wanted_cat_ids = array();
-    if (\Drupal::request()->query->get('musee')) {
-      $query_cat = \Drupal::request()->query->get('musee');
-      foreach ($query_cat as $filtre_id) {
-        $wanted_cat_ids[] = $filtre_id;
-      }
-      $query->condition('field_musee', $wanted_cat_ids, 'IN');
-    }
-
     //categories
-    $wanted_cat_ids = array();
     if (\Drupal::request()->query->get('categorie')) {
       $query_cat = \Drupal::request()->query->get('categorie');
-      foreach ($query_cat as $filtre_id) {
-        $wanted_cat_ids[] = $filtre_id;
-      }
-      $query->condition('field_cat_agenda', $wanted_cat_ids, 'IN');
+      $query->condition('field_cat_agenda', $query_cat);
     }
 
     //Public
-    $wanted_cat_ids = array();
     if (\Drupal::request()->query->get('public')) {
       $query_cat = \Drupal::request()->query->get('public');
-      foreach ($query_cat as $filtre_id) {
-        $wanted_cat_ids[] = $filtre_id;
-      }
-      $query->condition('field_public', $wanted_cat_ids, 'IN');
+      $query->condition('field_public', $query_cat);
     }
 
     $query->sort('field_date_debut', 'ASC');
@@ -106,6 +88,7 @@ class AgendaController extends ControllerBase {
       $output[$key]['date_fin'] = $agenda->get('field_date_fin');
       $output[$key]['jours'] = $agenda->get('field_infos_sup');
       $output[$key]['public'] = $agenda->get('field_public');
+      $output[$key]['lieu'] = $agenda->get('field_lieu');
     }
 
     return $output;

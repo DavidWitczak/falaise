@@ -1,19 +1,214 @@
-<div class="container">
-  <h2>Test</h2>
+<div class="container-fluid p-0 ">
+  {% set media = getMediaInfos(754, 'pano_crop') %}
+  <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
 </div>
 
-<div class="container my-4">
-  <h2>Actualités</h2>
+<div class="container mt-6">
+  <h1 class="mt-6"><span class="txt-red">Tête</span> d'affiche</h1>
   <div class="row">
-{#    {% for actu in var.actus %}#}
-{#      {% set media = getMediaInfos(actu.visuel_id, '500_recadrer') %}#}
-{#      <div class="col-lg-4">#}
-{#        <a href="{{ actu.url }}">#}
-{#          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">#}
-{#          <h4>{{ actu.title }}</h4>#}
-{#        </a>#}
-{#      </div>#}
-{#    {% endfor %}#}
+    {% for event in var.en_avant %}
+      {% set media = getMediaInfos(event.visuel_id, 'paysage_crop') %}
+      <div class="col-lg-6">
+        <a href="{{ event.url }}">
+          <div class="position-relative infos-object">
+            <img class="w-100" alt="{{ media.alt }}" title="{{ media.title }}" src="{{ media.url }}">
+          </div>
+
+          <div class="event_infos bg-black txt-white w-75 align-right p-4 mr-4">
+            <div class="row justify-content-between">
+              <div class="col-8">
+                <div class="tag tag-red mb-2 font-small">{{ event.tid.entity.name.value }}</div>
+                <h2 class="bebas">{{ event.title }}</h2>
+                <p>{{ event.lieu.value }}</p>
+              </div>
+              <div class="col-3 mt-5 line-h">
+                <div class="col-lg-12 col-md-1 font-small">
+                  <div class="h3 m-0">{{ event.date_debut.value|date('U')|date("d") }}</div>
+                  <div>{{ event.date_debut.value|date('U')|format_date('mois_fr') }}</div>
+                  <div>{{ event.date_debut.value|date('U')|date("Y") }}</div>
+                </div>
+                {% if(event.date_fin.value and event.date_debut.value != event.date_fin.value) %}
+                  <div class="col-lg-12 col-md-1">
+                    <div class="d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
+                  </div>
+                  <div class="col-lg-12 col-md-1 font-small">
+                    <div class="m-0 h3">{{ event.date_fin.value|date('d') }}</div>
+                    <div>{{ event.date_fin.value|date('d')|format_date('mois_fr') }}</div>
+                    <div>{{ event.date_fin.value|date('Y') }}</div>
+                  </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="p-1 bg-red w-75 align-right mr-4 mb-5"></div>
+        </a>
+      </div>
+    {% endfor %}
   </div>
-  <a href="/actualites" class="btn btn-dark">Toutes les actualités</a>
 </div>
+
+<div class="container">
+  <div class="row">
+    {% for agenda in var.agenda %}
+      {% set media = getMediaInfos(agenda.visuel_id, 'portrait_crop') %}
+      <div class="col-lg-4 mb-4">
+        <a href="{{ agenda.url }}">
+          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+               src="{{ media.url }}">
+
+          <div class="infos-object">
+            <div class="infos-content">
+              <div class="row align-items-end">
+                <div class="col-8 p-0">
+                  <div class="tag tag-red mb-2 font-small">{{ agenda.tid.entity.name.value }}</div>
+                  <h2 class="bebas">{{ agenda.title }}</h2>
+                  <p>{{ agenda.lieu.value }}</p>
+                </div>
+                <div class="col-4 pr-0 pl-1 line-h">
+                  <div class="col-lg-12 col-md-1 font-small">
+                    <div class="h3 m-0">{{ agenda.date_debut.value|date('U')|date("d") }}</div>
+                    <div>{{ agenda.date_debut.value|date('U')|format_date('mois_fr') }}</div>
+                    <div>{{ agenda.date_debut.value|date('U')|date("Y") }}</div>
+                  </div>
+                  {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %}
+                    <div class="col-lg-12 col-md-1">
+                      <div class="d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
+                    </div>
+                    <div class="col-lg-12 col-md-1 font-small">
+                      <div class="h3 m-0">{{ agenda.date_fin.value|date('U')|date("d") }}</div>
+                      <div>{{ agenda.date_fin.value|date('U')|format_date('mois_fr') }}</div>
+                      <div>{{ agenda.date_fin.value|date('U')|date("Y") }}</div>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+
+  </div>
+  <div class="font-big mb-4">
+    <a href="/agenda">
+      <i class="far fa-calendar txt-red"></i>
+      <span class="text-uppercase bebas hover-red">Toute la programmation</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+<div class="container mb-4 mt-6">
+  <h1>Actualités</h1>
+  <div class="row">
+    {% for actu in var.actus %}
+      {% set media = getMediaInfos(actu.visuel_id, 'paysage_crop') %}
+      <div class="col-lg-6">
+        <div class="row align-items-center zoom-img">
+          <div class="col-lg-6">
+            <a href="{{ actu.url }}">
+              <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+            </a>
+          </div>
+          <div class="col-lg-6">
+            <a href="{{ actu.url }}">
+              <h2 class="bebas text-uppercase">{{ actu.title }}</h2>
+              <div class="text-uppercase small">Publié le {{ actu.date.value|date('U')|format_date('date_jfy') }}</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="font-big my-4 col-lg-12">
+    <a href="/actualites">
+      <i class="fas fa-bullhorn txt-red"></i>
+      <span class="text-uppercase bebas hover-red">Toute l'actualité</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+<div class="container my-5 pt-5">
+  <h1 class="bebas mb-0">
+    <span class="txt-red text-uppercase">Un cursus</span><br/>Global & complet
+  </h1>
+</div>
+<div class="container-fluid mb-5 cursus">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 bg-grey-light-1 px-5 pt-3 pb-5">
+        Pousser la porte d'un établissement artistique c'est s'ouvrir à un monde riche de découvertes où la curiosité,
+        l'envie, le partage et la rigueur sont sources de dépassement de soi.<br/>
+        Le Conservatoire Arthur Honegger accompagne chacun de ses élèves sur cette voie.<br/>
+        <a href="/se-former" class="btn bg-red txt-white text-uppercase mt-4">Découvrir le conservatoire</a>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container post-cursus bg-white pt-5 mb-5">
+  <div class="row text-align-center">
+    <div class="col-lg-2 pt-3 offset-lg-2">
+      <div><img src="/{{ directory }}/images/ico-inscrits.png"></div>
+      <h1 class="txt-red bebas mt-3 mb-0 line-h">1600</h1>
+      <p class="font-big line-h">éleves inscrits</p>
+    </div>
+    <div class="col-lg-2 pt-3">
+      <img src="/{{ directory }}/images/ico-discipline.png">
+      <h1 class="txt-red bebas mt-3 mb-0 line-h">22</h1>
+      <p class="font-big line-h">disciplines enseignées</p>
+    </div>
+    <div class="col-lg-2 pt-3">
+      <img src="/{{ directory }}/images/ico-note.png">
+      <h1 class="txt-red bebas mt-3 mb-0 line-h">45</h1>
+      <p class="font-big line-h">ensembles instrumentaux et vocaux</p>
+    </div>
+    <div class="col-lg-2 pt-3">
+      <img src="/{{ directory }}/images/ico-spectacle.png">
+      <h1 class="txt-red bebas mt-3 mb-0 line-h">250</h1>
+      <p class="font-big line-h">manifestations dans l’année</p>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid py-5">
+  <div class="container">
+    <h1>Découvrir</h1>
+    <div class="row">
+      {% if var.discipline %}
+        {% for discipline in var.discipline %}
+          {% set media = getMediaInfos(discipline.visuel_id, 'carre_crop') %}
+          <div class="col-lg-2 col-md-4 col-sm-6 mb-5 zoom-img">
+            <a href="{{ discipline.url }}">
+              <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+            </a>
+            <a href="{{ discipline.url }}">
+              <div class="w-100 border-tag tag-{{ discipline.tid.target_id }}"></div>
+              <div class="h5 bebas">{{ discipline.title }}</div>
+            </a>
+          </div>
+        {% endfor %}
+      {% endif %}
+
+      <div class="font-big mb-4 col-lg-12">
+        <a href="/se-former/disciplines" class="mr-5">
+          <i class="fas fa-record-vinyl txt-red"></i>
+          <span class="text-uppercase bebas hover-red">Toutes les disciplines</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+
+        <a href="/pratiquer">
+          <i class="fas fa-asterisk txt-red"></i>
+          <span class="text-uppercase bebas hover-red">Toutes les pratiques collectives</span>
+          <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% include directory ~ '/templates/includes/inscription.html.twig' %}

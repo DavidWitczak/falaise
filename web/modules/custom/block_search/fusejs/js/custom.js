@@ -28,14 +28,12 @@ rest_search.onreadystatechange = function () {
             var response = fuse.search(searchElement.value);
             var content_type = {
               'Agenda':'AGENDA',
-              'Exposition':'EXPOSITION',
               'Page de base':'INFOS GÉNÉRALES',
-              'Collection':'COLLECTION',
-              'Quiz':'QUIZ',
-              'Edition':'ÉDITION',
-              'Média (numérithèque)':'NUMÉRITHÈQUE',
-              'Objet de collection':'OBJET DE COLLECTION',
-              'Atelier pédagogique':'ATELIER PÉDAGOGIQUE'};
+              'Actualité':'ACTUALITÉ',
+              'Enseignants':'ENSEIGNANT',
+              'Pratiquer':'PRATIQUER',
+              'Se former':'SE FORMER',
+              'Atelier éducatifs':'ATELIER ÉDUCATIF'};
             results.innerHTML = '';
 
             for (var i = 0, div; i < 5; i++) {

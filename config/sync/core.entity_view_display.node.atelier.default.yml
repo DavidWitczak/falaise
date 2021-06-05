@@ -6,17 +6,19 @@ dependencies:
     - field.field.node.atelier.field_accessibilite
     - field.field.node.atelier.field_chapo
     - field.field.node.atelier.field_description
+    - field.field.node.atelier.field_description_reservation
     - field.field.node.atelier.field_duree
     - field.field.node.atelier.field_fichiers
     - field.field.node.atelier.field_liens
+    - field.field.node.atelier.field_lieu
     - field.field.node.atelier.field_medias
-    - field.field.node.atelier.field_musee
     - field.field.node.atelier.field_nb_personnes
     - field.field.node.atelier.field_niveaux_scolaires
     - field.field.node.atelier.field_prog_assoc
     - field.field.node.atelier.field_sous_titre
+    - field.field.node.atelier.field_structure
     - field.field.node.atelier.field_tarif
-    - field.field.node.atelier.field_type_groupe
+    - field.field.node.atelier.field_titre_reservation
     - node.type.atelier
   module:
     - link
@@ -44,6 +46,13 @@ content:
     region: content
   field_description:
     weight: 104
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_description_reservation:
+    weight: 118
     label: above
     settings: {  }
     third_party_settings: {  }
@@ -77,16 +86,16 @@ content:
     third_party_settings: {  }
     type: link
     region: content
-  field_medias:
-    weight: 105
+  field_lieu:
+    weight: 115
     label: above
     settings:
-      link: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: string
     region: content
-  field_musee:
-    weight: 102
+  field_medias:
+    weight: 105
     label: above
     settings:
       link: true
@@ -125,6 +134,14 @@ content:
     third_party_settings: {  }
     type: string
     region: content
+  field_structure:
+    weight: 116
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
   field_tarif:
     weight: 109
     label: above
@@ -133,13 +150,13 @@ content:
     third_party_settings: {  }
     type: string
     region: content
-  field_type_groupe:
-    weight: 114
+  field_titre_reservation:
+    weight: 117
     label: above
     settings:
-      link: true
+      link_to_entity: false
     third_party_settings: {  }
-    type: entity_reference_label
+    type: string
     region: content
   links:
     weight: 100

@@ -1,13 +1,16 @@
 {% set alert_1 = bamboo_config_get('site_config.config', 'alert_1_txt') %}
 {% set alert_2 = bamboo_config_get('site_config.config', 'alert_2_txt') %}
 
-<div class="container-fluid bg-black py-5 {% if is_front %}mb-5{% endif %}">
+<div class="container-fluid bg-black py-5">
   <div class="container">
     <div class="row mb-3">
-      <div class="col-lg-12 mb-4">
+      <div class="col-lg-3 mb-4">
         <a href="{{ url('<front>') }}">
-          <img src="/{{ directory }}/images/logo_bg_black.svg" class="mr-3">
+          <img src="/{{ directory }}/images/logo_rouge_blanc.png" class="w-100">
         </a>
+      </div>
+
+      <div class="col-lg-9 mb-4">
       </div>
 
       <div class="col-lg-3">
@@ -20,40 +23,37 @@
       </div>
 
       <div class="col-lg-3 font-small txt-grey-light">
-        <div class="font-weight-bold">Accueil</div>
-        Lundi, mardi, jeudi, vendredi : 9h - 20h30<br/>
-        Mercredi : 8h30 - 20h30<br/>
-        Samedi : 9h - 17h
-        <div class="font-weight-bold mt-1">Secrétariat</div>
-        Du lundi au vendredi : 9h - 17h30
+        {{ bamboo_config_get('site_config.config', 'horaires')['value']|raw }}
       </div>
 
       <div class="col-lg-3 txt-grey-light text-align-center">
-        <div class="btn-black text-uppercase mb-3 bebas">Nous contacter</div>
+        <a href="/contact" class="btn-black text-uppercase mb-3 bebas">Nous contacter</a>
         <br/>
-        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
-          <i class="fab fa-facebook-f"></i>
-        </a>&nbsp;|&nbsp;
-        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
-          <i class="fab fa-instagram"></i>
-        </a>&nbsp;|&nbsp;
-        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">
+        {#        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">#}
+        {#          <i class="fab fa-facebook-f"></i>#}
+        {#        </a>&nbsp;|&nbsp;#}
+        <a href="{{ bamboo_config_get('site_config.config', 'facebook') }}" target="_blank">
           <i class="fab fa-facebook-f"></i>
         </a>
+        {#        &nbsp;|&nbsp;#}
+        {#        <a href="{{ bamboo_config_get('museum_config.config', 'facebook') }}">#}
+        {#          <i class="fab fa-facebook-f"></i>#}
+        {#        </a>#}
       </div>
 
       <div class="col-lg-3 txt-grey-light">
         <h2 class="text-uppercase bebas">Newsletter</h2>
         <div class="font-small mb-3">Tenez-vous informé de toute l'actualité du conservatoire Arthur Honegger !</div>
-        <form action="">
+        <form action="https://eepurl.com/hyQiLL" method="post">
           <div class="input-group mb-2">
             <div class="input-group-prepend"><i class="fas fa-at txt-red font-big mr-1"></i></div>
-            <input type="text" class="form-control form-control-sm" id="inlineFormInputGroup"
+            <input type="email" class="form-control form-control-sm" id="inlineFormInputGroup"
                    placeholder="Saisir une adresse valide">
           </div>
           <input type="submit" value="Je m'abonne" class="btn btn-sm bg-red txt-white text-uppercase">
         </form>
       </div>
+
 
 
       <div class="col-lg-3">
@@ -70,11 +70,69 @@
 </div>
 </div>
 
+<div class="container mt-3 {% if is_front %}mb-5{% endif %}">
+  <div class="row justify-content-center">
+    <div class="col-sm-4 col-lg-2">
+      <a href="https://www.seinemaritime.fr/" target="_blank">
+        <img src="/{{ directory }}/images/logo_cd_76.jpg" class="w-75">
+      </a>
+    </div>
+    <div class="col-sm-4 col-lg-2">
+      <a href="https://www.culture.gouv.fr/" target="_blank">
+        <img src="/{{ directory }}/images/LogoMCHP.png" class="w-75">
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="share_modal">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title bebas">Partagez</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body py-5">
+        <div class="container-fluid">
+          <div class="row text-center">
+            <div class="col-3">
+              <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>') }}">
+                <i class="fab fa-facebook-f txt-red"></i>
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://twitter.com/home?status={{ url('<current>') }}">
+                <i class="fab fa-twitter txt-red"></i>
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ url('<current>') }}">
+                <i class="fab fa-linkedin txt-red"></i>
+              </a>
+            </div>
+            <div class="col-3">
+              <a href="https://pinterest.com/pin/create/button/?url={{ url('<current>') }}">
+                <i class="fab fa-pinterest txt-red"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="btn bg-red" id="return-to-top">
+  <i class="txt-white fas fa-chevron-up"></i>
+</div>
+
 {% if is_front %}
   <div class="container-fluid bg-red fixed-bottom">
     <div class="container">
       <div class="row">
-        <div id="alerts" class="carousel slide carousel-fade col-10 offset-1" data-ride="carousel">
+        <div id="alerts" class="carousel slide carousel-fade col-10 offset-1 text-align-center" data-ride="carousel">
           <div class="carousel-inner">
             {% if alert_1 %}
               <div class="carousel-item active txt-white py-2">

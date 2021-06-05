@@ -7,17 +7,19 @@ dependencies:
     - field.field.node.atelier.field_accessibilite
     - field.field.node.atelier.field_chapo
     - field.field.node.atelier.field_description
+    - field.field.node.atelier.field_description_reservation
     - field.field.node.atelier.field_duree
     - field.field.node.atelier.field_fichiers
     - field.field.node.atelier.field_liens
+    - field.field.node.atelier.field_lieu
     - field.field.node.atelier.field_medias
-    - field.field.node.atelier.field_musee
     - field.field.node.atelier.field_nb_personnes
     - field.field.node.atelier.field_niveaux_scolaires
     - field.field.node.atelier.field_prog_assoc
     - field.field.node.atelier.field_sous_titre
+    - field.field.node.atelier.field_structure
     - field.field.node.atelier.field_tarif
-    - field.field.node.atelier.field_type_groupe
+    - field.field.node.atelier.field_titre_reservation
     - node.type.atelier
   module:
     - user
@@ -35,16 +37,18 @@ hidden:
   field_accessibilite: true
   field_chapo: true
   field_description: true
+  field_description_reservation: true
   field_duree: true
   field_fichiers: true
   field_liens: true
+  field_lieu: true
   field_medias: true
-  field_musee: true
   field_nb_personnes: true
   field_niveaux_scolaires: true
   field_prog_assoc: true
   field_sous_titre: true
+  field_structure: true
   field_tarif: true
-  field_type_groupe: true
+  field_titre_reservation: true
   langcode: true
   search_api_excerpt: true

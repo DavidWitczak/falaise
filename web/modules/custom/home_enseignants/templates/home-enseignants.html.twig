@@ -18,7 +18,7 @@
           <div class="col-lg-4 px-5 mb-5 text-align-center">
               <div class="mb-2">
                 <a href="{{ prof.url }}">
-                  <img class="w-75 rounded-circle" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+                  <img class="w-75 rounded-circle sepia" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
                        src="{{ media.url }}">
                 </a>
               </div>
@@ -29,7 +29,7 @@
                 <div>
                   <div class="mb-1">
                     {% for cat in prof.tid %}
-                    <div class="mb-1 tag tag-{{ cat.target_id }}">{{ cat.entity.name.value }}</div>
+                    <div class="mb-1 tag tag-{{ cat.target_id }} small" style="font-size: 1rem">{{ cat.entity.name.value }}</div>
                     {% endfor %}
                   </div>
                 </div>

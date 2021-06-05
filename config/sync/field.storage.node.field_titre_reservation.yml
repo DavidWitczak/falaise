@@ -1,19 +1,20 @@
-uuid: 86680237-b5ca-4458-ba2f-ec574c3ba199
+uuid: 424692eb-10bc-40a3-b961-6831ee6a3573
 langcode: fr
 status: true
 dependencies:
   module:
     - node
-    - taxonomy
-id: node.field_type_groupe
-field_name: field_type_groupe
+id: node.field_titre_reservation
+field_name: field_titre_reservation
 entity_type: node
-type: entity_reference
+type: string
 settings:
-  target_type: taxonomy_term
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
 module: core
 locked: false
-cardinality: -1
+cardinality: 1
 translatable: true
 indexes: {  }
 persist_with_no_fields: false

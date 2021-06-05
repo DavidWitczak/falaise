@@ -15,3 +15,11 @@ effects:
     weight: 1
     data:
       crop_type: portrait_crop
+  821d888d-22bf-4112-ae8d-82f335fd17f7:
+    uuid: 821d888d-22bf-4112-ae8d-82f335fd17f7
+    id: image_scale
+    weight: 2
+    data:
+      width: 500
+      height: 500
+      upscale: false

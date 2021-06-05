@@ -1,0 +1,21 @@
+uuid: ca1f4618-b0d9-4958-989e-0f6cb81b3607
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_description_reservation
+    - node.type.atelier
+  module:
+    - text
+id: node.atelier.field_description_reservation
+field_name: field_description_reservation
+entity_type: node
+bundle: atelier
+label: 'Description réservation'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

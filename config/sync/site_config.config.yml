@@ -1,4 +1,4 @@
-facebook: ''
+facebook: 'https://fr-fr.facebook.com/Conservatoire-Arthur-Honegger-Le-Havre-245631095609770/'
 object_1: null
 object_2: null
 object_3: null
@@ -11,12 +11,12 @@ object_9: null
 object_10: null
 object_11: null
 object_12: null
-alert_1_txt: 'Alerte 1'
-alert_1_url: 'http://google.fr'
-alert_2_txt: 'Texte alerte 2'
-alert_2_url: 'http://google.fr'
-event_1: '460'
-event_2: '463'
+alert_1_txt: 'Campagne de réinscriptions en ligne du 21 juin au 7 juillet 2021'
+alert_1_url: 'https://preprod-conservatoire.lehavre.fr/reinscriptions'
+alert_2_txt: ''
+alert_2_url: ''
+event_1: '751'
+event_2: '755'
 event_3: null
 object_enfant_1: null
 object_enfant_2: null
@@ -27,20 +27,41 @@ object_enfant_6: null
 object_enfant_7: null
 object_enfant_8: null
 se_former:
-  value: "<p>familiarium agmina tamquam praedatorios globos post terga trahentes ne Sannione quidem, ut ait comicus, domi relicto. quos imitatae matronae complures opertis capitibus et basternis per latera civitatis cuncta discurrunt.</p>\r\n"
+  value: "<p class=\"text-align-justify\">Le Conservatoire propose plus de 40 disciplines différentes. Du tuba à l'accordéon chromatique, du chant lyrique à la batterie jazz... Vous pouvez découvrir chacune d'entre elles ici.&nbsp;</p>\r\n"
   format: ckeditor
 se_former_suite:
-  value: "<p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum.<br />\r\nAnxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>\r\n\r\n<p>Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>\r\n"
+  value: "<p>Présentation, caractéristiques, pré-requis, coût moyen, principaux types d'ensembles, répertoires, vidéos...<br />\r\nNos enseignants vous présentent en détail leurs disciplines. Soyez curieux !&nbsp;</p>\r\n"
   format: ckeditor
 pratiquer:
-  value: "<p>Chapô pratiquer.&nbsp;Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>\r\n"
+  value: "<p>Le Conservatoire Honegger développe une offre de formation et d’accompagnement des pratiques.&nbsp;Que vous soyez musicien confirmé, amateur éclairé, féru de jazz ou de musiques anciennes, il y a forcément une pratique collective qui satisfera votre envie de vivre la musique !&nbsp;</p>\r\n"
   format: ckeditor
 pratiquer_suite:
-  value: "<p>Présentation pratiquer.&nbsp;Cum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>\r\n\r\n<p><br />\r\nCum autem commodis intervallata temporibus convivia longa et noxia coeperint apparari vel distributio sollemnium sportularum, anxia deliberatione tractatur an exceptis his quibus vicissitudo debetur, peregrinum invitari conveniet, et si digesto plene consilio id placuerit fieri, is adhibetur qui pro domibus excubat aurigarum aut artem tesserariam profitetur aut secretiora quaedam se nosse confingit.</p>\r\n"
+  value: "<p><strong>Retrouvez ici l'offre des pratiques collectives du Conservatoire :&nbsp;</strong></p>\r\n\r\n<ul>\r\n\t<li>Grandes formations (instrumentales ou vocales), proposant des répétitions hebdomadaires dans le but de monter des programmes et de les donner en concert. (il n’est pas obligatoire de suivre des cours au Conservatoire pour les fréquenter)&nbsp;</li>\r\n\t<li>Ateliers (instrumentaux, vocaux, chorégraphiques) offrant eux aussi des répétitions hebdomadaires avec également un but de production publique, mais avec une perspective d’apprentissage ou de découverte d’une pratique (esthétique : musique africaine, danse folk, musique médiévale… instrumentale : accordéon diatonique, voix,… accompagnement : accompagnement guitare, direction de chœur, direction d’orchestre,…)&nbsp;</li>\r\n</ul>\r\n"
   format: ckeditor
 agenda:
   value: "<p>Chapo agenda Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar, praetermitto illuc transiturus quod quidam per ampla spatia urbis subversasque.</p>\r\n"
   format: ckeditor
 agenda_suite:
   value: "<p>Présentation agenda Mensarum enim voragines et varias voluptatum inlecebras, ne longius progrediar, praetermitto illuc transiturus quod quidam per ampla spatia urbis subversasque silices sine periculi metu properantes equos velut publicos signatis quod dicitur calceis agitant, familiarium agmina tamquam praedatorios globos post terga trahentes ne Sannione quidem, ut ait comicus, domi relicto. quos imitatae matronae complures opertis capitibus et basternis per latera civitatis cuncta discurrunt.</p>\r\n"
+  format: ckeditor
+atelier:
+  value: "<p>Texte (administrable dans configuration du site) de présentation des ateliers pédagogiques du conservatoire</p>\r\n"
+  format: ckeditor
+discipline_1: '554'
+discipline_2: '507'
+discipline_3: '517'
+discipline_4: '562'
+discipline_5: '513'
+discipline_6: '590'
+discipline_7: null
+discipline_8: null
+discipline_9: null
+discipline_10: null
+discipline_11: null
+discipline_12: null
+horaires:
+  value: "<p><strong>Accueil</strong><br />\r\nLundi, mardi, jeudi, vendredi : 9h - 20h30<br />\r\nMercredi : 8h30 - 20h30<br />\r\nSamedi : 9h - 17h</p>\r\n\r\n<p><strong>Secrétariat</strong><br />\r\nDu lundi au vendredi : 9h - 17h30</p>\r\n"
+  format: ckeditor
+inscription_tarifs:
+  value: "<p>La campagne de réinscriptions débutera en ligne&nbsp;<strong>le lundi 21 juin 2021 et s'achèvera le mercredi 7 juillet 2021.&nbsp;</strong></p>\r\n\r\n<p>Pour les nouveaux élèves, les inscriptions&nbsp;se dérouleront au Conservatoire</p>\r\n\r\n<p>entre le&nbsp;<strong>lundi 30 août 2021 et le&nbsp;vendredi 10 septembre 2021.</strong></p>\r\n"
   format: ckeditor

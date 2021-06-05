@@ -1,11 +1,31 @@
+@media (max-width: 576px) {
+  .content-padding{
+    padding-top: 0;
+  }
+  h2{
+    font-size: 1.6rem;
+  }
+}
+
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) {
+  .content-padding{
+    padding-top: 0;
+  }
 
 }
 
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
+  .content-padding{
+    padding-top: 0;
+  }
+}
 
+@media (max-width: 768px) {
+  .sub-banner{
+    margin-top: 200px;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -13,6 +33,10 @@
   #main-menu {
     font-size: 1.1rem;
   }
+  .content-padding{
+    padding-top: 110px;
+  }
+
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
@@ -27,4 +51,15 @@
   #main-menu {
     font-size: 1.4rem;
   }
+}
+
+#menu_mobile #main-menu ul.nav li.nav-item{
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+#menu_mobile #main-menu ul.nav li.nav-item a{
+  color: white;
+
 }

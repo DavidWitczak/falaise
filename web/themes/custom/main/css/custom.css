@@ -15,7 +15,7 @@
 }
 
 .content-padding{
-  padding-top: 130px;
+  padding-top: 140px;
 }
 
 body {
@@ -28,7 +28,6 @@ body {
 }
 
 #breadcrumb-wrapper{
-  /*background: white;*/
   position: relative;
   z-index: 9;
 }
@@ -159,11 +158,15 @@ a:hover {
   font-size: 1.3rem;
 }
 
+.line-h{
+  line-height: 1.1;
+}
+
 .chapo {
   font-family: "poppins regular";
   font-weight: bold;
   color: #727272;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 
 .border-tag{
@@ -201,7 +204,8 @@ background: #E30B17;
   border: 1px solid #a3a3a3;
 }
 
-#header {
+#header,
+#header-mobile{
   z-index: 10;
 }
 
@@ -242,13 +246,13 @@ background: #E30B17;
   font-size: 1.4rem;
 }
 
-#main-menu a:hover {
+#main-menu a:hover, .hover-red:hover {
   text-decoration: none;
   color: #E30B17;
   background-size: 100% 100%;
 }
 
-#main-menu a {
+#main-menu a, .hover-red {
   color: black;
   text-decoration: none;
   background: linear-gradient(to top, #E30B17 0%, #E30B17 4%, transparent 4.01%) no-repeat left bottom / 0 100%;
@@ -279,10 +283,6 @@ background: #E30B17;
   transition: 0.3s;
 }
 
-.description{
-  /*min-height: 50px;*/
-}
-
 h2.bloc_close, h2.bloc_open {
   cursor: pointer;
 }
@@ -294,13 +294,13 @@ h2.bloc_close, h2.bloc_open {
   left: 15px;
   right: 15px;
   bottom: 0;
-  background: linear-gradient(transparent 30%, black 97%, #E30B17 3%);
+  background: linear-gradient(transparent 30%, black 98%, #E30B17 3%);
   opacity: 0.9;
   transition: 0.3s;
 }
 
 .infos-object:hover {
-  background: linear-gradient(transparent 0%, black 97%, #E30B17 3%);
+  background: linear-gradient(transparent 0%, black 98%, #E30B17 3%);
   opacity: 1;
 }
 
@@ -308,13 +308,12 @@ h2.bloc_close, h2.bloc_open {
   position: absolute;
   bottom: 30px;
   left: 30px;
-  width: 100%;
+  width: 90%;
   line-height: 1;
 }
 
 .btn:hover{
   color: white;
-  /*background: #d64b53;*/
 }
 
 .btn{
@@ -379,6 +378,11 @@ h2.bloc_close, h2.bloc_open {
   font-size: 1.3rem;
 }
 
+.row-fichier-liens,
+.row-fichier{
+  border-bottom: 1px solid white;
+}
+
 optgroup {
   font-size: 1.8rem;
 }
@@ -392,11 +396,21 @@ optgroup {
 }
 
 .form-item-famille-d-instruments:before {
-  content: "\f7a6";
+  content: "\f8d9";
 }
 
 .form-item-pratiquer:before {
-  content: "\f569";
+  content: "\f8d9";
+}
+
+.form-item-categorie:before {
+  content: "\f02b";
+}
+
+.form-item-date:before,
+.form-item-au:before
+{
+  content: "\f073";
 }
 
 .banner{
@@ -430,6 +444,86 @@ optgroup {
   background: linear-gradient(transparent 25%, black 97%);
 }
 
+.icon-atelier{
+  display: inline-block;
+  text-align: center;
+  padding: 0 20px 0 0;
+  width: 45px;
+}
+
+.bloc_resa span.file:before{
+  content: "\f019";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+}
+
+.modal-search{
+  cursor: pointer;
+}
+
+.form-required::after {
+  content: ' *';
+  color: red;
+}
+
+a.btn-black:hover{
+  color: #a3a3a3;
+}
+
+.reload-captcha{
+  text-decoration: underline;
+}
+
+#edit-actions{
+  text-align: center;
+}
+
+.description{
+  padding-left: 60px;
+}
+
+.infos-object-border{
+  border-bottom: 5px solid #E30B17;
+}
+
+.zoom-img{
+  overflow: hidden;
+}
+.zoom-img a{
+  overflow: hidden;
+  display: block;
+}
+.zoom-img img{
+  transform : scale(1);
+  transition:0.5s;
+}
+.zoom-img:hover img{
+  transform : scale(1.1);
+}
+
+.hover-red:hover{
+  color: #E30B17;
+}
+
+#return-to-top{
+  position: fixed;
+  display: none;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1500;
+}
+
+.cursus{
+  background: url("../images/cursus.jpg");
+  background-position: top center;
+  min-height: 600px;
+}
+
+.post-cursus{
+  margin-top: -150px;
+}
+
 /*Bootstrap 4 Tooltip*/
 .tooltip > .arrow {
   background-color: transparent;
@@ -441,7 +535,6 @@ optgroup {
   font-family: bebas;
   text-transform: uppercase;
   padding: 5px 15px;
-  /*border-radius: 5px;*/
   color: white;
   background-color: #E30B17;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
@@ -473,3 +566,23 @@ optgroup {
   border-left-color: #E30B17;
 }
 
+/* PAGER */
+.page-link{
+  color: #E30B17;
+  font-family: bebas;
+  font-size: 1.4rem;
+  border-color: #E30B17;
+  padding: .5rem 1rem;
+}
+
+.page-item:first-child .page-link,
+.page-item:last-child .page-link{
+  border-radius: 0;
+}
+
+.pager .is-active .page-link,
+.pager .page-link:hover{
+  background: #E30B17;
+  color: white;
+  border: 1px solid #E30B17;
+}

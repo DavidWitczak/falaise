@@ -1,16 +1,17 @@
 {% for item in items %}
-    {% set media = bamboo_load_entity('media', item.content['#options']['entity'].vid.value) %}
-    {% set file = media.field_media_file.entity %}
-    {% set uri = file_url(file.uri.value) %}
-    <div class="row row-fichier-liens py-2">
-        <div class="col-lg-8">
-            {{ item.content['#title'] }}
-        </div>
-        <div class="col-lg-4">
-            <a href="{{ uri }}" target="_blank" class="txt-white">
-                <img class="mr-1" width="20" src="/{{ directory }}/images/file-ico.png">
-                Télécharger
-            </a>
-        </div>
+  {% set media = bamboo_load_entity('media', item.content['#options']['entity'].vid.value) %}
+  {% set media_info = getMediaInfos(item.content['#options']['entity'].vid.value) %}
+  {% set file = media.field_media_file.entity %}
+  {% set uri = file_url(file.uri.value) %}
+  <div class="row row-fichier-liens py-3 mx-3">
+    <div class="col-lg-6 p-0">
+      {{ item.content['#title'] }}
     </div>
+    <div class="col-lg-6 p-0 text-right">
+      <a href="{{ uri }}" target="_blank" class="txt-white">
+        <i class="fas fa-download txt-white"></i>
+        Télécharger | <span class="text-uppercase">{{ media_info.type }}</span> - {{ media_info.size }} Mo
+      </a>
+    </div>
+  </div>
 {% endfor %}

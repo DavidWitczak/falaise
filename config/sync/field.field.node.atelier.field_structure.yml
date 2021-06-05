@@ -1,24 +1,26 @@
-uuid: d11101df-d405-4348-be6f-59ac066f2215
+uuid: 5463c893-8737-4814-bfda-c8112454cc7e
 langcode: fr
 status: true
 dependencies:
   config:
-    - field.storage.node.field_musee
+    - field.storage.node.field_structure
     - node.type.atelier
-id: node.atelier.field_musee
-field_name: field_musee
+    - taxonomy.vocabulary.ateliers_structures
+id: node.atelier.field_structure
+field_name: field_structure
 entity_type: node
 bundle: atelier
-label: Musée
+label: Structure
 description: ''
 required: false
-translatable: true
+translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
   handler_settings:
-    target_bundles: {  }
+    target_bundles:
+      ateliers_structures: ateliers_structures
     sort:
       field: name
       direction: asc

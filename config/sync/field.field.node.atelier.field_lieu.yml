@@ -1,0 +1,19 @@
+uuid: b10e9074-afbe-463c-b013-5bc4f315e02b
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_lieu
+    - node.type.atelier
+id: node.atelier.field_lieu
+field_name: field_lieu
+entity_type: node
+bundle: atelier
+label: Lieu
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

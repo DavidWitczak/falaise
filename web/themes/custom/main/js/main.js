@@ -33,10 +33,8 @@ jQuery('.bloc_close, .bloc_open').on('click', function () {
   if (jQuery(this).next().is(':hidden')) {
     jQuery(this).removeClass('bloc_close');
     jQuery(this).addClass('bloc_open');
-    // jQuery(this).next().css({'display': 'block'});
     jQuery(this).next().slideDown(300);
   } else {
-    // jQuery(this).next().css({'display': 'none'});
     jQuery(this).next().slideUp(300);
     jQuery(this).removeClass('bloc_open');
     jQuery(this).addClass('bloc_close');
@@ -52,19 +50,10 @@ jQuery('.bloc_close, .bloc_open').on('click', function () {
     jQuery(this).addClass('actif');
 
     jQuery('.grid-object').css({'display': 'none'});
-    // jQuery('.grid-object').hide(500);
 
     var filter = jQuery(this).attr('data-tid');
 
     jQuery('.' + filter).css({'display': 'block'});
-    // jQuery('.' + filter).show(500);
-
-    jQuery('.masonry').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: 260,
-      gutter: 20,
-      fitWidth: true
-    });
   });
 
   jQuery('.object-filter-all').on('click', function (e) {
@@ -76,12 +65,23 @@ jQuery('.bloc_close, .bloc_open').on('click', function () {
 
     jQuery('.grid-object').css({'display': 'block'});
 
-    jQuery('.masonry').masonry({
-      itemSelector: '.grid-item',
-      columnWidth: 260,
-      gutter: 20,
-      fitWidth: true
-    });
+  });
+
+  let only_once = 'no';
+  jQuery(window).scroll(function () {
+    if (jQuery(this).scrollTop() >= 160 && only_once == 'no') {        // If page is scrolled more than 50px
+      jQuery('#return-to-top').fadeIn(100);
+      only_once = 'yes';// Fade in the arrow
+    }
+    only_once = 'no';
+    if (jQuery(this).scrollTop() < 160 && only_once == 'no') {
+      jQuery('#return-to-top').fadeOut(100);   // Else fade out the arrow
+    }
+  });
+  jQuery('#return-to-top').click(function () {    // When arrow is clicked
+    jQuery('body,html').animate({
+      scrollTop: 0                       // Scroll to top of body
+    }, 500);
   });
 
 })();

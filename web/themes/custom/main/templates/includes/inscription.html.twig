@@ -1,0 +1,12 @@
+<div class="container-fluid bg-black pt-5 ">
+  <div class="container bg-grey-light pt-5 px-5">
+    <h1 class="bebas text-center mb-0">
+      <span class="txt-red text-uppercase">Inscription</span> & tarifs
+    </h1>
+  </div>
+</div>
+
+<div class="container bg-grey-light mb-5 text-center p-4">
+  <p class="">{{ bamboo_config_get('site_config.config', 'inscription_tarifs')['value']|raw }}</p>
+  <a href="/inscriptions-et-tarifs" class="btn bg-red txt-white text-uppercase mt-4">En savoir plus</a>
+</div>

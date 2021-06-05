@@ -18,8 +18,9 @@ class ActusController extends ControllerBase {
    */
   public function home() {
     $output = [];
-    $output['#theme'] = 'home_actus';
-    $output['#var']['actus'] = $this->getActus();
+    $output['results']['#theme'] = 'home_actus';
+    $output['results']['#var']['actus'] = $this->getActus();
+    $output['pager'] = ['#type' => 'pager'];
 
     return $output;
   }
@@ -31,6 +32,7 @@ class ActusController extends ControllerBase {
     $query->condition('type', 'actu');
     $query->condition('status', 1);
     $query->sort('created', 'DESC');
+    $query->pager(6);
 
     $actus_ids = $query->execute();
 
@@ -43,6 +45,7 @@ class ActusController extends ControllerBase {
       $output[$key]['title'] = $actu->getTitle();
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];
       $output[$key]['url'] = $url;
+      $output[$key]['date'] = $actu->get('created');
     }
 
     return $output;

@@ -1,14 +1,14 @@
 <div id="search-block" class="modal fade">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content">
-            <form action="/recherche">
+            <form action="/recherche/pages">
                 <div class="input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroupPrepend2">
-                            <img class="mr-1 mb-1" width="25" src="/{{ directory }}/images/search.png">
+                            <i class="fas fa-search mr-1" aria-hidden="true"></i>
                         </span>
                     </div>
-                    <input id="input_search" name="search" type="text" class="form-control form-control-lg"
+                    <input id="input_search" name="search" type="text" class="form-control w-75"
                            autocomplete="off">
                 </div>
                 <div id="results"></div>

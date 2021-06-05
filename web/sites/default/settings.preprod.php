@@ -43,7 +43,10 @@ $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/dev.services.yml';
  * In case the error level could not be fetched from the database, as for
  * example the database connection failed, we rely only on this value.
  */
-#$config['system.logging']['error_level'] = 'verbose';
+error_reporting(0);
+$config['system.logging']['error_level'] = 'hide';
+
+$settings['trusted_host_patterns'] = ['^preprod-conservatoire.lehavre.fr$'];
 
 /**
  * Disable CSS and JS aggregation.

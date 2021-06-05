@@ -1,0 +1,8 @@
+uuid: c85432c4-5c12-47ce-8796-96bd32399632
+langcode: fr
+status: true
+dependencies: {  }
+name: 'Ateliers - structures'
+vid: ateliers_structures
+description: ''
+weight: 0

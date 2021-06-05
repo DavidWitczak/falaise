@@ -52,6 +52,8 @@ class ProfsBlock extends BlockBase {
 
     $query->condition($condition_or);
 
+    $query->sort('title', 'ASC');
+
     $profs_ids = $query->execute();
 
     $profs = Node::loadMultiple($profs_ids);

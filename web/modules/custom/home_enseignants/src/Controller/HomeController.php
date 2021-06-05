@@ -24,7 +24,7 @@ class HomeController extends ControllerBase {
     return $output;
   }
 
-  public function getProfs(): array{
+  public function getProfs(): array {
     $output = [];
 
     $query = \Drupal::entityQuery('node');
@@ -32,21 +32,27 @@ class HomeController extends ControllerBase {
     $query->condition('status', 1);
     $query->sort('title', 'ASC');
 
+    $query_array = array();
+
     if (\Drupal::request()->query->get('discipline')) {
       $discipline = \Drupal::request()->query->get('discipline');
-      $query->condition('field_discipline_profs', $discipline, 'IN');
+      $query_array[0] = $discipline;
     }
 
     if (\Drupal::request()->query->get('pratiquer')) {
-      $discipline = \Drupal::request()->query->get('pratiquer');
-      $query->condition('field_discipline_profs', $discipline, 'IN');
+      $pratiquer = \Drupal::request()->query->get('pratiquer');
+      $query_array[0] = $pratiquer;
+    }
+
+    if (!empty($query_array)) {
+      $query->condition('field_discipline_profs', $query_array, 'IN');
     }
 
     $nodes_ids = $query->execute();
 
     $nodes = Node::loadMultiple($nodes_ids);
 
-    foreach ($nodes as $key => $node){
+    foreach ($nodes as $key => $node) {
       $field_media = $node->get('field_medias')->getValue();
       $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
 

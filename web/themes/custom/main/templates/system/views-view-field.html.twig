@@ -1,0 +1,38 @@
+{#
+/**
+    Resultats de recherche
+ */
+#}
+
+{% if view.id == 'search_page' %}
+
+  {% set node = bamboo_load_entity('node', output.__toString()) %}
+  {% set node_url = path('entity.node.canonical', {'node': output.__toString()}) %}
+  {% set content_type = {
+    'Agenda':'AGENDA',
+    'Page de base':'INFOS GÉNÉRALES',
+    'Page carrefour':'INFOS GÉNÉRALES',
+    'Actualité':'ACTUALITÉ',
+    'Enseignants':'ENSEIGNANT',
+    'Pratiquer':'Pratiques collectives',
+    'Se former':'Disciplines',
+    'Atelier éducatifs':'ATELIER ÉDUCATIF'
+  } %}
+
+  {% if node %}
+    <div class="h-100 bg-black infos-object-border zoom-img">
+      <a href="{{ node_url }}" class="d-block">
+        {% if node.field_medias.target_id %}
+          {% set media = getMediaInfos(node.field_medias.target_id, 'paysage_crop') %}
+          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+        {% endif %}
+      </a>
+      <div class="pt-3 px-3">
+        <a href="{{ node_url }}">
+          <h2 class="bebas txt-white text-uppercase">{{ node.title.value }}</h2>
+          <p class="tag tag-red">{{ content_type[node.type.entity.label] }}</p>
+        </a>
+      </div>
+    </div>
+  {% endif %}
+{% endif %}

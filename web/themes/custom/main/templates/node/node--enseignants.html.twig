@@ -46,7 +46,8 @@
   {% endif %}
 
   {% if node.field_pratiques_collectives_asso.target_id %}
-    <div class="container mt-5">
+      <div class="container-fluid bg-black mt-6 py-5 mb-5">
+    <div class="container">
       <div class="h1 bebas text-uppercase txt-white">Pratiques collectives associées</div>
       <div class="row">
         {% for pratique in node.field_pratiques_collectives_asso %}
@@ -65,5 +66,6 @@
       </div>
     </div>
   {% endif %}
+      </div>
   </div>
 {% endif %}

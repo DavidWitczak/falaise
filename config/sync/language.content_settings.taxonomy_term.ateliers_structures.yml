@@ -1,0 +1,11 @@
+uuid: 9ab67240-10d8-441d-989b-196dda011688
+langcode: fr
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.ateliers_structures
+id: taxonomy_term.ateliers_structures
+target_entity_type_id: taxonomy_term
+target_bundle: ateliers_structures
+default_langcode: site_default
+language_alterable: false

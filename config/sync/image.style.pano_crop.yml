@@ -15,3 +15,11 @@ effects:
     weight: 1
     data:
       crop_type: pano_crop
+  7b2fdd5c-789a-403a-9ed3-680da25f3a57:
+    uuid: 7b2fdd5c-789a-403a-9ed3-680da25f3a57
+    id: image_scale
+    weight: 2
+    data:
+      width: 2000
+      height: null
+      upscale: false

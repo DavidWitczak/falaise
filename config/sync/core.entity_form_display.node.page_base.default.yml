@@ -25,6 +25,12 @@ targetEntityType: node
 bundle: page_base
 mode: default
 content:
+  created:
+    type: datetime_timestamp
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   field_bloc_txt:
     weight: 3
     settings:
@@ -154,7 +160,6 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  created: true
   langcode: true
   promote: true
   sticky: true

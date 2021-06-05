@@ -15,3 +15,11 @@ effects:
     weight: 1
     data:
       crop_type: paysage_crop
+  acf7ce12-cbc4-457e-86a5-d229098491e1:
+    uuid: acf7ce12-cbc4-457e-86a5-d229098491e1
+    id: image_scale
+    weight: 2
+    data:
+      width: 500
+      height: 500
+      upscale: false
