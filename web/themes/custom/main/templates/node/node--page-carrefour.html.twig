@@ -1,10 +1,10 @@
-<div class="container-fluid p-0 banner">
-  {% if node.field_medias.target_id != '' %}
-    {% set media = getMediaInfos(node.field_medias.target_id, 'pano_crop') %}
-    <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-  {% endif %}
-</div>
-<div class="container bg-white sub-banner pt-3">
+ <div class="container-fluid p-0 banner">
+ {% if node.field_medias.target_id != '' %}
+ {% set media = getMediaInfos(node.field_medias.target_id, 'pano_crop') %}
+ <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+ {% endif %}
+ </div>
+<div class="container bg-white sub-banner  pt-3">
   {{ bamboo_render_block('system_breadcrumb_block') }}
   <h1 class="mb-4">{{ node.title.value }}</h1>
 
@@ -17,14 +17,15 @@
       {% set lien = paragraph_entity.field_lien.get(0).getUrl().toString() %}
       {% set media = getMediaInfos(paragraph_entity.field_image.target_id, 'paysage_crop') %}
 
-      <div class="col-lg-4 mb-4">
+      <div class="col-lg-4 mb-4 zoom-img">
         <a href="{{ lien }}">
-        <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-        <div class="infos-object">
-          <div class="infos-content">
-            <h2 class="bebas">{{ title }}</h2>
+          <img class="w-100 bg-grey-light" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
+               src="{{ media.url }}">
+        </a>
+        <a href="{{ lien }}">
+          <div class="bg-red">
+            <h5 class="gotham txt-white text-align-center text-uppercase px-3 py-1">{{ title }}</h5>
           </div>
-        </div>
         </a>
       </div>
 

@@ -10,7 +10,7 @@
 
 <div class="container bg-white pt-3 position-relative" style="margin-top: {{ mt }}px;z-index: 8">
   {{ bamboo_render_block('system_breadcrumb_block') }}
-  <h1 class="mb-4">{{ node.title.value }}</h1>
+  <h1 class="mb-4 txt-red">{{ node.title.value }}</h1>
 
   <div>{{ bamboo_render_block('menu_page_block') }}</div>
 
@@ -24,8 +24,8 @@
     <div class="clearfix">
       <h2 class="{{ etat }} txt-blue border-bt-bleu mt-5 mb-3">
         {% if etat == 'bloc_open' or etat == 'bloc_close' %}
-          <div class="btn btn-danger">
-            <i class="txt-white fas fa-chevron-up"></i>
+          <div class="btn btn-bloc">
+            <i class="fas fa-arrow-up"></i>
           </div>
         {% endif %}
         {{ title }}
@@ -37,20 +37,10 @@
   {% if node.field_videos.target_id is not empty %}
     <div class="mt-6 text-align-center">
       {% for video in node.field_videos %}
-        <div class="mb-5 video txt-grey pb-4">
+        <div class="mb-5 txt-grey pb-4">
           {{ bamboo_render_entity('media', video.target_id) }}
         </div>
       {% endfor %}
-    </div>
-  {% endif %}
-
-  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
-    <div class="my-3 bg-black txt-white pt-3 pb-4 px-4">
-      <h1 class="mx-3 bebas text-uppercase">Pour aller plus loin</h1>
-      <div>
-        {{ bamboo_render_field('field_liens', 'node') }}
-        {{ bamboo_render_field('field_fichiers', 'node') }}
-      </div>
     </div>
   {% endif %}
 
@@ -68,6 +58,16 @@
           </div>
         {% endif %}
       {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
+    <div class="my-3 bg-grey txt-white pt-3 pb-4 px-4">
+      <h1 class="mx-3 gotham text-uppercase">En savoir plus</h1>
+      <div>
+        {{ bamboo_render_field('field_liens', 'node') }}
+        {{ bamboo_render_field('field_fichiers', 'node') }}
+      </div>
     </div>
   {% endif %}
 

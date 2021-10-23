@@ -1,5 +1,0 @@
-name: 'Home pratiquer'
-type: module
-description: 'Accueil pratiquer'
-core: 8.x
-package: 'Custom'

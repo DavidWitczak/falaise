@@ -40,7 +40,7 @@ class ActusController extends ControllerBase {
 
     foreach ($actus as $key => $actu){
       $field_media = $actu->get('field_medias')->getValue();
-      $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $actu->get('nid')->value);
+      $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $actu->get('nid')->value);
 
       $output[$key]['title'] = $actu->getTitle();
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];

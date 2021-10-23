@@ -9,7 +9,7 @@
       <ul class="nav">
         {% for item in items %}
           <li class="nav-item">
-            <a class="nav-link text-align-center txt-white font-small pl-0 pr-0" href="{{ item.url }}">
+            <a class="nav-link text-align-center txt-white pl-0 pr-0" href="{{ item.url }}">
               {{ item.title }}{% if not loop.last %}&nbsp;&nbsp;|&nbsp;&nbsp;{% endif %}
             </a>
           </li>

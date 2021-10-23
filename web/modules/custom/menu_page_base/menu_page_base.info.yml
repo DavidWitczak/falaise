@@ -1,5 +1,5 @@
 name: 'Menu page de base'
 type: module
 description: 'Menu des pages de base'
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 package: 'Custom'

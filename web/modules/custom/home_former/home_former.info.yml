@@ -1,5 +1,0 @@
-name: 'Home se former'
-type: module
-description: 'Accueil se former'
-core: 8.x
-package: 'Custom'

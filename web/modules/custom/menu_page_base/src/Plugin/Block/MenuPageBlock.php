@@ -56,7 +56,7 @@ class MenuPageBlock extends BlockBase {
       $image = $main_page->get('field_medias')->getValue();
       $output['#var']['main_page']['media_id'] = $image[0]['target_id'];
       $output['#var']['main_page']['title'] = $main_page->getTitle();
-      $output['#var']['main_page']['url'] = $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $main_page->get('nid')->value);
+      $output['#var']['main_page']['url'] = $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $main_page->get('nid')->value);
       $output['#var']['current_id'] = $nid;
       $output['#var']['main_page_id'] = $main_page_id;
 
@@ -72,7 +72,7 @@ class MenuPageBlock extends BlockBase {
       $pages = Node::loadMultiple($pages_ids);
 
       foreach ($pages as $key => $page) {
-        $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $page->get('nid')->value);
+        $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $page->get('nid')->value);
 
         $image = $page->get('field_medias')->getValue();
 

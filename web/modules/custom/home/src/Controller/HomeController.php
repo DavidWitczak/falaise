@@ -22,27 +22,6 @@ class HomeController extends ControllerBase {
     $output['#var']['actus'] = $this->getActus();
     $output['#var']['en_avant'] = $this->getEnAvant();
     $output['#var']['agenda'] = $this->getAgendas();
-    $output['#var']['discipline'] = $this->getDiscipline();
-
-    return $output;
-  }
-
-  public function getDiscipline(){
-    $output = [];
-    $config = \Drupal::config('site_config.config');
-
-    for ($i = 1; $i <= 12; $i++) {
-      $node = Node::load($config->get('discipline_' . $i));
-      if($node) {
-        $field_media = $node->get('field_medias')->getValue();
-        $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
-
-        $output[$i]['title'] = $node->getTitle();
-        $output[$i]['visuel_id'] = $field_media[0]['target_id'];
-        $output[$i]['url'] = $url;
-        $output[$i]['tid'] = $node->get('field_discipline');
-      }
-    }
 
     return $output;
   }
@@ -55,12 +34,13 @@ class HomeController extends ControllerBase {
       $node = Node::load($config->get('event_' . $i));
       if($node) {
         $field_media = $node->get('field_medias')->getValue();
-        $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
+        $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $node->get('nid')->value);
 
         $output[$i]['title'] = $node->getTitle();
         $output[$i]['visuel_id'] = $field_media[0]['target_id'];
         $output[$i]['url'] = $url;
         $output[$i]['tid'] = $node->get('field_cat_agenda');
+        $output[$i]['tid_event'] = $node->get('field_evenement');
         $output[$i]['date_debut'] = $node->get('field_date_debut');
         $output[$i]['date_fin'] = $node->get('field_date_fin');
         $output[$i]['lieu'] = $node->get('field_lieu');
@@ -83,23 +63,25 @@ class HomeController extends ControllerBase {
     $query->condition('field_date_fin', $date_min_format, '>=');
 
     $query->sort('field_date_debut', 'ASC');
-    $query->pager(6);
+    $query->pager(3);
     $agendas_ids = $query->execute();
 
     $agendas = Node::loadMultiple($agendas_ids);
 
     foreach ($agendas as $key => $agenda) {
       $field_media = $agenda->get('field_medias')->getValue();
-      $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $agenda->get('nid')->value);
+      $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $agenda->get('nid')->value);
 
       $output[$key]['title'] = $agenda->getTitle();
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];
       $output[$key]['url'] = $url;
       $output[$key]['tid'] = $agenda->get('field_cat_agenda');
+      $output[$key]['tid_event'] = $agenda->get('field_evenement');
       $output[$key]['date_debut'] = $agenda->get('field_date_debut');
       $output[$key]['date_fin'] = $agenda->get('field_date_fin');
       $output[$key]['jours'] = $agenda->get('field_infos_sup');
       $output[$key]['public'] = $agenda->get('field_public');
+      $output[$key]['lieu'] = $agenda->get('field_lieu');
     }
 
     return $output;
@@ -120,7 +102,7 @@ class HomeController extends ControllerBase {
 
     foreach ($actus as $key => $actu){
       $field_media = $actu->get('field_medias')->getValue();
-      $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $actu->get('nid')->value);
+      $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $actu->get('nid')->value);
 
       $output[$key]['title'] = $actu->getTitle();
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];

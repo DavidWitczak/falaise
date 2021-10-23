@@ -1,25 +1,18 @@
 
-/* BEBAS FONT */
+/* Gotham FONT */
 
 @font-face {
-    font-family: 'bebas';
-    src: url('../fonts/bebas_neue/BebasNeue-Regular.ttf');
+    font-family: 'gotham';
+    src: url('../fonts/Gotham/GothamMedium.ttf');
     font-weight: normal;
     font-style: normal;
 }
 
-/* POPPINS FONT */
+/* Roboto */
 
 @font-face {
-    font-family: 'poppins regular';
-    src: url('../fonts/poppins/Poppins-Regular.ttf');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'poppins bold';
-    src: url('../fonts/poppins/Poppins-Bold.ttf');
+    font-family: 'roboto';
+    src: url('../fonts/Roboto/Roboto-Regular.ttf');
     font-weight: normal;
     font-style: normal;
 }

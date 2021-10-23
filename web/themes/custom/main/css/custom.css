@@ -19,7 +19,7 @@
 }
 
 body {
-  font-family: "poppins regular";
+  font-family: Arial;
   background: #fafafa;
 }
 
@@ -48,7 +48,7 @@ body {
 
 .breadcrumb-item+.breadcrumb-item::before{
   content: '>';
-  font-family: "poppins regular";
+  font-family: roboto;
   color: black;
 }
 
@@ -56,18 +56,23 @@ body {
   font-size: 2rem;
 }
 
-.bebas{
-  font-family: bebas;
+.gotham{
+  font-family: gotham;
 }
 
-.poppins{
-  font-family: "poppins regular";
+.roboto{
+  font-family: roboto;
 }
 
 h1{
-  font-family: bebas;
-  font-size: 4rem;
+  font-family: gotham;
+  font-size: 3rem;
   text-transform: uppercase;
+}
+
+h2{
+  font-family: gotham;
+  color: #333f48;
 }
 
 a {
@@ -98,11 +103,11 @@ a:hover {
 }
 
 .txt-red {
-  color: #E30B17;
+  color: #B4363C;
 }
 
 .bg-red {
-  background: #E30B17;
+  background: #B4363C;
 }
 
 .txt-grey {
@@ -127,7 +132,7 @@ a:hover {
 }
 
 .bg-grey {
-  background: #727272;
+  background: #333f48;
 }
 
 .bg-grey-light {
@@ -162,10 +167,26 @@ a:hover {
   line-height: 1.1;
 }
 
+.banniere_home{
+  margin-top: -80px;
+  height: 80px;
+  position: relative;
+  text-align: center;
+}
+
+.part{
+  filter: grayscale(100%);
+  transition: 0.3s;
+}
+
+.part:hover{
+  filter: grayscale(0%);
+}
+
 .chapo {
-  font-family: "poppins regular";
+  font-family: Arial;
   font-weight: bold;
-  color: #727272;
+  color: black;
   font-size: 1.2rem;
 }
 
@@ -175,16 +196,21 @@ a:hover {
 }
 
 .tag {
-  font-family: "bebas";
+  font-family: roboto;
   color: white;
   display: inline-block;
   padding: 0.2rem 0.7rem;
-  font-size: 1.5rem;
-  background: #EC6608;
+  font-size: 1.2rem;
+  background: #323E45;
 }
 
-.tag-red {
-background: #E30B17;
+.tag-red, .tag-Saison {
+background: #B4363C;
+}
+
+.tag-Les {
+  background: #ee9396;
+  color: #333f48;
 }
 
 .tag-134 {
@@ -195,13 +221,69 @@ background: #E30B17;
   background: #D7B600;
 }
 
+.btn{
+  border-radius: 0;
+  font-family: roboto;
+  font-size: 1.4rem;
+}
+
 .btn-black{
-  font-family: "bebas";
+  font-family: roboto;
   color: #a3a3a3;
   display: inline-block;
   padding: 0.5rem 1rem;
   font-size: 1.2rem;
   border: 1px solid #a3a3a3;
+}
+
+.btn-grey{
+color: #B4363C;
+  padding: 0.5rem 1rem;
+  border: 1px solid #B4363C;
+  background: #c1c1c1;
+  font-size: 1rem;
+}
+
+.btn-grey:hover{
+  background: white;
+  color: #b4363c;
+}
+
+.btn-red a{
+  background: #b4363c;
+  color: white;
+  padding: 5px 10px;
+}
+
+.btn-red a:hover{
+  background: #323E45;
+}
+
+.btn-red-alone{
+  background: #b4363c;
+  color: white;
+  padding: 5px 10px;
+}
+
+.btn-red-alone:hover{
+  background: #323E45;
+  color: white;
+}
+
+.btn-bloc, .btn-bloc i{
+  border: 1px solid #323E45;
+  border-radius: 1.4rem;
+  background: #323E45;
+  color: white;
+}
+
+.btn-bloc:hover, .btn-bloc:hover i{
+  background: white;
+  color: #323e45;
+}
+
+.btn-bloc i{
+  border: none;
 }
 
 #header,
@@ -234,7 +316,7 @@ background: #E30B17;
 #social-bar a:hover > .fab,
 .share-breadcrumb:hover > .fas
 {
-  color: #E30B17;
+  color: #B4363C;
 }
 
 #social-reduce{
@@ -242,20 +324,20 @@ background: #E30B17;
 }
 
 #main-menu {
-  font-family: bebas;
+  font-family: roboto;
   font-size: 1.4rem;
 }
 
 #main-menu a:hover, .hover-red:hover {
   text-decoration: none;
-  color: #E30B17;
+  color: #B4363C;
   background-size: 100% 100%;
 }
 
 #main-menu a, .hover-red {
   color: black;
   text-decoration: none;
-  background: linear-gradient(to top, #E30B17 0%, #E30B17 4%, transparent 4.01%) no-repeat left bottom / 0 100%;
+  background: linear-gradient(to top, #B4363C 0%, #B4363C 4%, transparent 4.01%) no-repeat left bottom / 0 100%;
   transition: background-size .5s;
 }
 
@@ -268,7 +350,7 @@ background: #E30B17;
   height: 0;
   border-style: solid;
   border-width: 36px 36px 0 0;
-  border-color: #E30B17 transparent transparent transparent;
+  border-color: #B4363C transparent transparent transparent;
   float: right;
   background: #efefef;
   margin-top: 5px;
@@ -291,16 +373,16 @@ h2.bloc_close, h2.bloc_open {
   color: white;
   position: absolute;
   top: 0;
-  left: 15px;
-  right: 15px;
+  left: 0.5rem;
+  right: 0.5rem;
   bottom: 0;
-  background: linear-gradient(transparent 30%, black 98%, #E30B17 3%);
+  background: linear-gradient(transparent 30%, black 98%);
   opacity: 0.9;
   transition: 0.3s;
 }
 
 .infos-object:hover {
-  background: linear-gradient(transparent 0%, black 98%, #E30B17 3%);
+  background: linear-gradient(transparent 0%, black 98%);
   opacity: 1;
 }
 
@@ -312,16 +394,6 @@ h2.bloc_close, h2.bloc_open {
   line-height: 1;
 }
 
-.btn:hover{
-  color: white;
-}
-
-.btn{
-  border-radius: 0;
-  font-family: bebas;
-  font-size: 1.4rem;
-}
-
 .list-content{
   margin-top: -7rem;
 }
@@ -331,7 +403,7 @@ h2.bloc_close, h2.bloc_open {
 }
 
 .ico_anim:hover{
-  color: #E30B17;
+  color: #B4363C;
 }
 
 .partial-border {
@@ -340,7 +412,7 @@ h2.bloc_close, h2.bloc_open {
 }
 .partial-border:before {
   content: '';
-  border-bottom: 3px solid #E30B17;
+  border-bottom: 3px solid #B4363C;
   position: absolute;
   width: 35px;
   left: 0%;
@@ -371,12 +443,12 @@ h2.bloc_close, h2.bloc_open {
   font-size: 0.6rem;
 }
 
-.form-group:before{
-  font-family: "Font Awesome 5 Free";
-  font-weight: 900;
-  color: #E30B17;
-  font-size: 1.3rem;
-}
+/*.form-group:before{*/
+/*  font-family: "Font Awesome 5 Free";*/
+/*  font-weight: 900;*/
+/*  color: #B4363C;*/
+/*  font-size: 1.3rem;*/
+/*}*/
 
 .row-fichier-liens,
 .row-fichier{
@@ -387,31 +459,31 @@ optgroup {
   font-size: 1.8rem;
 }
 
-.form-item-discipline:before {
-  content: "\f069";
-}
+/*.form-item-discipline:before {*/
+/*  content: "\f069";*/
+/*}*/
 
-.form-item-public:before {
-  content: "\f0c0";
-}
+/*.form-item-public:before {*/
+/*  content: "\f0c0";*/
+/*}*/
 
-.form-item-famille-d-instruments:before {
-  content: "\f8d9";
-}
+/*.form-item-famille-d-instruments:before {*/
+/*  content: "\f8d9";*/
+/*}*/
 
-.form-item-pratiquer:before {
-  content: "\f8d9";
-}
+/*.form-item-pratiquer:before {*/
+/*  content: "\f8d9";*/
+/*}*/
 
-.form-item-categorie:before {
-  content: "\f02b";
-}
+/*.form-item-categorie:before {*/
+/*  content: "\f02b";*/
+/*}*/
 
-.form-item-date:before,
-.form-item-au:before
-{
-  content: "\f073";
-}
+/*.form-item-date:before,*/
+/*.form-item-au:before*/
+/*{*/
+/*  content: "\f073";*/
+/*}*/
 
 .banner{
   position: absolute;
@@ -429,10 +501,21 @@ optgroup {
   line-height: 0.9rem;
 }
 
+.event_tag{
+  position: absolute;
+  top: 0;
+}
+
+.event_tag_2{
+  position: absolute;
+  top: 0;
+  right: 0.5rem;
+}
+
 .event_infos{
-  margin-top: -25%;
-  position: relative;
-  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  /*left: 50px;*/
 }
 
 .hover-img{
@@ -484,7 +567,7 @@ a.btn-black:hover{
 }
 
 .infos-object-border{
-  border-bottom: 5px solid #E30B17;
+  border-bottom: 5px solid #B4363C;
 }
 
 .zoom-img{
@@ -503,7 +586,7 @@ a.btn-black:hover{
 }
 
 .hover-red:hover{
-  color: #E30B17;
+  color: #B4363C;
 }
 
 #return-to-top{
@@ -514,14 +597,9 @@ a.btn-black:hover{
   z-index: 1500;
 }
 
-.cursus{
-  background: url("../images/cursus.jpg");
-  background-position: top center;
-  min-height: 600px;
-}
-
-.post-cursus{
-  margin-top: -150px;
+.sitemap{
+  max-width: 540px;
+  margin: 50px auto;
 }
 
 /*Bootstrap 4 Tooltip*/
@@ -532,11 +610,11 @@ a.btn-black:hover{
 .tooltip > .tooltip-inner {
   text-align: center;
   font-size: 1rem;
-  font-family: bebas;
+  font-family: roboto;
   text-transform: uppercase;
   padding: 5px 15px;
   color: white;
-  background-color: #E30B17;
+  background-color: #B4363C;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important
 }
 
@@ -552,26 +630,26 @@ a.btn-black:hover{
 
 .tooltip.bs-tooltip-top .arrow:before,
 .tooltip.bs-tooltip-bottom .arrow:before {
-  border-top-color: #E30B17;
+  border-top-color: #B4363C;
   border-right-color: transparent;
-  border-bottom-color: #E30B17;
+  border-bottom-color: #B4363C;
   border-left-color: transparent;
 }
 
 .tooltip.bs-tooltip-right .arrow:before,
 .tooltip.bs-tooltip-left .arrow:before{
   border-top-color: transparent;
-  border-right-color: #E30B17;
+  border-right-color: #B4363C;
   border-bottom-color: transparent;
-  border-left-color: #E30B17;
+  border-left-color: #B4363C;
 }
 
 /* PAGER */
 .page-link{
-  color: #E30B17;
-  font-family: bebas;
+  color: #B4363C;
+  font-family: roboto;
   font-size: 1.4rem;
-  border-color: #E30B17;
+  border-color: #B4363C;
   padding: .5rem 1rem;
 }
 
@@ -582,7 +660,7 @@ a.btn-black:hover{
 
 .pager .is-active .page-link,
 .pager .page-link:hover{
-  background: #E30B17;
+  background: #B4363C;
   color: white;
-  border: 1px solid #E30B17;
+  border: 1px solid #B4363C;
 }

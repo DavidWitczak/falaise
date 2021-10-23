@@ -22,7 +22,6 @@ class AgendaController extends ControllerBase {
     $output = [];
     $output['results']['#theme'] = 'home_agenda';
     $output['results']['#var']['agenda'] = $this->getAgendas();
-    $output['results']['#var']['en_avant'] = $this->getEnAvant();
     $output['pager'] = ['#type' => 'pager'];
 
     return $output;
@@ -64,12 +63,6 @@ class AgendaController extends ControllerBase {
       $query->condition('field_cat_agenda', $query_cat);
     }
 
-    //Public
-    if (\Drupal::request()->query->get('public')) {
-      $query_cat = \Drupal::request()->query->get('public');
-      $query->condition('field_public', $query_cat);
-    }
-
     $query->sort('field_date_debut', 'ASC');
     $query->pager(12);
     $agendas_ids = $query->execute();
@@ -78,12 +71,13 @@ class AgendaController extends ControllerBase {
 
     foreach ($agendas as $key => $agenda) {
       $field_media = $agenda->get('field_medias')->getValue();
-      $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $agenda->get('nid')->value);
+      $url = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $agenda->get('nid')->value);
 
       $output[$key]['title'] = $agenda->getTitle();
       $output[$key]['visuel_id'] = $field_media[0]['target_id'];
       $output[$key]['url'] = $url;
       $output[$key]['tid'] = $agenda->get('field_cat_agenda');
+      $output[$key]['tid_event'] = $agenda->get('field_evenement');
       $output[$key]['date_debut'] = $agenda->get('field_date_debut');
       $output[$key]['date_fin'] = $agenda->get('field_date_fin');
       $output[$key]['jours'] = $agenda->get('field_infos_sup');
@@ -94,26 +88,4 @@ class AgendaController extends ControllerBase {
     return $output;
   }
 
-  public function getEnAvant(){
-    $output = [];
-    $config = \Drupal::config('site_config.config');
-
-    for ($i = 1; $i <= 2; $i++) {
-      $node = Node::load($config->get('event_' . $i));
-      if($node) {
-        $field_media = $node->get('field_medias')->getValue();
-        $url = \Drupal::service('path.alias_manager')->getAliasByPath('/node/' . $node->get('nid')->value);
-
-        $output[$i]['title'] = $node->getTitle();
-        $output[$i]['visuel_id'] = $field_media[0]['target_id'];
-        $output[$i]['url'] = $url;
-        $output[$i]['tid'] = $node->get('field_cat_agenda');
-        $output[$i]['date_debut'] = $node->get('field_date_debut');
-        $output[$i]['date_fin'] = $node->get('field_date_fin');
-        $output[$i]['lieu'] = $node->get('field_lieu');
-      }
-    }
-
-    return $output;
-  }
 }

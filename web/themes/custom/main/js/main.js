@@ -2,29 +2,29 @@
 
   jQuery('[data-toggle="tooltip"]').tooltip({});
 
-  document.getElementById('social-reduce').style.display = 'none';
-window.onscroll = function (){
-  if(document.documentElement.scrollTop > 80){
-    document.getElementById('social-bar').style.display = 'none';
-    document.getElementById('logo').style.width = '70%';
-    document.getElementById('col-menu').classList.remove('offset-lg-1');
-    document.getElementById('row-menu').classList.remove('my-3');
-
-    if (window.matchMedia("(min-width: 992px)").matches) {
-      document.getElementById('social-reduce').style.display = 'flex';
-
-    } else {
-      document.getElementById('social-reduce').style.display = 'none';
-    }
-  }else{
-    document.getElementById('social-bar').style.display = 'flex';
-    document.getElementById('logo').style.width = '100%';
-    document.getElementById('col-menu').classList.add('offset-lg-1');
-    document.getElementById('row-menu').classList.add('my-3');
-    document.getElementById('social-reduce').style.display = 'none';
-  }
-
-}
+//   document.getElementById('social-reduce').style.display = 'none';
+// window.onscroll = function (){
+//   if(document.documentElement.scrollTop > 80){
+//     document.getElementById('social-bar').style.display = 'none';
+//     document.getElementById('logo').style.width = '70%';
+//     document.getElementById('col-menu').classList.remove('offset-lg-1');
+//     document.getElementById('row-menu').classList.remove('my-3');
+//
+//     if (window.matchMedia("(min-width: 992px)").matches) {
+//       document.getElementById('social-reduce').style.display = 'flex';
+//
+//     } else {
+//       document.getElementById('social-reduce').style.display = 'none';
+//     }
+//   }else{
+//     document.getElementById('social-bar').style.display = 'flex';
+//     document.getElementById('logo').style.width = '100%';
+//     document.getElementById('col-menu').classList.add('offset-lg-1');
+//     document.getElementById('row-menu').classList.add('my-3');
+//     document.getElementById('social-reduce').style.display = 'none';
+//   }
+//
+// }
 
 //bloc accordeon
 jQuery('.bloc_close').next().css({'display': 'none'});

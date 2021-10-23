@@ -1,8 +1,0 @@
-
-home_ateliers.ateliers_controller_home:
-  path: '/offre-educative/ateliers-educatifs'
-  defaults:
-    _controller: '\Drupal\home_ateliers\Controller\AteliersController::home'
-    _title: 'Ateliers pédagogiques'
-  requirements:
-    _permission: 'access content'

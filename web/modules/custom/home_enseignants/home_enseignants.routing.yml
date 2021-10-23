@@ -1,8 +1,0 @@
-
-home_enseignants.home_controller_home:
-  path: '/conservatoire/equipe'
-  defaults:
-    _controller: '\Drupal\home_enseignants\Controller\HomeController::home'
-    _title: 'Enseignants'
-  requirements:
-    _permission: 'access content'

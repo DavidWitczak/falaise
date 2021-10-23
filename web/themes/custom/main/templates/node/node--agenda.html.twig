@@ -1,147 +1,141 @@
-<div class="container">
-
-  <div class="mb-4">
+<div class="container mt-5">
+  {{ bamboo_render_block('system_breadcrumb_block') }}
+  <div class="mb-1">
     {% for cat in node.field_cat_agenda %}
-      <div class="tag tag-red">{{ cat.entity.name.value }}</div>
+      <div class="tag text-uppercase">{{ cat.entity.name.value }}</div>
+    {% endfor %}
+    {% for event in node.field_evenement %}
+      <div class="tag tag-{{ node.field_evenement.entity.name.value }}">{{ event.entity.name.value }}</div>
     {% endfor %}
   </div>
 
-  <h1>{{ node.title.value }}</h1>
+  <h1 class="txt-red mb-0">{{ node.title.value }}</h1>
+  <h3 class="txt-red mb-1">{{ node.field_sous_titre.value }}</h3>
 
   <div class="row">
     <div class="col-lg-5">
+      {% set media = getMediaInfos(node.field_medias.target_id, 'portrait_crop') %}
+      <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
+    </div>
+    <div class="col-lg-7">
       <div class="row">
-        <div class="col-lg-9 pr-0">
-          {% set media = getMediaInfos(node.field_medias.target_id, 'carre_crop') %}
-          <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-        </div>
-        <div class="col-lg-3 bg-red txt-white date-event ml-md-3 pl-md-0 ml-sm-3 ml-lg-0">
-          <div class="row my-lg-5 pt-lg-4 py-md-3 py-sm-3 bebas text-align-center">
-            <div class="col-lg-12 col-sm-2 col-md-1 offset-lg-0 offset-md-4 offset-sm-3">
+        <div class="col-lg-3 border-right">
+          <div class="row line-h">
+            <div class="col-lg-3">
               {% if(node.field_date_debut.value) %}
-                <div class="m-0 h2">{{ node.field_date_debut.value|date('d') }}</div>
-                <div>{{ node.field_date_debut.value|date('U')|format_date('mois_fr') }}</div>
+                <div class="font-big font-weight-bold">{{ node.field_date_debut.value|date('d') }}</div>
+                <div>{{ node.field_date_debut.value|date('U')|format_date('mois_court') }}</div>
                 <div>{{ node.field_date_debut.value|date('Y') }}</div>
               {% endif %}
             </div>
-            {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
-              <div class="col-lg-12 col-sm-1 col-md-1 pt-lg-0 pt-md-3 pt-sm-3">
-                <div class="d-sm-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
-                <div class="d-sm-block d-lg-none"><i class="fas fa-arrow-right txt-white font-big"></i></div>
-              </div>
-              <div class="col-lg-12 col-sm-2 col-md-1">
-                <div class="m-0 h2">{{ node.field_date_fin.value|date('d') }}</div>
-                <div>{{ node.field_date_fin.value|date('U')|format_date('mois_fr') }}</div>
+            <div class="col-lg-1">
+              {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+                <div class="mt-2"><span class="font-weight-bold"> > </span></div>
+              {% endif %}
+            </div>
+            <div class="col-lg-3">
+              {% if(node.field_date_fin.value and node.field_date_debut.value != node.field_date_fin.value) %}
+                <div class="font-big font-weight-bold">{{ node.field_date_fin.value|date('d') }}</div>
+                <div>{{ node.field_date_fin.value|date('U')|format_date('mois_court') }}</div>
                 <div>{{ node.field_date_fin.value|date('Y') }}</div>
-              </div>
-            {% endif %}
+              {% endif %}
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-
-    <div class="col-lg-7">
-      <h5 class="font-weight-bold text-uppercase">{{ node.field_sous_titre.value }}</h5>
-
-      {% if node.field_infos_sup.value %}
-        <p class="mt-3">
-          <span class="font-weight-bold">Infos complémentaires :</span>
-          {{ node.field_infos_sup.value }}
-        </p>
-      {% endif %}
-
-      <div class="row justify-content-between mt-3">
-        {% if node.field_horaire.value %}
-          <div class="col-lg-3 border-right">
-            <i class="far fa-clock mr-2 txt-red"></i>{{ node.field_horaire.value }}
-          </div>
-        {% endif %}
-
-        {% if node.field_duree.value %}
-          <div class="col-lg-4 border-right">
-            <i class="fas fa-hourglass-half mr-2 ml-lg-4 txt-red"></i>{{ node.field_duree.value }}
-          </div>
-        {% endif %}
-
-        {% if node.field_tarif.value %}
-          <div class="col-lg-5">
-            <i class="fas fa-euro-sign mr-2 ml-lg-4 txt-red"></i>{{ node.field_tarif.value }}
-          </div>
-        {% endif %}
-
-        {% if node.field_lieu.value %}
-          <div class="col-lg-12 mt-lg-3">
-            <i class="fas fa-map-marker-alt mr-2 txt-red"></i>{{ node.field_lieu.value }}
-          </div>
-        {% endif %}
-      </div>
-
-      {% if node.field_reservation.value %}
-        <div class="mt-3">{{ bamboo_render_field('field_reservation', 'node') }}</div>
-      {% endif %}
-
-      {% if node.field_link_resa.value %}
-      <div class="btn bg-red txt-white">{{ bamboo_render_field('field_link_resa', 'node') }}</div>
-      {% endif %}
-
-      {% if node.field_public.entity.name.value %}
-        <div class="mt-3">
-          <span class="font-weight-bold">Public :</span> {{ node.field_public.entity.name.value }}
+        <div class="col-lg-7 pl-5 pt-2">
+          {% if node.field_horaire.value %}
+            <span class="h5"><span class="font-weight-bold">{{ node.field_horaire.value }}</span></span>
+          {% endif %}
+          {% if node.field_duree.value %}
+            <span class="h5"> - Durée : {{ node.field_duree.value }}</span>
+          {% endif %}
         </div>
-      {% endif %}
 
-      <div class="mt-3">
-        {% for access in node.field_accessibilite %}
-          <img class="mr-2" width="40" title="{{ access.entity.name.value }}"
-               src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
-        {% endfor %}
+        {% if node.field_infos_sup.value %}
+          <div class="col-lg-12 pt-3">
+            <p class="mt-3">
+            <h3 class="font-weight-bold txt-grey">Infos complémentaires</h3>
+              {{ node.field_infos_sup.value }}
+            </p>
+          </div>
+        {% endif %}
+
+        <div class="col-lg-3 border-right mt-4">
+          {% if node.field_public.entity.name.value %}
+            <h3 class="font-weight-bold txt-grey">Public</h3>
+            {% for public in node.field_public %}
+              {{ public.entity.name.value }}<br/>
+            {% endfor %}
+          {% endif %}
+        </div>
+        <div class="col-lg-3 border-right mt-4">
+          {% if node.field_lieu.value %}
+            <h3 class="font-weight-bold txt-grey">Lieu</h3> {{ node.field_lieu.value }}
+          {% endif %}
+        </div>
+        <div class="col-lg-6 mt-4">
+          {% for access in node.field_accessibilite %}
+            <img class="mr-2 mt-3" width="40" title="{{ access.entity.name.value }}"
+                 src="/{{ directory }}/images/access_{{ access.value.target_id }}.png">
+          {% endfor %}
+        </div>
+
+        <div class="col-lg-12 mt-4 border-bottom">
+          <h3 class="font-weight-bold txt-grey">Tarif(s)</h3>
+          {% if node.field_tarif.value %}
+            {{ node.field_tarif.value|raw }}
+          {% endif %}
+        </div>
+
+        <div class="col-lg-7 mt-4">
+          <h3 class="font-weight-bold txt-grey">Réservation</h3>
+          {% if node.field_reservation.value %}
+            {{ bamboo_render_field('field_reservation', 'node') }}
+          {% endif %}
+        </div>
+        <div class="col-lg-5 mt-4">
+          {% if node.field_resa_ligne.value %}
+            <div class="btn btn-red mt-5">{{ bamboo_render_field('field_resa_ligne', 'node') }}</div>
+          {% endif %}
+        </div>
+
       </div>
-
     </div>
   </div>
 
-  <div class="chapo mt-4">{{ bamboo_render_field('field_chapo', 'node') }}</div>
+  <div class="chapo mt-5">{{ bamboo_render_field('field_chapo', 'node') }}</div>
 
-  <div class="my-3">{{ bamboo_render_field('field_description', 'node') }}</div>
-
-  {% if node.field_medias|length > 1 %}
-  <div class="row mt-6">
-    {% for image in node.field_medias %}
-      {% if loop.index != 1 %}
-        {% set media = getMediaInfos(image.target_id, 'paysage_crop') %}
-        <div class="col-lg-4 p-0">
-          <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
-            <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}" src="{{ media.url }}">
-          </a>
-        </div>
-      {% endif %}
-    {% endfor %}
-  </div>
-  {% endif %}
-
-  {% if node.field_audio.target_id is not empty %}
-    <div class="border-top mt-6 pt-4">
-      {% for audio in node.field_audio %}
-        <div class="mb-5">
-          {{ bamboo_render_entity('media', audio.target_id) }}
-        </div>
-      {% endfor %}
-    </div>
-  {% endif %}
+  <div class="my-5">{{ bamboo_render_field('field_description', 'node') }}</div>
 
   {% if node.field_videos.target_id is not empty %}
     <div class="mt-6 text-align-center">
       {% for video in node.field_videos %}
-        <div class="mb-5 video txt-grey pb-4">
+        <div class="mb-5 txt-grey pb-4">
           {{ bamboo_render_entity('media', video.target_id) }}
         </div>
       {% endfor %}
     </div>
   {% endif %}
 
+  {% if node.field_medias|length > 1 %}
+    <div class="row mt-6">
+      {% for image in node.field_medias %}
+        {% if loop.index != 1 %}
+          {% set media = getMediaInfos(image.target_id, 'paysage_crop') %}
+          <div class="col-lg-4 p-0">
+            <a href="{{ media.url_full }}" data-fancybox="gallery" data-caption="{{ media.name }} - {{ media.copy }}">
+              <img class="w-100" title="{{ media.name }} - {{ media.copy }}" alt="{{ media.alt }}"
+                   src="{{ media.url }}">
+            </a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
   {% if node.field_liens|length > 0 or node.field_fichiers|length > 0 %}
     <div class="my-3 bg-black txt-white pt-3 pb-4 px-4 mt-5">
-      <h2 class="mx-3 bebas text-uppercase">Pour aller plus loin</h2>
+      <h2 class="mx-3 gotham text-uppercase">En savoir plus</h2>
       <div>
         {{ bamboo_render_field('field_liens', 'node') }}
         {{ bamboo_render_field('field_fichiers', 'node') }}
@@ -149,58 +143,5 @@
     </div>
   {% endif %}
 
-  {% if node.field_prog_assoc.target_id != '' %}
-    <h1 class="mt-6"><span class="txt-red">événements</span> associés</h1>
-    <div class="row mt-3">
-      {% for agenda in node.field_prog_assoc %}
-        {% set event = bamboo_load_entity('node', agenda.target_id) %}
-        {% set cat = event.field_cat_agenda %}
-        {% set url = path('entity.node.canonical', {'node': agenda.target_id}) %}
-        {% set media = getMediaInfos(event.field_medias.target_id, 'portrait_crop') %}
-        <div class="col-lg-4 mb-4">
-          <a href="{{ url }}">
-            <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" src="{{ media.url }}">
-            <div class="infos-object">
-              <div class="infos-content">
-                <div class="row align-items-end">
-                  <div class="col-8 p-0">
-                    <div class="tag tag-red mb-2 font-small">{{ cat.entity.name.value }}</div>
-                    <h2 class="bebas">{{ event.title.value }}</h2>
-                    <p>{{ event.field_lieu.value }}</p>
-                  </div>
-                  <div class="col-4 pr-0 pl-1 line-h">
-                    <div class="col-lg-12 col-md-1 font-small">
-                      <div class="h3 m-0">{{ event.field_date_debut.value|date('U')|date("d") }}</div>
-                      <div>{{ event.field_date_debut.value|date('U')|format_date('mois_fr') }}</div>
-                      <div>{{ event.field_date_debut.value|date('U')|date("Y") }}</div>
-                    </div>
-                    {% if(event.field_date_fin.value and event.field_date_debut.value != event.field_date_fin.value) %}
-                      <div class="col-lg-12 col-md-1">
-                        <div class="my-2 d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i>
-                        </div>
-                        <div class="d-md-block d-lg-none"><i class="fas fa-arrow-right txt-white font-big"></i></div>
-                      </div>
-                      <div class="col-lg-12 col-md-1 font-small">
-                        <div class="h3 m-0">{{ event.field_date_fin.value|date('U')|date("d") }}</div>
-                        <div>{{ event.field_date_fin.value|date('U')|format_date('mois_fr') }}</div>
-                        <div>{{ event.field_date_fin.value|date('U')|date("Y") }}</div>
-                      </div>
-                    {% endif %}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="font-big mb-4">
-      <a href="/agenda">
-        <i class="far fa-calendar txt-red"></i>
-        <span class="text-uppercase bebas hover-red">Toute la programmation</span>
-        <i class="fas fa-arrow-right"></i>
-      </a>
-    </div>
-  {% endif %}
 </div>
 

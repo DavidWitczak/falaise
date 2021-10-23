@@ -2,7 +2,7 @@ name: Thème principal
 type: theme
 description: 'Thème principal'
 package: Custom
-core: 8.x
+core_version_requirement: ^8.8 || ^9
 
 libraries:
   - main/global-css

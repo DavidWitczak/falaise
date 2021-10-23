@@ -1,5 +1,0 @@
-name: 'Home enseignants'
-type: module
-description: 'Accueil enseignants'
-core: 8.x
-package: 'Custom'

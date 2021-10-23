@@ -1,7 +1,27 @@
-<div class="container-fluid my-4 mx-0">
+{% set media = bamboo_load_entity('media', 841) %}
+  {% set media_info = getMediaInfos(841) %}
+  {% set file = media.field_media_file.entity %}
+  {% set uri = file_url(file.uri.value) %}
+
+<div class="container-fluid my-5 mx-0">
   {{ bamboo_render_block('system_breadcrumb_block') }}
   <div class="container">
-    <h1 id="filter" name="filter" class="bebas text-uppercase">Programmation</h1>
+    <div class="row">
+      <div class="col-6">
+        <h1 class="gotham text-uppercase">Programmation</h1>
+      </div>
+      <div class="col-6 pt-2">
+        <a href="{{ uri }}" target="_blank" class="btn btn-grey ">
+          <span class="text-uppercase gotham font-small">PDF</span>
+        </a>
+        <a href="/billetterie" class="btn btn-grey ">
+          <span class="text-uppercase gotham font-small">Billetterie</span>
+        </a>
+        <a href="{{ path('entity.node.canonical', {'node': 764}) }}" class="btn btn-grey ">
+          <span class="text-uppercase gotham font-small">Archives des saisons précédentes</span>
+        </a>
+      </div>
+    </div>
     <div class="chapo mb-5">
       {{ bamboo_config_get('site_config.config', 'agenda')['value']|raw }}
     </div>
@@ -11,7 +31,7 @@
         <hr class="bg-red"/>
       </div>
       <div class="col-lg-2 text-align-center">
-        <button class="btn btn-outline-danger text-uppercase" data-toggle="collapse" data-target=".block-collapse">
+        <button class="btn btn-grey text-uppercase" data-toggle="collapse" data-target=".block-collapse">
           Afficher plus
         </button>
       </div>
@@ -30,7 +50,7 @@
         <hr class="bg-red"/>
       </div>
       <div class="col-lg-2 text-align-center">
-        <button class="btn btn-outline-danger text-uppercase" data-toggle="collapse" data-target=".block-collapse">
+        <button class="btn btn-grey text-uppercase" data-toggle="collapse" data-target=".block-collapse">
           Afficher moins
         </button>
       </div>
@@ -41,97 +61,107 @@
 
   </div>
 
-  <div class="container mt-6">
-    <div class="row">
-      {% for event in var.en_avant %}
-        {% set media = getMediaInfos(event.visuel_id, 'paysage_crop') %}
-        <div class="col-lg-6">
-          <a href="{{ event.url }}">
-            <div class="position-relative infos-object">
-              <img class="w-100" alt="{{ media.alt }}" title="{{ media.title }}" src="{{ media.url }}">
-              <div class="hover-img"></div>
-            </div>
-
-            <div class="event_infos bg-black txt-white w-75 align-right p-4 mr-4">
-              <div class="row justify-content-between">
-                <div class="col-8">
-                  <div class="tag tag-red mb-2 font-small">{{ event.tid.entity.name.value }}</div>
-                  <h2 class="bebas">{{ event.title }}</h2>
-                  <p>{{ event.lieu.value }}</p>
-                </div>
-                <div class="col-3 mt-5 line-h">
-                  <div class="col-lg-12 col-md-1 font-small">
-                    <div class="h3 m-0">{{ event.date_debut.value|date('U')|date("d") }}</div>
-                    <div>{{ event.date_debut.value|date('U')|format_date('mois_fr') }}</div>
-                    <div>{{ event.date_debut.value|date('U')|date("Y") }}</div>
-                  </div>
-                  {% if(event.date_fin.value and event.date_debut.value != event.date_fin.value) %}
-                    <div class="col-lg-12 col-md-1">
-                      <div class="d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
-                    </div>
-                    <div class="col-lg-12 col-md-1 font-small">
-                      <div class="m-0 h3">{{ event.date_fin.value|date('d') }}</div>
-                      <div>{{ event.date_fin.value|date('U')|format_date('mois_fr') }}</div>
-                      <div>{{ event.date_fin.value|date('Y') }}</div>
-                    </div>
-                  {% endif %}
-                </div>
-              </div>
-            </div>
-            <div class="p-1 bg-red w-75 align-right mr-4  mb-5"></div>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div id="block-webform" class="mt-5 mb-3">
+  <div id="block-webform" class="mt-5 mb-4">
     {{ bamboo_render_entity('webform', 'agenda') }}
   </div>
-
   <div class="container">
+    <h6 class="text-center text-uppercase font-weight-bold mb-3">Affichage du résultat : {{ var.agenda|length }}
+      événements</h6>
     <div class="row">
       {% for agenda in var.agenda %}
-        {% set media = getMediaInfos(agenda.visuel_id, 'portrait_crop') %}
-        <div class="col-lg-4 mb-4">
+        {% set media = getMediaInfos(agenda.visuel_id, 'paysage_crop') %}
+        <div class="col-lg-4 mb-4 px-2">
           <a href="{{ agenda.url }}">
-            <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}"
-                 src="{{ media.url }}">
-
+            <div class="position-relative">
+              <img class="w-100" alt="{{ media.alt }}" title="{{ media.title }}" src="{{ media.url }}">
+            </div>
+            <div class="event_tag text-uppercase">
+              <div class="tag">{{ agenda.tid.entity.name.value }}</div>
+            </div>
+            <div class="event_tag_2">
+              {% if agenda.tid_event.entity.name.value %}
+                <div
+                  class="tag tag-{{ agenda.tid_event.entity.name.value }}">{{ agenda.tid_event.entity.name.value }}</div>
+              {% endif %}
+            </div>
             <div class="infos-object">
-              <div class="infos-content">
-                <div class="row align-items-end">
-                  <div class="col-8 p-0">
-                    <div class="tag tag-red mb-2 font-small">{{ agenda.tid.entity.name.value }}</div>
-                    <h2 class="bebas">{{ agenda.title }}</h2>
-                    <p>{{ agenda.lieu.value }}</p>
+              <div class="event_infos w-100">
+                <div class="row">
+                  <div class="col-8 px-1">
+                    <h5 class="gotham txt-white ml-4 text-uppercase">{{ agenda.title }}</h5>
+                    <p class="txt-white ml-4">{{ agenda.lieu.value }}</p>
                   </div>
-                  <div class="col-4 pr-0 pl-1 line-h">
-                    <div class="col-lg-12 col-md-1 font-small">
-                      <div class="h3 m-0">{{ agenda.date_debut.value|date('U')|date("d") }}</div>
-                      <div>{{ agenda.date_debut.value|date('U')|format_date('mois_fr') }}</div>
-                      <div>{{ agenda.date_debut.value|date('U')|date("Y") }}</div>
+                  <div class="col-3 px-2">
+                    <div class="row txt-white">
+                      <div class="col-5 px-1 line-h">
+                        <span
+                          class="font-big font-weight-bold">{{ agenda.date_debut.value|date('U')|date("d") }}</span><br/>
+                        {{ agenda.date_debut.value|date('U')|format_date('mois_court') }}<br/>
+                        {{ agenda.date_debut.value|date('U')|date("Y") }}
+                      </div>
+                      {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %}
+                        <div class="col-2 px-0 font-big line-h">></div>
+                        <div class="col-5 px-1 line-h">
+                        <span
+                          class="font-big font-weight-bold">{{ agenda.date_fin.value|date('U')|date("d") }}</span><br/>
+                          {{ agenda.date_fin.value|date('U')|format_date('mois_court') }}<br/>
+                          {{ agenda.date_fin.value|date('U')|date("Y") }}
+                        </div>
+                      {% endif %}
                     </div>
-                    {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %}
-                    <div class="col-lg-12 col-md-1">
-                      <div class="d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div>
-                    </div>
-                    <div class="col-lg-12 col-md-1 font-small">
-                      <div class="h3 m-0">{{ agenda.date_fin.value|date('U')|date("d") }}</div>
-                      <div>{{ agenda.date_fin.value|date('U')|format_date('mois_fr') }}</div>
-                      <div>{{ agenda.date_fin.value|date('U')|date("Y") }}</div>
-                    </div>
-                    {% endif %}
                   </div>
                 </div>
-
               </div>
             </div>
           </a>
         </div>
-
       {% endfor %}
     </div>
   </div>
+
+  {# <div class="container"> #}
+  {# <div class="row"> #}
+  {# {% for agenda in var.agenda %} #}
+  {# {% set media = getMediaInfos(agenda.visuel_id, 'portrait_crop') %} #}
+  {# <div class="col-lg-4 mb-4"> #}
+  {# <a href="{{ agenda.url }}"> #}
+  {# <img class="w-100" title="{{ media.name }} - {{ media.title }}" alt="{{ media.alt }}" #}
+  {# src="{{ media.url }}"> #}
+
+  {# <div class="infos-object"> #}
+  {# <div class="infos-content"> #}
+  {# <div class="row align-items-end"> #}
+  {# <div class="col-8 p-0"> #}
+  {# <div class="tag tag-red mb-2 font-small">{{ agenda.tid.entity.name.value }}</div> #}
+  {# <h2 class="gotham">{{ agenda.title }}</h2> #}
+  {# <p>{{ agenda.lieu.value }}</p> #}
+  {# </div> #}
+  {# <div class="col-4 pr-0 pl-1 line-h"> #}
+  {# <div class="col-lg-12 col-md-1 font-small"> #}
+  {# <div class="h3 m-0">{{ agenda.date_debut.value|date('U')|date("d") }}</div> #}
+  {# <div>{{ agenda.date_debut.value|date('U')|format_date('mois_fr') }}</div> #}
+  {# <div>{{ agenda.date_debut.value|date('U')|date("Y") }}</div> #}
+  {# </div> #}
+  {# {% if(agenda.date_fin.value and agenda.date_debut.value != agenda.date_fin.value) %} #}
+  {# <div class="col-lg-12 col-md-1"> #}
+  {# <div class="d-md-none d-lg-block"><i class="fas fa-arrow-down txt-white font-big"></i></div> #}
+  {# </div> #}
+  {# <div class="col-lg-12 col-md-1 font-small"> #}
+  {# <div class="h3 m-0">{{ agenda.date_fin.value|date('U')|date("d") }}</div> #}
+  {# <div>{{ agenda.date_fin.value|date('U')|format_date('mois_fr') }}</div> #}
+  {# <div>{{ agenda.date_fin.value|date('U')|date("Y") }}</div> #}
+  {# </div> #}
+  {# {% endif %} #}
+  {# </div> #}
+  {# </div> #}
+
+  {# </div> #}
+  {# </div> #}
+  {# </a> #}
+  {# </div> #}
+
+  {# {% endfor %} #}
+  {# </div> #}
+  {# </div> #}
 
 </div>
